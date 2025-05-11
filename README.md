@@ -59,4 +59,4 @@ Example:
 | AI Model  | Claude 3 (API)    |
 | Storage   | Local or S3       |
 
----.
+---
