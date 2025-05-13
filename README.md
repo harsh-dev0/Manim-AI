@@ -1,3 +1,5 @@
+# MANIM-AI
+
 ---
 
 # ✅ To-Do List to Build the Project
