@@ -18,6 +18,7 @@ import {
   ResizablePanel,
   ResizableHandle,
 } from "@/components/ui/resizable"
+import { checkGenerationStatus, generateAnimation } from "@/services"
 
 const Index = () => {
   const { toast } = useToast()
@@ -60,119 +61,73 @@ const Index = () => {
     ])
 
     try {
-      // This would be replaced with actual API calls in a real implementation
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // Call the API to start generation
+      const response = await generateAnimation(prompt)
+      const jobId = response.id
 
-      const newId = (Date.now() + 1).toString()
-      const pythonCode = `from manim import *
+      // Poll for status
+      const checkInterval = setInterval(async () => {
+        const status = await checkGenerationStatus(jobId)
 
-class BinarySearchScene(Scene):
-    def construct(self):
-        # Create a sorted array
-        array = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-        squares = VGroup(*[
-            Square(side_length=0.8).set_fill(BLUE, opacity=0.5)
-            for _ in array
-        ]).arrange(RIGHT, buff=0.1)
-        
-        # Add values inside squares
-        texts = VGroup(*[
-            Text(str(num), font_size=24).move_to(square)
-            for num, square in zip(array, squares)
-        ])
-        
-        array_group = VGroup(squares, texts).center()
-        
-        # Title
-        title = Text("Binary Search Algorithm", font_size=36)
-        title.to_edge(UP, buff=0.5)
-        
-        # Target value
-        target = 50
-        target_text = Text(f"Searching for: {target}", font_size=28)
-        target_text.next_to(title, DOWN)
-        
-        self.play(Write(title))
-        self.play(FadeIn(array_group))
-        self.play(Write(target_text))
-        
-        # Binary search animation
-        left, right = 0, len(array) - 1
-        
-        while left <= right:
-            mid = (left + right) // 2
-            
-            # Highlight current section
-            current_section = squares[left:right+1].copy().set_fill(YELLOW, opacity=0.3)
-            self.play(FadeIn(current_section))
-            
-            # Highlight middle element
-            mid_highlight = squares[mid].copy().set_fill(RED, opacity=0.7)
-            self.play(FadeIn(mid_highlight))
-            
-            if array[mid] == target:
-                # Found!
-                found_text = Text("Found!", font_size=36, color=GREEN)
-                found_text.next_to(array_group, DOWN, buff=0.5)
-                self.play(Write(found_text))
-                result_arrow = Arrow(found_text.get_top(), squares[mid].get_bottom(), color=GREEN)
-                self.play(Create(result_arrow))
-                break
-            
-            if array[mid] < target:
-                # Search right half
-                left = mid + 1
-                direction_text = Text("Value is higher, search right", font_size=24)
-            else:
-                # Search left half
-                right = mid - 1
-                direction_text = Text("Value is lower, search left", font_size=24)
-                
-            direction_text.next_to(array_group, DOWN, buff=0.5)
-            self.play(Write(direction_text))
-            self.wait(0.5)
-            self.play(FadeOut(direction_text), FadeOut(current_section), FadeOut(mid_highlight))
-        
-        self.wait(2)`
+        if (status.status === "completed") {
+          clearInterval(checkInterval)
 
-      // In a real implementation, this would be the URL returned from the Python backend
-      const videoUrl =
-        "https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"
+          // Generate a video URL by prepending the API base URL
+          const videoUrl = `http://localhost:8000${status.video_url}`
 
-      // Generate a title for the animation based on the prompt
-      const title = `Binary Search Animation`
-      setAnimationTitle(title)
+          // Add AI response to chat
+          setChatMessages((prev) => [
+            ...prev,
+            {
+              id: jobId,
+              content:
+                "Here's your mathematical animation. I've created a visualization for you.",
+              type: "ai",
+              timestamp: new Date(),
+              video: videoUrl,
+              code: status.code,
+              title: status.title,
+            },
+          ])
 
-      // Add AI response to chat
-      setChatMessages((prev) => [
-        ...prev,
-        {
-          id: newId,
-          content:
-            "Here's your mathematical animation. I've created a binary search visualization for you.",
-          type: "ai",
-          timestamp: new Date(),
-          video: videoUrl,
-          code: pythonCode,
-          title: title,
-        },
-      ])
+          setActiveId(jobId)
+          setCurrentCode(status.code!)
+          setCurrentVideo(videoUrl)
+          setIsFirstPrompt(false)
+          setAnimationTitle(status.title!)
 
-      setActiveId(newId)
-      setCurrentCode(pythonCode)
-      setCurrentVideo(videoUrl)
-      setIsFirstPrompt(false)
+          toast({
+            title: "Animation generated!",
+            description: "Your mathematical animation is ready to view.",
+          })
 
-      toast({
-        title: "Animation generated!",
-        description: "Your mathematical animation is ready to view.",
-      })
+          setIsLoading(false)
+        } else if (status.status === "failed") {
+          clearInterval(checkInterval)
+
+          // Add error message to chat
+          setChatMessages((prev) => [
+            ...prev,
+            {
+              id: Date.now().toString(),
+              content: `Sorry, I couldn't generate the animation: ${status.error}`,
+              type: "ai",
+              timestamp: new Date(),
+              isError: true,
+            },
+          ])
+
+          toast({
+            title: "Error",
+            description: "Failed to generate animation. Please try again.",
+            variant: "destructive",
+          })
+
+          setIsLoading(false)
+        }
+      }, 3000) // Check every 3 seconds
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to generate animation. Please try again.",
-        variant: "destructive",
-      })
+      console.error("Error:", error)
 
       // Add error message to chat
       setChatMessages((prev) => [
@@ -186,7 +141,13 @@ class BinarySearchScene(Scene):
           isError: true,
         },
       ])
-    } finally {
+
+      toast({
+        title: "Error",
+        description: "Failed to generate animation. Please try again.",
+        variant: "destructive",
+      })
+
       setIsLoading(false)
     }
   }

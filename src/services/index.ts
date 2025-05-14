@@ -16,7 +16,6 @@ export interface GenerationResponse {
   error?: string
 }
 
-// API client
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
