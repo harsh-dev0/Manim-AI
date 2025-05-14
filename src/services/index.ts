@@ -32,6 +32,11 @@ export const generateAnimation = async (
       "/generate",
       { prompt }
     )
+    // Store job ID in localStorage for recovery if needed
+    const jobIds = JSON.parse(localStorage.getItem('visuamath_job_ids') || '[]');
+    jobIds.push(response.data.id);
+    localStorage.setItem('visuamath_job_ids', JSON.stringify(jobIds));
+    
     return response.data
   } catch (error) {
     console.error("Error generating animation:", error)
@@ -43,16 +48,28 @@ export const checkGenerationStatus = async (
   jobId: string
 ): Promise<GenerationResponse> => {
   try {
+    console.log(`Checking status for job: ${jobId}`);
     const response = await apiClient.get<GenerationResponse>(
       `/status/${jobId}`
     )
     return response.data
-  } catch (error) {
-    console.error("Error checking generation status:", error)
-    throw error
+  } catch (error: any) {
+    console.error(`Error checking generation status for job ${jobId}:`, error)
+    
+    // Return a consistent error object instead of throwing
+    return {
+      id: jobId,
+      status: "error",
+      error: error.message || "Failed to check status"
+    }
   }
 }
 
 export const downloadVideo = (jobId: string): string => {
   return `${API_BASE_URL}/download/${jobId}`
+}
+
+// Helper function to recover job IDs if needed
+export const getStoredJobIds = (): string[] => {
+  return JSON.parse(localStorage.getItem('visuamath_job_ids') || '[]');
 }
