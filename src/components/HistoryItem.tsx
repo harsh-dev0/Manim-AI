@@ -30,14 +30,14 @@ const HistoryItem: React.FC<HistoryItemProps> = ({
       className={cn(
         "w-full justify-start text-left font-normal py-3 px-4 h-auto",
         isActive
-          ? "bg-purple-100 text-purple-900"
-          : "hover:bg-gray-800 text-gray-200 bg-gray-900"
+          ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white"
+          : "hover:bg-slate-800 text-slate-200 bg-slate-900/80"
       )}
       onClick={() => onClick(entry.id)}
     >
       <div className="flex flex-col items-start gap-1">
         <p className="line-clamp-2 text-sm font-medium">{entry.prompt}</p>
-        <span className="text-xs text-gray-400">{formattedTime}</span>
+        <span className="text-xs text-slate-400">{formattedTime}</span>
       </div>
     </Button>
   )

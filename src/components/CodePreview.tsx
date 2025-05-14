@@ -14,7 +14,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({ code, className }) => {
   return (
     <div
       className={cn(
-        "w-full rounded-lg bg-gray-900 text-white p-4 overflow-auto border border-gray-800",
+        "w-full rounded-lg bg-slate-900/80 text-white p-4 overflow-auto border border-slate-800",
         className
       )}
     >

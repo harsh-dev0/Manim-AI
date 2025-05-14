@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Code, X, Play } from "lucide-react"
+import { Code, X, Play, User, Bot } from "lucide-react"
 import CodePreview from "./CodePreview"
+import ShimmerEffect from "./ShimmerEffect"
 
 interface ChatMessageProps {
   message: {
@@ -23,7 +24,6 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
   onPreviewClick,
 }) => {
   const [showCode, setShowCode] = useState(false)
-
   const toggleCodeView = () => setShowCode(!showCode)
 
   const handlePreviewClick = () => {
@@ -35,37 +35,47 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
   return (
     <div
       className={cn(
-        "flex",
+        "flex items-start gap-2",
         message.type === "user" ? "justify-end" : "justify-start"
       )}
     >
+      {message.type !== "user" && (
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+          <Bot size={16} className="text-white" />
+        </div>
+      )}
+
       <div
         className={cn(
-          "rounded-lg p-3 max-w-[80%] space-y-3",
+          "rounded-xl p-4 max-w-[80%] space-y-3 shadow-sm",
           message.type === "user"
-            ? "bg-purple-700 text-white"
+            ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white border border-blue-500/30"
             : message.isError
-            ? "bg-red-900/40 border border-red-800 text-white"
-            : "bg-gray-800 text-white"
+            ? "bg-red-900/40 border border-red-800/50 text-white backdrop-blur-sm"
+            : "bg-slate-800/80 border border-slate-700/50 text-white backdrop-blur-sm"
         )}
       >
-        <div>{message.content}</div>
+        <div className="leading-relaxed">{message.content}</div>
 
         {message.title && message.type === "ai" && (
-          <div className="text-sm font-medium text-purple-400 mt-1">
+          <div className="text-sm font-medium text-cyan-300 mt-1 border-t border-slate-700/50 pt-2">
             {message.title}
           </div>
         )}
 
         {message.video && onPreviewClick && (
-          <div className="mt-2">
+          <div className="mt-3">
             <div
-              className="bg-gray-900 border border-gray-700 rounded p-2 cursor-pointer hover:bg-gray-800 transition-colors"
+              className="bg-slate-900/80 border border-slate-700/50 rounded-lg p-3 cursor-pointer hover:bg-slate-800 transition-colors group"
               onClick={handlePreviewClick}
             >
               <div className="flex items-center gap-2">
-                <Play size={16} className="text-purple-400" />
-                <span className="text-sm">Click to preview animation</span>
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center group-hover:from-cyan-500 group-hover:to-blue-500 transition-colors">
+                  <Play size={16} className="text-white" />
+                </div>
+                <span className="text-sm font-medium">
+                  Preview Animation
+                </span>
               </div>
             </div>
 
@@ -74,7 +84,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-xs flex items-center gap-1 text-gray-300 hover:text-white"
+                  className="text-xs flex items-center gap-1 text-slate-300 hover:text-white hover:bg-slate-800"
                   onClick={toggleCodeView}
                 >
                   {showCode ? (
@@ -93,15 +103,21 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
         )}
 
         {showCode && message.code && (
-          <div className="mt-2">
-            <CodePreview code={message.code} className="max-h-[200px]" />
+          <div className="mt-3 border border-slate-700/50 rounded-lg overflow-hidden">
+            <CodePreview code={message.code} className="max-h-[300px]" />
           </div>
         )}
 
-        <div className="text-xs opacity-50 mt-1">
+        <div className="text-xs text-slate-400 mt-1 flex items-center gap-2">
           {new Date(message.timestamp).toLocaleTimeString()}
         </div>
       </div>
+
+      {message.type === "user" && (
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center flex-shrink-0 mt-1">
+          <User size={16} className="text-white" />
+        </div>
+      )}
     </div>
   )
 }

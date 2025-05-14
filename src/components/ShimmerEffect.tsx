@@ -8,7 +8,7 @@ interface ShimmerEffectProps {
 const ShimmerEffect: React.FC<ShimmerEffectProps> = ({ className }) => {
   return (
     <div
-      className={cn("animate-pulse bg-gray-800/70 rounded-md", className)}
+      className={cn("animate-pulse bg-slate-800/70 rounded-md", className)}
     />
   )
 }

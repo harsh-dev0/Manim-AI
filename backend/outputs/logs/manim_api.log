@@ -1,0 +1,36 @@
+2025-05-14 21:34:51,979 - main - INFO - Anthropic client initialized successfully
+2025-05-14 21:34:53,293 - main - INFO - Anthropic client initialized successfully
+2025-05-14 21:35:18,864 - main - INFO - Saved job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a to disk
+2025-05-14 21:35:18,866 - main - INFO - Processing animation request for job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:18,868 - main - INFO - Saved job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a to disk
+2025-05-14 21:35:18,869 - main - INFO - Sending prompt to Claude: Binary Search
+2025-05-14 21:35:18,869 - main - INFO - Using Anthropic Claude to generate code
+2025-05-14 21:35:21,890 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:21,892 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:24,887 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:24,887 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:27,880 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:27,881 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:30,880 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:30,881 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:33,882 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:33,883 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:36,874 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:36,874 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
+2025-05-14 21:35:39,212 - main - INFO - Successfully generated code with Anthropic
+2025-05-14 21:35:39,214 - main - INFO - Code generated and saved for job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:39,217 - main - INFO - Saved job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a to disk
+2025-05-14 21:35:39,217 - main - INFO - Running Manim for job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:39,230 - main - INFO - Executing command: python -m manim outputs\code\5f150be7-3447-4b2c-858d-f8cd1fd83a8a.py BinarySearchAnimation -qm --media_dir outputs\media\5f150be7-3447-4b2c-858d-f8cd1fd83a8a --progress_bar none
+2025-05-14 21:35:39,282 - main - INFO - Manim command output: ...
+2025-05-14 21:35:39,283 - main - WARNING - Manim command stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\python.exe: No module named manim
+...
+2025-05-14 21:35:39,283 - main - ERROR - Manim command failed with return code 1
+2025-05-14 21:35:39,284 - main - ERROR - Error running Manim: Manim command failed with return code 1
+2025-05-14 21:35:39,284 - main - WARNING - Creating fallback dummy video due to Manim execution failure
+2025-05-14 21:35:39,315 - main - ERROR - Failed to create fallback video with ffmpeg: [WinError 2] The system cannot find the file specified
+2025-05-14 21:35:39,340 - main - ERROR - Failed to create simple fallback video: [WinError 2] The system cannot find the file specified
+2025-05-14 21:35:39,341 - main - WARNING - Created empty file as video placeholder: outputs\media\5f150be7-3447-4b2c-858d-f8cd1fd83a8a.mp4
+2025-05-14 21:35:39,343 - main - INFO - Saved job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a to disk
+2025-05-14 21:35:39,343 - main - INFO - Animation generation completed for job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:39,343 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
