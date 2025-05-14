@@ -34,3 +34,7 @@
 2025-05-14 21:35:39,343 - main - INFO - Saved job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a to disk
 2025-05-14 21:35:39,343 - main - INFO - Animation generation completed for job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
 2025-05-14 21:35:39,343 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-14 21:35:41,024 - main - INFO - Anthropic client initialized successfully
+2025-05-14 21:35:41,093 - main - INFO - Loaded job 5f150be7-3447-4b2c-858d-f8cd1fd83a8a from disk
+2025-05-14 21:35:41,111 - main - INFO - Status check requested for job: 5f150be7-3447-4b2c-858d-f8cd1fd83a8a
+2025-05-14 21:35:41,111 - main - INFO - Current jobs in memory: ['5f150be7-3447-4b2c-858d-f8cd1fd83a8a']
