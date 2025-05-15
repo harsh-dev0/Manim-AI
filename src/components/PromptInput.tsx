@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import { SendIcon } from "lucide-react"
+import { SendIcon, Sparkles } from "lucide-react"
 
 interface PromptInputProps {
   onSubmit: (prompt: string) => void
@@ -31,44 +31,93 @@ const PromptInput: React.FC<PromptInputProps> = ({
       <form
         onSubmit={handleSubmit}
         className="flex items-center gap-2 w-full"
+        onKeyDown={(e) => {
+          if (
+            e.key === "Enter" &&
+            !e.shiftKey &&
+            prompt.trim() &&
+            !isLoading
+          ) {
+            e.preventDefault()
+            onSubmit(prompt)
+            setPrompt("")
+          }
+        }}
       >
-        <Input
-          placeholder="Ask for another math animation..."
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className="bg-gray-800 text-white border-gray-700 focus:ring-purple-600"
-          disabled={isLoading}
-        />
+        <div className="flex-1">
+          <Input
+            placeholder="Ask for another math animation..."
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            className="w-full bg-slate-900/50 text-white border-cyan-700/30 focus:ring-cyan-500 placeholder-slate-400 p-3 rounded-xl h-12 box-border"
+            disabled={isLoading}
+          />
+        </div>
         <Button
           type="submit"
-          className="bg-purple-600 hover:bg-purple-700 text-white"
+          className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 h-12 rounded-xl shadow-lg border border-cyan-400/20 min-w-[60px] flex-shrink-0 box-border"
           disabled={!prompt.trim() || isLoading}
         >
-          {isLoading ? "..." : <SendIcon size={18} />}
+          {isLoading ? (
+            <div className="border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin w-4 h-4"></div>
+          ) : (
+            <SendIcon size={18} />
+          )}
         </Button>
       </form>
     )
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
-      <div className="space-y-3">
-        <Textarea
-          placeholder="Describe the mathematical animation you want to create... (e.g., 'Show binary search on a sorted array')"
-          value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
-          className={cn(
-            "min-h-[100px] w-full resize-none rounded-lg border p-4 bg-gray-900 text-white border-gray-800",
-            "focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-          )}
-          disabled={isLoading}
-        />
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center w-full"
+      onKeyDown={(e) => {
+        if (
+          e.key === "Enter" &&
+          e.ctrlKey &&
+          prompt.trim() &&
+          !isLoading
+        ) {
+          e.preventDefault()
+          onSubmit(prompt)
+          setPrompt("")
+        }
+      }}
+    >
+      <div className="w-full max-w-2xl mx-auto space-y-4">
+        <div className="relative">
+          <Textarea
+            placeholder="Describe the mathematical animation you want to create... (e.g., 'Show the derivative of exponential function')"
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            className={cn(
+              "w-[650px] rounded-xl border p-6 pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
+              "focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder-slate-400 shadow-inner",
+              "h-[120px] resize-none" // Fixed height with no resize
+            )}
+            disabled={isLoading}
+          />
+          <div className="absolute right-6 bottom-6 text-cyan-400/50">
+            <Sparkles size={20} />
+          </div>
+        </div>
         <Button
           type="submit"
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-6 rounded-xl font-medium text-lg shadow-lg border border-cyan-400/20"
           disabled={!prompt.trim() || isLoading}
         >
-          {isLoading ? "Generating..." : "Generate Animation"}
+          {isLoading ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-5 h-5 border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+              <span>Generating...</span>
+            </div>
+          ) : (
+            <div className="flex items-center justify-center gap-2">
+              <Sparkles size={20} />
+              <span>Generate Animation</span>
+            </div>
+          )}
         </Button>
       </div>
     </form>

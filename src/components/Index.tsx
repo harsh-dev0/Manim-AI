@@ -1,65 +1,19 @@
 "use client"
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useToast } from "@/hooks/use-toast"
-import Header from "@/components/Header"
-import PromptInput from "@/components/PromptInput"
-import VideoPlayer from "@/components/VideoPlayer"
-import CodePreview from "@/components/CodePreview"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import ChatMessage from "@/components/ChatMessage"
-import ShimmerEffect from "@/components/ShimmerEffect"
-import {
-  ResizablePanelGroup,
-  ResizablePanel,
-  ResizableHandle,
-} from "@/components/ui/resizable"
 import { checkGenerationStatus, generateAnimation } from "@/services"
-import { AlertCircle } from "lucide-react"
+import VideoPlayer from "@/components/VideoPlayer"
+import PromptInput from "@/components/PromptInput"
 
 const Index = () => {
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
-  const [activeId, setActiveId] = useState<string | null>(null)
-  const [chatMessages, setChatMessages] = useState<any[]>([])
-  const [currentCode, setCurrentCode] = useState<string | null>(null)
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
-  const [isFirstPrompt, setIsFirstPrompt] = useState(true)
   const [animationTitle, setAnimationTitle] = useState<string | null>(null)
-  const chatContainerRef = useRef<HTMLDivElement>(null)
+  const [generationStep, setGenerationStep] = useState<string | null>(null)
 
-  // Scroll to bottom of chat when new messages are added
-  useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop =
-        chatContainerRef.current.scrollHeight
-    }
-  }, [chatMessages])
-
-  // Function to handle preview click
-  const handlePreviewClick = (videoUrl: string) => {
-    setCurrentVideo(videoUrl)
-  }
-
-  // Placeholder for Claude API call and Manim rendering
   const handleGenerateAnimation = async (prompt: string) => {
     setIsLoading(true)
-
-    // Add user message to chat
-    const userMessageId = Date.now().toString()
-    setChatMessages((prev) => [
-      ...prev,
-      {
-        id: userMessageId,
-        content: prompt,
-        type: "user",
-        timestamp: new Date(),
-      },
-    ])
 
     try {
       // Call the API to start generation
@@ -76,25 +30,7 @@ const Index = () => {
           // Generate a video URL by prepending the API base URL
           const videoUrl = `http://localhost:8000${status.video_url}`
 
-          // Add AI response to chat
-          setChatMessages((prev) => [
-            ...prev,
-            {
-              id: jobId,
-              content:
-                "Here's your mathematical animation. I've created a visualization for you.",
-              type: "ai",
-              timestamp: new Date(),
-              video: videoUrl,
-              code: status.code,
-              title: status.title,
-            },
-          ])
-
-          setActiveId(jobId)
-          setCurrentCode(status.code!)
           setCurrentVideo(videoUrl)
-          setIsFirstPrompt(false)
           setAnimationTitle(status.title!)
 
           toast({
@@ -105,18 +41,6 @@ const Index = () => {
           setIsLoading(false)
         } else if (status.status === "failed") {
           clearInterval(checkInterval)
-
-          // Add error message to chat
-          setChatMessages((prev) => [
-            ...prev,
-            {
-              id: Date.now().toString(),
-              content: `Sorry, I couldn't generate the animation: ${status.error}`,
-              type: "ai",
-              timestamp: new Date(),
-              isError: true,
-            },
-          ])
 
           toast({
             title: "Error",
@@ -130,19 +54,6 @@ const Index = () => {
     } catch (error) {
       console.error("Error:", error)
 
-      // Add error message to chat
-      setChatMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now().toString(),
-          content:
-            "Sorry, I couldn't generate the animation. Please try again.",
-          type: "ai",
-          timestamp: new Date(),
-          isError: true,
-        },
-      ])
-
       toast({
         title: "Error",
         description: "Failed to generate animation. Please try again.",
@@ -155,11 +66,31 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
-      <Header />
+      {/* Header */}
+      <header className="border-b border-cyan-800/30 py-6 px-8 bg-slate-950/80 backdrop-blur-sm">
+        <div className="container flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M22 16.5L14 4.5L6 16.5H22Z" fill="white" />
+                <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
+              </svg>
+            </div>
+            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+              Manim AI
+            </h1>
+          </div>
+        </div>
+      </header>
 
-      <main className="flex-1 container py-6">
-        {isFirstPrompt ? (
-          // Initial prompt UI centered on the screen
+      <main className="flex-1 container h-[calc(100vh-140px)] overflow-hidden py-4 flex flex-col">
+        {!currentVideo && !isLoading ? (
           <div className="flex flex-col items-center justify-center h-full max-w-3xl mx-auto animate-fade-in">
             <div className="mb-6 flex flex-col items-center">
               <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg mb-4">
@@ -174,11 +105,12 @@ const Index = () => {
                   <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
                 </svg>
               </div>
-              <h1 className="text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
-                VisuaMath Forge
+              <h1 className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                Manim AI
               </h1>
-              <p className="text-slate-400 mb-8 text-center">
-                Create beautiful mathematical animations with AI
+              <p className="text-lg text-center text-slate-300 mb-4">
+                Generate algorithmic animations and visual Animations for
+                mathematics
               </p>
             </div>
             <div className="w-full bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-800 shadow-xl">
@@ -188,300 +120,71 @@ const Index = () => {
               />
             </div>
           </div>
-        ) : (
-          // Chat interface with resizable panels
-          <div className="h-[calc(100vh-200px)] animate-fade-in">
-            <ResizablePanelGroup
-              direction="horizontal"
-              className="h-full rounded-xl overflow-hidden shadow-xl"
-            >
-              {/* Left side - Chat interface */}
-              <ResizablePanel defaultSize={40} minSize={30}>
-                <div className="flex flex-col h-full bg-slate-900 border border-slate-800 rounded-l-xl">
-                  <div className="p-3 border-b border-slate-800 bg-slate-950 flex items-center">
-                    <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M22 16.5L14 4.5L6 16.5H22Z"
-                          fill="white"
-                        />
-                        <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
-                      </svg>
-                    </div>
-                    <h3 className="font-medium text-slate-200">
-                      Conversation
-                    </h3>
-                  </div>
-                  {/* Chat messages area */}
-                  <div
-                    ref={chatContainerRef}
-                    className="flex-1 overflow-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent"
+        ) : isLoading ? (
+          <div className="flex-1 flex items-center justify-center">
+            <div className="flex flex-col items-center gap-6 animate-fade-in">
+              {/* Spinner Ring with Icon */}
+              <div className="relative w-20 h-20">
+                <div className="absolute inset-0 rounded-full border-4 border-cyan-400/30 border-t-cyan-500 animate-spin" />
+                <div className="absolute inset-2 bg-slate-950 rounded-full flex items-center justify-center">
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    {chatMessages.map((message) => (
-                      <ChatMessage
-                        key={message.id}
-                        message={message}
-                        onPreviewClick={handlePreviewClick}
-                      />
-                    ))}
-                    {isLoading && (
-                      <div className="flex justify-start">
-                        <div className="bg-slate-800/80 text-white rounded-lg p-3 max-w-[80%] backdrop-blur-sm">
-                          <ShimmerEffect className="h-4 w-32 mb-2" />
-                          <ShimmerEffect className="h-4 w-48 mb-2" />
-                          <ShimmerEffect className="h-4 w-40" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Input area */}
-                  <div className="p-4 border-t border-slate-800 bg-slate-900/80 backdrop-blur-sm">
-                    <PromptInput
-                      onSubmit={handleGenerateAnimation}
-                      isLoading={isLoading}
-                      compact={true}
-                    />
-                  </div>
+                    <path d="M22 16.5L14 4.5L6 16.5H22Z" fill="white" />
+                    <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
+                  </svg>
                 </div>
-              </ResizablePanel>
+              </div>
 
-              {/* Resizable handle */}
-              <ResizableHandle
-                withHandle
-                className="bg-slate-800 hover:bg-cyan-600 transition-colors"
-              />
-
-              {/* Right side - Video and code */}
-              <ResizablePanel defaultSize={60}>
-                <div className="flex flex-col h-full p-4 bg-slate-950 border border-slate-800 space-y-4 rounded-r-xl">
-                  <div className="p-2 border-b border-slate-800 mb-2">
-                    <h3 className="text-lg font-semibold text-cyan-400 flex items-center">
-                      <svg
-                        className="mr-2"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M15 10L20 15L15 20"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M4 4V9C4 10.0609 4.42143 11.0783 5.17157 11.8284C5.92172 12.5786 6.93913 13 8 13H20"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      {animationTitle || "Animation Preview"}
-                    </h3>
-                  </div>
-
-                  {isLoading ? (
-                    <div className="w-full h-[400px] rounded-lg flex items-center justify-center bg-slate-900/50 border border-slate-800">
-                      <div className="text-center">
-                        <ShimmerEffect className="w-full h-[400px] rounded-lg" />
-                        <p className="text-slate-400 mt-4">
-                          Generating your animation...
-                        </p>
-                      </div>
-                    </div>
-                  ) : currentVideo ? (
-                    <div className="flex-none bg-slate-900/30 rounded-xl overflow-hidden border border-slate-800">
+              {/* Status Message */}
+              <div className="text-center">
+                <p className="text-lg text-cyan-300 font-semibold animate-pulse">
+                  {generationStep || "Preparing your animation..."}
+                </p>
+                <p className="text-sm text-slate-400 mt-1">
+                  This may take a few seconds. Feel free to stretch.
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          // Result state with video only
+          <div className="animate-fade-in h-full flex flex-col">
+            {/* Main content area */}
+            <div className="flex-1 min-h-0 px-4 mb-6">
+              <div className="h-full flex items-center justify-center gap-6 max-w-6xl mx-auto">
+                {/* Video container */}
+                <div className="w-1/2 h-full">
+                  <div className="h-full flex items-center">
+                    <div className="w-full bg-slate-900/30 rounded-xl p-4 border border-cyan-800/30 shadow-lg">
                       <VideoPlayer videoUrl={currentVideo} />
                     </div>
-                  ) : (
-                    <div className="w-full h-[400px] rounded-lg flex items-center justify-center bg-slate-900/50 border border-slate-800">
-                      <div className="text-center p-6">
-                        <AlertCircle className="mx-auto h-12 w-12 text-slate-400 mb-4" />
-                        <p className="text-slate-300 font-medium">
-                          No animation available
-                        </p>
-                        <p className="text-slate-400 mt-2">
-                          Try generating a new animation
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="flex-1 flex flex-col">
-                    <Tabs
-                      defaultValue="code"
-                      className="w-full flex-1 flex flex-col"
-                    >
-                      <TabsList className="grid w-full grid-cols-2 bg-slate-900 border border-slate-800 rounded-lg">
-                        <TabsTrigger
-                          value="code"
-                          className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-600 data-[state=active]:to-blue-600 rounded-md"
-                        >
-                          <svg
-                            className="mr-2"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M16 18L22 12L16 6"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M8 6L2 12L8 18"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          Generated Code
-                        </TabsTrigger>
-                        <TabsTrigger
-                          value="info"
-                          className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-600 data-[state=active]:to-blue-600 rounded-md"
-                        >
-                          <svg
-                            className="mr-2"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 16V12"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M12 8H12.01"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                          How It Works
-                        </TabsTrigger>
-                      </TabsList>
-                      <TabsContent value="code" className="mt-3 flex-1">
-                        {isLoading ? (
-                          <ShimmerEffect className="w-full h-full rounded-lg" />
-                        ) : currentCode ? (
-                          <CodePreview
-                            code={currentCode}
-                            className="h-full rounded-lg border border-slate-800"
-                          />
-                        ) : (
-                          <div className="w-full h-full rounded-lg flex items-center justify-center bg-slate-900/50 border border-slate-800">
-                            <div className="text-center p-6">
-                              <p className="text-slate-400">
-                                No code available yet
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                      </TabsContent>
-                      <TabsContent value="info" className="mt-3 flex-1">
-                        <div className="rounded-lg border h-full overflow-auto bg-slate-900/50 border-slate-800 p-6">
-                          <h3 className="text-xl font-medium mb-4 text-cyan-400">
-                            About VisuaMath Forge
-                          </h3>
-                          <p className="mb-6 text-slate-300 leading-relaxed">
-                            VisuaMath Forge generates mathematical
-                            animations using Manim, a powerful Python
-                            library for creating precise, beautiful math
-                            animations created by 3Blue1Brown.
-                          </p>
-                          <h4 className="font-medium mb-3 text-slate-200 flex items-center">
-                            <svg
-                              className="mr-2"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M12 16V12"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                              <path
-                                d="M12 8H12.01"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                              <path
-                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            How it works:
-                          </h4>
-                          <ol className="list-decimal pl-6 space-y-3 text-slate-300">
-                            <li className="leading-relaxed">
-                              You enter a prompt describing the
-                              mathematical concept or animation you want to
-                              visualize
-                            </li>
-                            <li className="leading-relaxed">
-                              Our AI generates Python code using the Manim
-                              library to create the animation
-                            </li>
-                            <li className="leading-relaxed">
-                              The code is executed on our servers using
-                              Manim to render the animation
-                            </li>
-                            <li className="leading-relaxed">
-                              The resulting animation is returned as a
-                              video that you can watch and download
-                            </li>
-                          </ol>
-                        </div>
-                      </TabsContent>
-                    </Tabs>
                   </div>
                 </div>
-              </ResizablePanel>
-            </ResizablePanelGroup>
+              </div>
+            </div>
+
+            {/* Full-width prompt input */}
+            <div className="px-4 mt-auto">
+              <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-cyan-800/30 shadow-xl max-w-6xl mx-auto">
+                <div className="p-6">
+                  <PromptInput
+                    onSubmit={handleGenerateAnimation}
+                    isLoading={isLoading}
+                    compact={true}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </main>
 
-      <footer className="border-t border-slate-800 py-4 bg-slate-950">
+      <footer className="border-t border-cyan-800/30 py-6 px-8 bg-slate-950">
         <div className="container text-center">
           <div className="flex items-center justify-center mb-3">
             <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center mr-2">
@@ -496,12 +199,10 @@ const Index = () => {
                 <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
               </svg>
             </div>
-            <span className="font-medium text-cyan-400">
-              VisuaMath Forge
-            </span>
+            <span className="font-medium text-cyan-400">Manim AI</span>
           </div>
-          <div className="text-xs text-slate-500">
-            © {new Date().getFullYear()} VisuaMath Forge | Powered by Manim
+          <div className="text-xs text-cyan-400/50">
+            © {new Date().getFullYear()} Manim AI | Powered by Manim
           </div>
         </div>
       </footer>

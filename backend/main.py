@@ -88,7 +88,6 @@ class ManimGenerationResponse(BaseModel):
     id: str
     status: str
     video_url: str = None
-    code: str = None
     title: str = None
     error: str = None
 
@@ -195,8 +194,6 @@ async def get_job_status(job_id: str):
         
         if "video_url" in job:
             response.video_url = job["video_url"]
-        if "code" in job:
-            response.code = job["code"]
         if "title" in job:
             response.title = job["title"]
         if "error" in job:
@@ -257,17 +254,13 @@ def process_animation_request(job_id: str, prompt: str):
         with open(code_file_path, "w") as f:
             f.write(code)
         
-        logger.info(f"Code generated and saved for job {job_id}")
-        
         generation_jobs[job_id].update({
-            "code": code,
             "title": title,
             "status": "rendering"
         })
         save_job(job_id, generation_jobs[job_id])
         
         video_file_path = create_video(job_id, code_file_path)
-        
         video_url = f"/media/{job_id}.mp4"
         
         generation_jobs[job_id].update({
@@ -294,7 +287,6 @@ def process_animation_request(job_id: str, prompt: str):
                 "created_at": time.time(),
                 "prompt": prompt,
                 "error": str(e),
-                "code": code if 'code' in locals() else None,
                 "title": title if 'title' in locals() else None
             }
             

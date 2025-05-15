@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Pro UI fix: prevent shrinking and layout bugs */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+input, textarea {
+  min-width: 200px;
+  box-sizing: border-box;
+}
+button, input, textarea {
+  font-family: inherit;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

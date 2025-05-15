@@ -1,1136 +1,1030 @@
-2025-05-14 23:04:36,230 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:04:37,850 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:04:38,907 - main - INFO - Saved job ad2d80fa-1992-4c62-946f-e8de26b370ac to disk
-2025-05-14 23:04:38,943 - main - INFO - Processing animation request for job ad2d80fa-1992-4c62-946f-e8de26b370ac
-2025-05-14 23:04:38,945 - main - INFO - Saved job ad2d80fa-1992-4c62-946f-e8de26b370ac to disk
-2025-05-14 23:04:38,945 - main - INFO - Using fixed binary tree code for testing
-2025-05-14 23:04:38,946 - main - INFO - Code generated and saved for job ad2d80fa-1992-4c62-946f-e8de26b370ac
-2025-05-14 23:04:38,950 - main - INFO - Saved job ad2d80fa-1992-4c62-946f-e8de26b370ac to disk
-2025-05-14 23:04:38,952 - main - INFO - Code file path: C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\ad2d80fa-1992-4c62-946f-e8de26b370ac.py
-2025-05-14 23:04:38,952 - main - INFO - Output directory: C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\media
-2025-05-14 23:04:38,953 - main - INFO - Scene class: BinaryTreeDemo
-2025-05-14 23:04:38,953 - main - INFO - Running Manim command: C:\Users\harsh\AppData\Local\Programs\Python\Python311\python.exe -m manim -qh --format=mp4 --output_file=ad2d80fa-1992-4c62-946f-e8de26b370ac --output_dir=C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\media C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\ad2d80fa-1992-4c62-946f-e8de26b370ac.py BinaryTreeDemo
-2025-05-14 23:04:39,089 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:04:39,105 - main - INFO - Manim stdout: 
-2025-05-14 23:04:39,105 - main - INFO - Manim stderr: Traceback (most recent call last):
-  File "<frozen runpy>", line 189, in _run_module_as_main
-  File "<frozen runpy>", line 148, in _get_module_details
-  File "<frozen runpy>", line 112, in _get_module_details
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\manim\__init__.py", line 4, in <module>
-    from importlib.metadata import version
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\importlib\metadata\__init__.py", line 2, in <module>
-    import re
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\re\__init__.py", line 124, in <module>
-    import enum
-  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 1032, in get_code
-  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
-KeyboardInterrupt
-
-2025-05-14 23:04:39,106 - main - ERROR - Manim error: Traceback (most recent call last):
-  File "<frozen runpy>", line 189, in _run_module_as_main
-  File "<frozen runpy>", line 148, in _get_module_details
-  File "<frozen runpy>", line 112, in _get_module_details
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\manim\__init__.py", line 4, in <module>
-    from importlib.metadata import version
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\importlib\metadata\__init__.py", line 2, in <module>
-    import re
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\re\__init__.py", line 124, in <module>
-    import enum
-  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 1032, in get_code
-  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
-KeyboardInterrupt
-
-2025-05-14 23:04:39,107 - main - ERROR - Error creating video: Manim failed: Traceback (most recent call last):
-  File "<frozen runpy>", line 189, in _run_module_as_main
-  File "<frozen runpy>", line 148, in _get_module_details
-  File "<frozen runpy>", line 112, in _get_module_details
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\manim\__init__.py", line 4, in <module>
-    from importlib.metadata import version
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\importlib\metadata\__init__.py", line 2, in <module>
-    import re
-  File "C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\re\__init__.py", line 124, in <module>
-    import enum
-  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
-  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
-  File "<frozen importlib._bootstrap_external>", line 1032, in get_code
-  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
-KeyboardInterrupt
-
-2025-05-14 23:04:39,295 - main - INFO - Saved job ad2d80fa-1992-4c62-946f-e8de26b370ac to disk
-2025-05-14 23:04:39,295 - main - INFO - Animation generation completed for job ad2d80fa-1992-4c62-946f-e8de26b370ac
-2025-05-14 23:04:41,073 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:04:41,089 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:04:41,944 - main - INFO - Status check requested for job: ad2d80fa-1992-4c62-946f-e8de26b370ac
-2025-05-14 23:04:41,945 - main - INFO - Current jobs in memory: ['ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:06:15,743 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:06:19,339 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:06:20,166 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:07:18,228 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:07:26,264 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:07:26,285 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:07:26,563 - main - INFO - Saved job 5942310f-653a-4206-8742-0ab3544ffdee to disk
-2025-05-14 23:07:26,831 - main - INFO - Processing animation request for job 5942310f-653a-4206-8742-0ab3544ffdee
-2025-05-14 23:07:26,833 - main - INFO - Saved job 5942310f-653a-4206-8742-0ab3544ffdee to disk
-2025-05-14 23:07:26,834 - main - INFO - Using fixed binary tree code for testing
-2025-05-14 23:07:26,835 - main - INFO - Code generated and saved for job 5942310f-653a-4206-8742-0ab3544ffdee
-2025-05-14 23:07:26,836 - main - INFO - Saved job 5942310f-653a-4206-8742-0ab3544ffdee to disk
-2025-05-14 23:07:27,156 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:07:27,323 - main - INFO - Manim stdout: 
-2025-05-14 23:07:27,323 - main - ERROR - Manim stderr:   File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\runner_5942310f-653a-4206-8742-0ab3544ffdee.py", line 5
-    import 5942310f-653a-4206-8742-0ab3544ffdee
-                 ^
-SyntaxError: invalid decimal literal
-
-2025-05-14 23:07:27,324 - main - ERROR - Error creating video: Manim failed:   File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\runner_5942310f-653a-4206-8742-0ab3544ffdee.py", line 5
-    import 5942310f-653a-4206-8742-0ab3544ffdee
-                 ^
-SyntaxError: invalid decimal literal
-
-2025-05-14 23:07:27,605 - main - INFO - Saved job 5942310f-653a-4206-8742-0ab3544ffdee to disk
-2025-05-14 23:07:27,605 - main - INFO - Animation generation completed for job 5942310f-653a-4206-8742-0ab3544ffdee
-2025-05-14 23:07:31,460 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:07:31,482 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:07:31,483 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:07:31,506 - main - INFO - Status check requested for job: 5942310f-653a-4206-8742-0ab3544ffdee
-2025-05-14 23:07:31,508 - main - INFO - Current jobs in memory: ['5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:11:47,457 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:11:51,602 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:11:51,609 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:11:51,609 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:12:05,655 - main - INFO - Saved job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 to disk
-2025-05-14 23:12:05,662 - main - INFO - Processing animation request for job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:05,663 - main - INFO - Saved job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 to disk
-2025-05-14 23:12:05,663 - main - INFO - Using fixed binary tree code for testing
-2025-05-14 23:12:05,664 - main - INFO - Code generated and saved for job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:05,665 - main - INFO - Saved job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 to disk
-2025-05-14 23:12:05,820 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:12:25,868 - main - INFO - Process stdout: [05/14/25 23:12:19] INFO     Animation 0 : Partial     scene_file_writer.py:588
+2025-05-15 21:09:52,571 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:10:59,773 - main - INFO - Saved job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 to disk
+2025-05-15 21:10:59,785 - main - INFO - Processing animation request for job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:10:59,786 - main - INFO - Saved job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 to disk
+2025-05-15 21:10:59,787 - main - INFO - Generating code with Anthropic Claude
+2025-05-15 21:11:02,794 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:02,795 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:05,792 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:05,793 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:08,789 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:08,789 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:11,788 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:11,789 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:14,788 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:14,788 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:17,788 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:17,788 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:20,793 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:20,793 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:23,789 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:23,789 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:26,793 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:26,793 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:29,789 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:29,790 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:32,792 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:32,792 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:35,791 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:35,792 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:38,791 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:38,792 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:41,787 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:41,787 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:11:44,219 - main - INFO - Successfully generated valid Manim code
+2025-05-15 21:11:44,221 - main - INFO - Code generated and saved for job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:11:44,223 - main - INFO - Saved job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 to disk
+2025-05-15 21:11:44,341 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:13:02,109 - main - INFO - Process stdout: [05/15/25 21:11:47] INFO     Animation 0 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\2016333726_144418564                         
-                             9_223132457.mp4'                                  
-[05/14/25 23:12:20] INFO     Animation 1 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_2495886884                         
-                             _3724585095.mp4'                                  
-                    INFO     Animation 2 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_3394500337                         
-                             _390521006.mp4'                                   
-[05/14/25 23:12:21] INFO     Animation 3 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_1284584874                         
-                             _2157882784.mp4'                                  
-                    INFO     Animation 4 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_3394500337                         
-                             _4123569010.mp4'                                  
-                    INFO     Animation 5 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_3327054422                         
-                             _4008217532.mp4'                                  
-[05/14/25 23:12:24] INFO     Animation 6 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_2573451050                         
-                             _3205487152.mp4'                                  
-[05/14/25 23:12:25] INFO     Animation 7 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BinaryTree                         
-                             Demo\543634251_2844360058                         
-                             _1919834837.mp4'                                  
-                    INFO     Combining to Movie file.  scene_file_writer.py:739
-                    INFO                               scene_file_writer.py:886
-                             File ready at                                     
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\0b77b                         
-                             1ab-08f5-4fc0-a821-68dbfe                         
-                             490a96.mp4'                                       
-                                                                               
-                    INFO     Rendered BinaryTreeDemo               scene.py:255
-                             Played 8 animations                               
-
-2025-05-14 23:12:25,870 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
-  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
-
-Animation 0: Write(Text('Binary Tree Basics')):   0%|          | 0/60 [00:00<?, ?it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  17%|#6        | 10/60 [00:00<00:00, 99.01it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  33%|###3      | 20/60 [00:00<00:00, 97.33it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  50%|#####     | 30/60 [00:00<00:00, 90.77it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  67%|######6   | 40/60 [00:00<00:00, 89.23it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  82%|########1 | 49/60 [00:00<00:00, 78.00it/s]
-Animation 0: Write(Text('Binary Tree Basics')):  95%|#########5| 57/60 [00:00<00:00, 77.67it/s]
-                                                                                               
-
-Animation 1: Create(VGroup of 2 submobjects):   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 1: Create(VGroup of 2 submobjects):  77%|#######6  | 23/30 [00:00<00:00, 221.25it/s]
-                                                                                              
-
-Animation 3: Create(Line), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 3: Create(Line), etc.:  73%|#######3  | 22/30 [00:00<00:00, 217.82it/s]
-                                                                                 
-
-Animation 5: Create(VGroup of 2 submobjects), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 5: Create(VGroup of 2 submobjects), etc.:  70%|#######   | 21/30 [00:00<00:00, 203.89it/s]
-                                                                                                    
-
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):   0%|          | 0/60 [00:00<?, ?it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  13%|#3        | 8/60 [00:00<00:00, 76.21it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  27%|##6       | 16/60 [00:00<00:00, 69.21it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  38%|###8      | 23/60 [00:00<00:00, 65.47it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  50%|#####     | 30/60 [00:00<00:00, 60.42it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  62%|######1   | 37/60 [00:00<00:00, 58.11it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  72%|#######1  | 43/60 [00:00<00:00, 54.06it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  82%|########1 | 49/60 [00:00<00:00, 48.43it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  90%|######### | 54/60 [00:00<00:00, 47.98it/s]
-Animation 6: Write(Text('A binary tree where each node has at most 2 children')):  98%|#########8| 59/60 [00:01<00:00, 48.01it/s]
-                                                                                                                                 
-
-2025-05-14 23:12:25,872 - main - INFO - Found rendered video at outputs\media\0b77b1ab-08f5-4fc0-a821-68dbfe490a96.mp4
-2025-05-14 23:12:25,873 - main - INFO - Saved job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 to disk
-2025-05-14 23:12:25,874 - main - INFO - Animation generation completed for job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:27,215 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:12:27,271 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:12:27,272 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:12:27,273 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:12:28,636 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:12:28,645 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:12:28,645 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:12:28,645 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:12:28,703 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,704 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:12:28,707 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,707 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:12:28,710 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,710 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:12:28,712 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,712 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:12:28,714 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,714 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:12:28,716 - main - INFO - Status check requested for job: 0b77b1ab-08f5-4fc0-a821-68dbfe490a96
-2025-05-14 23:12:28,716 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac']
-2025-05-14 23:14:49,059 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:14:50,371 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:14:50,377 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:14:50,377 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:14:50,378 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:15:24,753 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:15:26,318 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:15:26,325 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:15:26,326 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:15:26,327 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:15:54,100 - main - INFO - Saved job b3f60140-228d-4627-b3ce-376cbe5b95f3 to disk
-2025-05-14 23:15:54,110 - main - INFO - Processing animation request for job b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:15:54,111 - main - INFO - Saved job b3f60140-228d-4627-b3ce-376cbe5b95f3 to disk
-2025-05-14 23:15:54,112 - main - INFO - Generating code with Anthropic Claude
-2025-05-14 23:15:57,173 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:15:57,174 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:00,152 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:00,153 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:03,188 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:03,190 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:06,904 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:06,904 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:09,890 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:09,890 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:12,891 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:12,891 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:15,182 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:15,183 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:16:18,351 - main - INFO - Successfully generated code with Anthropic
-2025-05-14 23:16:18,353 - main - INFO - Code generated and saved for job b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:18,354 - main - INFO - Saved job b3f60140-228d-4627-b3ce-376cbe5b95f3 to disk
-2025-05-14 23:16:18,564 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:16:19,636 - main - INFO - Process stdout: 
-2025-05-14 23:16:19,636 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
-  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
-Traceback (most recent call last):
-  File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\run_b3f60140-228d-4627-b3ce-376cbe5b95f3.py", line 10, in <module>
-    from manim_scene_b3f60140_228d_4627_b3ce_376cbe5b95f3 import BubbleSortExplanation
-  File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\manim_scene_b3f60140_228d_4627_b3ce_376cbe5b95f3.py", line 1
-    Here's a Manim animation that explains the bubble sort mechanism:
-        ^
-SyntaxError: unterminated string literal (detected at line 1)
-
-2025-05-14 23:16:19,637 - main - ERROR - Error creating video: Render failed: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
-  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
-Traceback (most recent call last):
-  File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\run_b3f60140-228d-4627-b3ce-376cbe5b95f3.py", line 10, in <module>
-    from manim_scene_b3f60140_228d_4627_b3ce_376cbe5b95f3 import BubbleSortExplanation
-  File "C:\Users\harsh\Desktop\projects\Startups\manim\backend\outputs\code\manim_scene_b3f60140_228d_4627_b3ce_376cbe5b95f3.py", line 1
-    Here's a Manim animation that explains the bubble sort mechanism:
-        ^
-SyntaxError: unterminated string literal (detected at line 1)
-
-2025-05-14 23:16:19,866 - main - INFO - Saved job b3f60140-228d-4627-b3ce-376cbe5b95f3 to disk
-2025-05-14 23:16:19,872 - main - INFO - Animation generation completed for job b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:21,091 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:16:21,097 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:16:21,098 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:16:21,098 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:16:21,201 - main - INFO - Loaded job b3f60140-228d-4627-b3ce-376cbe5b95f3 from disk
-2025-05-14 23:16:22,374 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:16:22,382 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:16:22,383 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:16:22,383 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:16:22,383 - main - INFO - Loaded job b3f60140-228d-4627-b3ce-376cbe5b95f3 from disk
-2025-05-14 23:16:22,407 - main - INFO - Status check requested for job: b3f60140-228d-4627-b3ce-376cbe5b95f3
-2025-05-14 23:16:22,409 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:18:55,804 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:18:57,366 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:18:57,434 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:18:57,435 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:18:57,436 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:18:57,437 - main - INFO - Loaded job b3f60140-228d-4627-b3ce-376cbe5b95f3 from disk
-2025-05-14 23:19:50,245 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:19:51,572 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:19:51,577 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:19:51,578 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:19:51,578 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:19:51,578 - main - INFO - Loaded job b3f60140-228d-4627-b3ce-376cbe5b95f3 from disk
-2025-05-14 23:20:00,740 - main - INFO - Saved job 3314dee6-727a-4fe4-bc68-b132c9abdf40 to disk
-2025-05-14 23:20:00,751 - main - INFO - Processing animation request for job 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:00,752 - main - INFO - Saved job 3314dee6-727a-4fe4-bc68-b132c9abdf40 to disk
-2025-05-14 23:20:00,753 - main - INFO - Generating code with Anthropic Claude
-2025-05-14 23:20:03,901 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:03,902 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:06,892 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:06,892 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:09,900 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:09,901 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:12,891 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:12,893 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:15,890 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:15,890 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:18,900 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:18,901 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3', '3314dee6-727a-4fe4-bc68-b132c9abdf40']
-2025-05-14 23:20:19,317 - main - INFO - Successfully generated valid Manim code
-2025-05-14 23:20:19,318 - main - INFO - Code generated and saved for job 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:19,353 - main - INFO - Saved job 3314dee6-727a-4fe4-bc68-b132c9abdf40 to disk
-2025-05-14 23:20:19,506 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
-2025-05-14 23:20:46,509 - main - INFO - Process stdout: [05/14/25 23:20:21] INFO     Animation 0 : Partial     scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\2016333726_22626456                         
-                             33_223132457.mp4'                                 
+                             al_movie_files\BinarySear                         
+                             chExplanation\2016333726_                         
+                             3911276097_223132457.mp4'                         
                     INFO     Animation 1 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_283470916                         
-                             7_2840113453.mp4'                                 
-[05/14/25 23:20:22] INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_1076694902.mp4'                         
+[05/15/25 21:11:49] INFO     Animation 2 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_426802981                         
-                             6_1494827363.mp4'                                 
-                    INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             076147590_2997942119.mp4'                         
+[05/15/25 21:11:51] INFO     Animation 3 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1045318084.mp4'                                 
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             750220252_1673114067.mp4'                         
                     INFO     Animation 4 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_565699462                         
-                             _2846634106.mp4'                                  
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_2471109824.mp4'                         
+[05/15/25 21:11:55] INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             359312825_1492884283.mp4'                         
+[05/15/25 21:11:56] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_2971522753.mp4'                         
+[05/15/25 21:11:59] INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             036780723_1547773441.mp4'                         
+[05/15/25 21:12:00] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_3820908277.mp4'                         
+[05/15/25 21:12:02] INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_9                         
+                             95508650_1621628278.mp4'                          
+[05/15/25 21:12:03] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_1170848722.mp4'                         
+[05/15/25 21:12:06] INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_2                         
+                             925496054_3740912710.mp4'                         
+[05/15/25 21:12:09] INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_745543267.mp4'                          
+[05/15/25 21:12:11] INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_3                         
+                             102120854_1129929301.mp4'                         
+[05/15/25 21:12:14] INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             227714060_3148169517.mp4'                         
+[05/15/25 21:12:17] INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_3472833714.mp4'                         
+[05/15/25 21:12:19] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_2                         
+                             327284099_2388454233.mp4'                         
+[05/15/25 21:12:22] INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_1537783766.mp4'                         
+[05/15/25 21:12:25] INFO     Animation 18 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             49819917_2286058438.mp4'                          
+[05/15/25 21:12:28] INFO     Animation 19 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_2                         
+                             106375752_2937086948.mp4'                         
+[05/15/25 21:12:30] INFO     Animation 20 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_2618286028.mp4'                         
+[05/15/25 21:12:34] INFO     Animation 21 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             173623073_2479783418.mp4'                         
+[05/15/25 21:12:36] INFO     Animation 22 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_3788197347.mp4'                         
+[05/15/25 21:12:39] INFO     Animation 23 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             931736018_3586564586.mp4'                         
+[05/15/25 21:12:42] INFO     Animation 24 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_5                         
+                             57927424_1465345792.mp4'                          
+[05/15/25 21:12:45] INFO     Animation 25 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_4                         
+                             217992463_2601007678.mp4'                         
+[05/15/25 21:12:54] INFO     Animation 26 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_1                         
+                             314546534_1063288757.mp4'                         
+[05/15/25 21:12:58] INFO     Animation 27 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_2                         
+                             844360058_1743695037.mp4'                         
+[05/15/25 21:13:01] INFO     Animation 28 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chExplanation\543634251_2                         
+                             844360058_2557713701.mp4'                         
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\f2f27                         
+                             4dc-b6c7-4309-982c-b4e7bc                         
+                             d41eb7.mp4'                                       
+                                                                               
+                    INFO     Rendered BinarySearchExplanation      scene.py:255
+                             Played 29 animations                              
+
+2025-05-15 21:13:02,113 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
+
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  20%|##        | 12/60 [00:00<00:00, 116.12it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  40%|####      | 24/60 [00:00<00:00, 104.47it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  58%|#####8    | 35/60 [00:00<00:00, 99.89it/s] 
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  77%|#######6  | 46/60 [00:00<00:00, 96.44it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  93%|#########3| 56/60 [00:00<00:00, 88.75it/s]
+                                                                                                                  
+
+Animation 2: Write(Text('Binary Search Steps:')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 2: Write(Text('Binary Search Steps:')):  20%|##        | 12/60 [00:00<00:00, 109.65it/s]
+Animation 2: Write(Text('Binary Search Steps:')):  40%|####      | 24/60 [00:00<00:00, 106.95it/s]
+Animation 2: Write(Text('Binary Search Steps:')):  58%|#####8    | 35/60 [00:00<00:00, 97.01it/s] 
+Animation 2: Write(Text('Binary Search Steps:')):  75%|#######5  | 45/60 [00:00<00:00, 93.10it/s]
+Animation 2: Write(Text('Binary Search Steps:')):  92%|#########1| 55/60 [00:00<00:00, 90.80it/s]
+                                                                                                 
+
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  18%|#8        | 11/60 [00:00<00:00, 98.93it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  35%|###5      | 21/60 [00:00<00:00, 95.17it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  52%|#####1    | 31/60 [00:00<00:00, 88.79it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  67%|######6   | 40/60 [00:00<00:00, 84.56it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  82%|########1 | 49/60 [00:00<00:00, 73.27it/s]
+Animation 3: Write(Text('1. Compare the target value with the middle element.')):  95%|#########5| 57/60 [00:00<00:00, 70.25it/s]
+                                                                                                                                 
+
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):   8%|8         | 5/60 [00:00<00:01, 41.45it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  17%|#6        | 10/60 [00:00<00:01, 35.89it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  23%|##3       | 14/60 [00:00<00:01, 32.88it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  32%|###1      | 19/60 [00:00<00:01, 37.51it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  40%|####      | 24/60 [00:00<00:00, 40.97it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  48%|####8     | 29/60 [00:00<00:00, 41.67it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  57%|#####6    | 34/60 [00:00<00:00, 42.47it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  65%|######5   | 39/60 [00:00<00:00, 42.48it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  73%|#######3  | 44/60 [00:01<00:00, 36.64it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  80%|########  | 48/60 [00:01<00:00, 34.26it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  87%|########6 | 52/60 [00:01<00:00, 33.13it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  93%|#########3| 56/60 [00:01<00:00, 27.94it/s]
+Animation 5: Write(Text('2. If the target value matches the middle element, return the index.')):  98%|#########8| 59/60 [00:01<00:00, 26.23it/s]
+                                                                                                                                                 
+
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  10%|#         | 6/60 [00:00<00:00, 57.95it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  22%|##1       | 13/60 [00:00<00:00, 59.58it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  32%|###1      | 19/60 [00:00<00:00, 56.23it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  42%|####1     | 25/60 [00:00<00:00, 51.97it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  52%|#####1    | 31/60 [00:00<00:00, 50.49it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  62%|######1   | 37/60 [00:00<00:00, 49.96it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  73%|#######3  | 44/60 [00:00<00:00, 53.46it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  83%|########3 | 50/60 [00:00<00:00, 52.06it/s]
+Animation 7: Write(Text('3. If the target value is greater, search the right half.')):  93%|#########3| 56/60 [00:01<00:00, 47.09it/s]
+                                                                                                                                      
+
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  18%|#8        | 11/60 [00:00<00:00, 104.50it/s]
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  37%|###6      | 22/60 [00:00<00:00, 95.30it/s] 
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  53%|#####3    | 32/60 [00:00<00:00, 85.91it/s]
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  68%|######8   | 41/60 [00:00<00:00, 79.71it/s]
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  83%|########3 | 50/60 [00:00<00:00, 72.69it/s]
+Animation 9: Write(Text('4. If the target value is smaller, search the left half.')):  97%|#########6| 58/60 [00:00<00:00, 67.09it/s]
+                                                                                                                                     
+
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  15%|#5        | 9/60 [00:00<00:00, 76.82it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  28%|##8       | 17/60 [00:00<00:00, 74.54it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  42%|####1     | 25/60 [00:00<00:00, 70.90it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  55%|#####5    | 33/60 [00:00<00:00, 61.49it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  67%|######6   | 40/60 [00:00<00:00, 51.96it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  77%|#######6  | 46/60 [00:00<00:00, 45.67it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  85%|########5 | 51/60 [00:00<00:00, 42.19it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')):  93%|#########3| 56/60 [00:01<00:00, 38.50it/s]
+Animation 11: Write(Text('5. Repeat steps 1-4 until the element is found or the list is exhausted.')): 100%|##########| 60/60 [00:01<00:00, 34.23it/s]
+                                                                                                                                                      
+
+Animation 13: Write(Text('Target: 16')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 13: Write(Text('Target: 16')):  37%|###6      | 11/30 [00:00<00:00, 102.87it/s]
+Animation 13: Write(Text('Target: 16')):  73%|#######3  | 22/30 [00:00<00:00, 98.42it/s] 
+                                                                                        
+
+Animation 14: Write(Text('Middle index: 4')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 14: Write(Text('Middle index: 4')):  37%|###6      | 11/30 [00:00<00:00, 101.95it/s]
+Animation 14: Write(Text('Middle index: 4')):  73%|#######3  | 22/30 [00:00<00:00, 90.25it/s] 
+                                                                                             
+
+Animation 16: _MethodAnimation(VGroup of 5 submobjects), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 16: _MethodAnimation(VGroup of 5 submobjects), etc.:  30%|###       | 9/30 [00:00<00:00, 84.52it/s]
+Animation 16: _MethodAnimation(VGroup of 5 submobjects), etc.:  60%|######    | 18/30 [00:00<00:00, 80.26it/s]
+Animation 16: _MethodAnimation(VGroup of 5 submobjects), etc.:  90%|######### | 27/30 [00:00<00:00, 79.66it/s]
+                                                                                                              
+
+Animation 18: FadeOut(Text('Middle index: 4')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 18: FadeOut(Text('Middle index: 4')):  30%|###       | 9/30 [00:00<00:00, 80.47it/s]
+Animation 18: FadeOut(Text('Middle index: 4')):  60%|######    | 18/30 [00:00<00:00, 80.77it/s]
+Animation 18: FadeOut(Text('Middle index: 4')):  90%|######### | 27/30 [00:00<00:00, 81.88it/s]
+                                                                                               
+
+Animation 19: Write(Text('Middle index: 7')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 19: Write(Text('Middle index: 7')):  33%|###3      | 10/30 [00:00<00:00, 95.38it/s]
+Animation 19: Write(Text('Middle index: 7')):  67%|######6   | 20/30 [00:00<00:00, 90.77it/s]
+Animation 19: Write(Text('Middle index: 7')): 100%|##########| 30/30 [00:00<00:00, 89.40it/s]
+                                                                                             
+
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.:  20%|##        | 6/30 [00:00<00:00, 51.80it/s]
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.:  40%|####      | 12/30 [00:00<00:00, 52.39it/s]
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.:  60%|######    | 18/30 [00:00<00:00, 53.19it/s]
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.:  80%|########  | 24/30 [00:00<00:00, 53.77it/s]
+Animation 21: _MethodAnimation(VGroup of 21 submobjects), etc.: 100%|##########| 30/30 [00:00<00:00, 52.51it/s]
+                                                                                                               
+
+Animation 23: FadeOut(Text('Middle index: 7')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 23: FadeOut(Text('Middle index: 7')):  23%|##3       | 7/30 [00:00<00:00, 62.30it/s]
+Animation 23: FadeOut(Text('Middle index: 7')):  47%|####6     | 14/30 [00:00<00:00, 62.61it/s]
+Animation 23: FadeOut(Text('Middle index: 7')):  70%|#######   | 21/30 [00:00<00:00, 63.76it/s]
+Animation 23: FadeOut(Text('Middle index: 7')):  93%|#########3| 28/30 [00:00<00:00, 63.28it/s]
+                                                                                               
+
+Animation 24: Write(Text('Middle index: 5')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 24: Write(Text('Middle index: 5')):  33%|###3      | 10/30 [00:00<00:00, 95.32it/s]
+Animation 24: Write(Text('Middle index: 5')):  67%|######6   | 20/30 [00:00<00:00, 92.10it/s]
+Animation 24: Write(Text('Middle index: 5')): 100%|##########| 30/30 [00:00<00:00, 87.58it/s]
+                                                                                             
+
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:   3%|3         | 2/60 [00:00<00:05, 10.80it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:   7%|6         | 4/60 [00:00<00:05, 10.64it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  10%|#         | 6/60 [00:00<00:05, 10.68it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  13%|#3        | 8/60 [00:00<00:04, 10.64it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  17%|#6        | 10/60 [00:00<00:04, 10.62it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  20%|##        | 12/60 [00:01<00:04, 10.65it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  23%|##3       | 14/60 [00:01<00:04, 10.58it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  27%|##6       | 16/60 [00:01<00:04, 10.55it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  30%|###       | 18/60 [00:01<00:04, 10.50it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  33%|###3      | 20/60 [00:01<00:03, 10.46it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  37%|###6      | 22/60 [00:02<00:03, 10.44it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  40%|####      | 24/60 [00:02<00:03, 10.49it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  43%|####3     | 26/60 [00:02<00:03, 10.50it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  47%|####6     | 28/60 [00:02<00:03, 10.45it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  50%|#####     | 30/60 [00:02<00:02, 10.42it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  53%|#####3    | 32/60 [00:03<00:02, 10.45it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  57%|#####6    | 34/60 [00:03<00:02, 10.55it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  60%|######    | 36/60 [00:03<00:02, 10.54it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  63%|######3   | 38/60 [00:03<00:02, 10.41it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  67%|######6   | 40/60 [00:03<00:01, 10.41it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  70%|#######   | 42/60 [00:03<00:01, 10.43it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  73%|#######3  | 44/60 [00:04<00:01,  9.52it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  75%|#######5  | 45/60 [00:04<00:01,  9.20it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  77%|#######6  | 46/60 [00:04<00:01,  9.24it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  78%|#######8  | 47/60 [00:04<00:01,  9.18it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  80%|########  | 48/60 [00:04<00:01,  9.09it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  82%|########1 | 49/60 [00:04<00:01,  8.19it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  83%|########3 | 50/60 [00:05<00:01,  7.74it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  85%|########5 | 51/60 [00:05<00:01,  7.00it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  87%|########6 | 52/60 [00:05<00:01,  6.89it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  88%|########8 | 53/60 [00:05<00:01,  5.03it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  90%|######### | 54/60 [00:05<00:01,  5.06it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  92%|#########1| 55/60 [00:05<00:00,  5.76it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  93%|#########3| 56/60 [00:06<00:00,  6.44it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  95%|#########5| 57/60 [00:06<00:00,  6.96it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  97%|#########6| 58/60 [00:06<00:00,  7.45it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.:  98%|#########8| 59/60 [00:06<00:00,  7.99it/s]
+Animation 26: Write(Text('Target 16 found at index 5!')), etc.: 100%|##########| 60/60 [00:06<00:00,  8.09it/s]
+                                                                                                               
+
+2025-05-15 21:13:02,125 - main - INFO - Found rendered video at outputs\media\f2f274dc-b6c7-4309-982c-b4e7bcd41eb7.mp4
+2025-05-15 21:13:02,134 - main - INFO - Saved job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 to disk
+2025-05-15 21:13:02,135 - main - INFO - Animation generation completed for job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,011 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:13:05,051 - main - INFO - Loaded job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 from disk
+2025-05-15 21:13:05,081 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,082 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,084 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,084 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,088 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,089 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,091 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,092 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,094 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,096 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,100 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,100 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,102 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,103 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,112 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,112 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,116 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,117 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,121 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,121 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,125 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,126 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,128 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,129 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,132 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,134 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,135 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,136 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,138 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,138 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,140 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,140 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,143 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,143 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,145 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,152 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,161 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,161 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,165 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,166 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,169 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,169 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,172 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,173 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,176 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,176 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,182 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,183 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,195 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,195 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,199 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,203 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:13:05,209 - main - INFO - Status check requested for job: f2f274dc-b6c7-4309-982c-b4e7bcd41eb7
+2025-05-15 21:13:05,209 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:17:21,740 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:17:23,304 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:17:23,311 - main - INFO - Loaded job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 from disk
+2025-05-15 21:17:55,474 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:17:57,129 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:17:57,135 - main - INFO - Loaded job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 from disk
+2025-05-15 21:18:22,741 - main - INFO - Saved job 3fba609d-513d-4d64-8852-cfd95067d47e to disk
+2025-05-15 21:18:22,752 - main - INFO - Processing animation request for job 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:22,754 - main - INFO - Saved job 3fba609d-513d-4d64-8852-cfd95067d47e to disk
+2025-05-15 21:18:22,755 - main - INFO - Generating code with Anthropic Claude
+2025-05-15 21:18:25,758 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:25,759 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:28,757 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:28,758 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:31,757 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:31,757 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:34,758 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:34,758 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:37,757 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:37,758 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:40,755 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:18:40,756 - main - INFO - Current jobs in memory: ['f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '3fba609d-513d-4d64-8852-cfd95067d47e']
+2025-05-15 21:18:43,284 - main - INFO - Successfully generated valid Manim code
+2025-05-15 21:18:43,286 - main - INFO - Saved job 3fba609d-513d-4d64-8852-cfd95067d47e to disk
+2025-05-15 21:18:43,460 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:19:05,260 - main - INFO - Process stdout: [05/15/25 21:18:46] INFO     Animation 0 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\2016333726_391127                         
+                             6097_223132457.mp4'                               
+                    INFO     Animation 1 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_1076694902.mp4'                               
+[05/15/25 21:18:47] INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2495153                         
+                             439_2997942119.mp4'                               
+[05/15/25 21:18:48] INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_4216033348.mp4'                               
+[05/15/25 21:18:49] INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_1426537                         
+                             74_656014380.mp4'                                 
                     INFO     Animation 5 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_149369109                         
-                             6_2846634106.mp4'                                 
-[05/14/25 23:20:23] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_480797373.mp4'                                
+[05/15/25 21:18:51] INFO     Animation 6 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2660130161.mp4'                                 
-                    INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2289544                         
+                             425_2761342097.mp4'                               
+[05/15/25 21:18:52] INFO     Animation 7 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_205555026                         
-                             3_2685312217.mp4'                                 
-                    INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_3620477700.mp4'                               
+[05/15/25 21:18:53] INFO     Animation 8 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_3668269325.mp4'                                 
-                    INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_1146315                         
+                             083_1339264730.mp4'                               
+[05/15/25 21:18:54] INFO     Animation 9 : Partial     scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_141362897                         
-                             8_2303170716.mp4'                                 
-                    INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_1108995                         
+                             472_1959325231.mp4'                               
+[05/15/25 21:18:55] INFO     Animation 10 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_302230032.mp4'                                  
-[05/14/25 23:20:24] INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_1138843847.mp4'                               
+[05/15/25 21:18:58] INFO     Animation 11 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339396542                         
-                             9_1243140989.mp4'                                 
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4123150                         
+                             807_3219237720.mp4'                               
                     INFO     Animation 12 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_4235104772.mp4'                                 
-                    INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_1900064866.mp4'                               
+[05/15/25 21:19:00] INFO     Animation 13 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_208778687                         
-                             2_1246426618.mp4'                                 
-                    INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_3083904                         
+                             955_2500818941.mp4'                               
+[05/15/25 21:19:01] INFO     Animation 14 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1626349751.mp4'                                 
-                    INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_3308897                         
+                             592_115117438.mp4'                                
+[05/15/25 21:19:02] INFO     Animation 15 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_103579687                         
-                             2_1661484986.mp4'                                 
-[05/14/25 23:20:25] INFO     Animation 16 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_1009410262.mp4'                               
+[05/15/25 21:19:03] INFO     Animation 16 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1348702409.mp4'                                 
-                    INFO     Animation 17 : Partial    scene_file_writer.py:588
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2707567                         
+                             181_3004678676.mp4'                               
+[05/15/25 21:19:04] INFO     Animation 17 : Partial    scene_file_writer.py:588
                              movie file written in                             
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
                              ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_315157346                         
-                             6_2388991850.mp4'                                 
-                    INFO     Animation 18 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_171454411                         
-                             7_2388991850.mp4'                                 
-                    INFO     Animation 19 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2479109222.mp4'                                 
-[05/14/25 23:20:26] INFO     Animation 20 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339563339                         
-                             8_4157861237.mp4'                                 
-                    INFO     Animation 21 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_3051700240.mp4'                                 
-                    INFO     Animation 22 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_304421472                         
-                             9_3186107582.mp4'                                 
-                    INFO     Animation 23 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_156115526                         
-                             7_3186107582.mp4'                                 
-                    INFO     Animation 24 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1759438595.mp4'                                 
-[05/14/25 23:20:27] INFO     Animation 25 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_180011083                         
-                             5_406382285.mp4'                                  
-                    INFO     Animation 26 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_4137780207.mp4'                                 
-                    INFO     Animation 27 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_387764218                         
-                             _2344613023.mp4'                                  
-[05/14/25 23:20:28] INFO     Animation 28 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2559140843.mp4'                                 
-                    INFO     Animation 29 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_382559270                         
-                             0_1416261226.mp4'                                 
-                    INFO     Animation 30 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2581450175.mp4'                                 
-[05/14/25 23:20:29] INFO     Animation 31 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_141362897                         
-                             8_893271969.mp4'                                  
-                    INFO     Animation 32 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1125475953.mp4'                                 
-[05/14/25 23:20:30] INFO     Animation 33 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_262805376                         
-                             0_2000684426.mp4'                                 
-                    INFO     Animation 34 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2601356863.mp4'                                 
-                    INFO     Animation 35 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_301527090                         
-                             4_2415775256.mp4'                                 
-[05/14/25 23:20:31] INFO     Animation 36 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_277189234                         
-                             7_2415775256.mp4'                                 
-                    INFO     Animation 37 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_507931963.mp4'                                  
-[05/14/25 23:20:32] INFO     Animation 38 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_138157072                         
-                             3_3965350179.mp4'                                 
-                    INFO     Animation 39 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_412174481.mp4'                                  
-                    INFO     Animation 40 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_263362796                         
-                             8_575025071.mp4'                                  
-[05/14/25 23:20:33] INFO     Animation 41 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_203527739                         
-                             6_575025071.mp4'                                  
-                    INFO     Animation 42 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1534441916.mp4'                                 
-[05/14/25 23:20:34] INFO     Animation 43 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_180011083                         
-                             5_1255173685.mp4'                                 
-                    INFO     Animation 44 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2449730643.mp4'                                 
-                    INFO     Animation 45 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_387764218                         
-                             _2614665616.mp4'                                  
-[05/14/25 23:20:35] INFO     Animation 46 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2377156516.mp4'                                 
-                    INFO     Animation 47 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_181145790                         
-                             6_1893152679.mp4'                                 
-[05/14/25 23:20:36] INFO     Animation 48 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1715943390.mp4'                                 
-                    INFO     Animation 49 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_838912793                         
-                             _4232399080.mp4'                                  
-[05/14/25 23:20:37] INFO     Animation 50 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_427169866                         
-                             _4232399080.mp4'                                  
-                    INFO     Animation 51 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_3741384545.mp4'                                 
-                    INFO     Animation 52 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_171205566                         
-                             0_2399828699.mp4'                                 
-[05/14/25 23:20:38] INFO     Animation 53 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1092538336.mp4'                                 
-                    INFO     Animation 54 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_387119047                         
-                             6_3272962419.mp4'                                 
-                    INFO     Animation 55 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_893947475.mp4'                                  
-[05/14/25 23:20:39] INFO     Animation 56 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_223229000                         
-                             3_2678515883.mp4'                                 
-                    INFO     Animation 57 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_2097788829.mp4'                                 
-[05/14/25 23:20:40] INFO     Animation 58 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_261639864                         
-                             5_351011365.mp4'                                  
-                    INFO     Animation 59 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_697976841                         
-                             _351011365.mp4'                                   
-                    INFO     Animation 60 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_602391668.mp4'                                  
-[05/14/25 23:20:41] INFO     Animation 61 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_114210177                         
-                             9_3624807378.mp4'                                 
-                    INFO     Animation 62 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_761985685.mp4'                                  
-[05/14/25 23:20:42] INFO     Animation 63 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_111627641                         
-                             _746063536.mp4'                                   
-                    INFO     Animation 64 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1850722264.mp4'                                 
-                    INFO     Animation 65 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_273158891                         
-                             9_3189402106.mp4'                                 
-[05/14/25 23:20:43] INFO     Animation 66 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1114996117.mp4'                                 
-                    INFO     Animation 67 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_697976841                         
-                             _469931262.mp4'                                   
-                    INFO     Animation 68 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_339450033                         
-                             7_1754904859.mp4'                                 
-[05/14/25 23:20:44] INFO     Animation 69 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_153586761                         
-                             7_4227068602.mp4'                                 
-[05/14/25 23:20:45] INFO     Animation 70 : Partial    scene_file_writer.py:588
-                             movie file written in                             
-                             'C:\Users\harsh\Desktop\p                         
-                             rojects\Startups\manim\ba                         
-                             ckend\outputs\media\parti                         
-                             al_movie_files\BubbleSort                         
-                             Scene\543634251_284436005                         
-                             8_482761392.mp4'                                  
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2844360                         
+                             058_1546682426.mp4'                               
                     INFO     Combining to Movie file.  scene_file_writer.py:739
-[05/14/25 23:20:46] INFO                               scene_file_writer.py:886
+                    INFO                               scene_file_writer.py:886
                              File ready at                                     
                              'C:\Users\harsh\Desktop\p                         
                              rojects\Startups\manim\ba                         
-                             ckend\outputs\media\3314d                         
-                             ee6-727a-4fe4-bc68-b132c9                         
-                             abdf40.mp4'                                       
+                             ckend\outputs\media\3fba6                         
+                             09d-513d-4d64-8852-cfd950                         
+                             67d47e.mp4'                                       
                                                                                
-                    INFO     Rendered BubbleSortScene              scene.py:255
-                             Played 71 animations                              
+                    INFO     Rendered BinarySearchScene            scene.py:255
+                             Played 18 animations                              
 
-2025-05-14 23:20:46,538 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+2025-05-15 21:19:05,263 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
   warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
 
-Animation 0: Write(VGroup of 6 submobjects):   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 0: Write(VGroup of 6 submobjects):  63%|######3   | 19/30 [00:00<00:00, 189.82it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  15%|#5        | 9/60 [00:00<00:00, 83.28it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  30%|###       | 18/60 [00:00<00:00, 83.72it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  47%|####6     | 28/60 [00:00<00:00, 89.14it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  62%|######1   | 37/60 [00:00<00:00, 80.94it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  77%|#######6  | 46/60 [00:00<00:00, 74.04it/s]
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):  90%|######### | 54/60 [00:00<00:00, 69.23it/s]
+                                                                                                                  
+
+Animation 2: Write(Text('Target: 16')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 2: Write(Text('Target: 16')):  37%|###6      | 11/30 [00:00<00:00, 104.12it/s]
+Animation 2: Write(Text('Target: 16')):  73%|#######3  | 22/30 [00:00<00:00, 92.04it/s] 
+                                                                                       
+
+Animation 4: Write(Text('Mid: 13')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 4: Write(Text('Mid: 13')):  43%|####3     | 13/30 [00:00<00:00, 125.78it/s]
+Animation 4: Write(Text('Mid: 13')):  87%|########6 | 26/30 [00:00<00:00, 98.02it/s] 
+                                                                                    
+
+Animation 6: Write(Text('Target is greater, search right half')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  17%|#6        | 10/60 [00:00<00:00, 91.56it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  33%|###3      | 20/60 [00:00<00:00, 89.84it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  48%|####8     | 29/60 [00:00<00:00, 82.19it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  63%|######3   | 38/60 [00:00<00:00, 78.54it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  77%|#######6  | 46/60 [00:00<00:00, 72.87it/s]
+Animation 6: Write(Text('Target is greater, search right half')):  90%|######### | 54/60 [00:00<00:00, 69.37it/s]
+                                                                                                                 
+
+Animation 8: FadeOut(Text('Mid: 13')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 8: FadeOut(Text('Mid: 13')), etc.:  20%|##        | 6/30 [00:00<00:00, 53.24it/s]
+Animation 8: FadeOut(Text('Mid: 13')), etc.:  40%|####      | 12/30 [00:00<00:00, 50.34it/s]
+Animation 8: FadeOut(Text('Mid: 13')), etc.:  60%|######    | 18/30 [00:00<00:00, 50.25it/s]
+Animation 8: FadeOut(Text('Mid: 13')), etc.:  80%|########  | 24/30 [00:00<00:00, 50.14it/s]
+Animation 8: FadeOut(Text('Mid: 13')), etc.: 100%|##########| 30/30 [00:00<00:00, 50.72it/s]
+                                                                                            
+
+Animation 9: Write(Text('Mid: 22')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 9: Write(Text('Mid: 22')):  23%|##3       | 7/30 [00:00<00:00, 69.60it/s]
+Animation 9: Write(Text('Mid: 22')):  60%|######    | 18/30 [00:00<00:00, 88.05it/s]
+Animation 9: Write(Text('Mid: 22')):  93%|#########3| 28/30 [00:00<00:00, 89.53it/s]
+                                                                                    
+
+Animation 11: Write(Text('Target is smaller, search left half')):   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  15%|#5        | 9/60 [00:00<00:00, 79.89it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  28%|##8       | 17/60 [00:00<00:00, 72.11it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  42%|####1     | 25/60 [00:00<00:00, 68.27it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  53%|#####3    | 32/60 [00:00<00:00, 66.89it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  65%|######5   | 39/60 [00:00<00:00, 65.67it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  77%|#######6  | 46/60 [00:00<00:00, 60.20it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  88%|########8 | 53/60 [00:00<00:00, 52.05it/s]
+Animation 11: Write(Text('Target is smaller, search left half')):  98%|#########8| 59/60 [00:01<00:00, 51.66it/s]
+                                                                                                                 
+
+Animation 13: FadeOut(Text('Mid: 22')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 13: FadeOut(Text('Mid: 22')), etc.:  20%|##        | 6/30 [00:00<00:00, 51.88it/s]
+Animation 13: FadeOut(Text('Mid: 22')), etc.:  40%|####      | 12/30 [00:00<00:00, 50.92it/s]
+Animation 13: FadeOut(Text('Mid: 22')), etc.:  60%|######    | 18/30 [00:00<00:00, 51.23it/s]
+Animation 13: FadeOut(Text('Mid: 22')), etc.:  80%|########  | 24/30 [00:00<00:00, 52.04it/s]
+Animation 13: FadeOut(Text('Mid: 22')), etc.: 100%|##########| 30/30 [00:00<00:00, 52.29it/s]
                                                                                              
 
-Animation 2: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 2: _MethodAnimation(Text('5')), etc.:  60%|######    | 18/30 [00:00<00:00, 169.97it/s]
-                                                                                                
+Animation 14: Write(Text('Mid: 16')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 14: Write(Text('Mid: 16')):  17%|#6        | 5/30 [00:00<00:00, 47.43it/s]
+Animation 14: Write(Text('Mid: 16')):  47%|####6     | 14/30 [00:00<00:00, 70.41it/s]
+Animation 14: Write(Text('Mid: 16')):  73%|#######3  | 22/30 [00:00<00:00, 74.31it/s]
+                                                                                     
 
-Animation 4: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 4: _MethodAnimation(Text('5')), etc.:  67%|######6   | 20/30 [00:00<00:00, 198.22it/s]
-                                                                                                
+Animation 16: Write(Text('Found at index 5!')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 16: Write(Text('Found at index 5!')), etc.:  27%|##6       | 8/30 [00:00<00:00, 78.13it/s]
+Animation 16: Write(Text('Found at index 5!')), etc.:  53%|#####3    | 16/30 [00:00<00:00, 75.17it/s]
+Animation 16: Write(Text('Found at index 5!')), etc.:  80%|########  | 24/30 [00:00<00:00, 74.38it/s]
+                                                                                                     
 
-Animation 5: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 5: _MethodAnimation(Text('5')), etc.:  73%|#######3  | 22/30 [00:00<00:00, 218.03it/s]
-                                                                                                
+2025-05-15 21:19:05,268 - main - INFO - Found rendered video at outputs\media\3fba609d-513d-4d64-8852-cfd95067d47e.mp4
+2025-05-15 21:19:05,271 - main - INFO - Saved job 3fba609d-513d-4d64-8852-cfd95067d47e to disk
+2025-05-15 21:19:05,272 - main - INFO - Animation generation completed for job 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,579 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:19:07,597 - main - INFO - Loaded job 3fba609d-513d-4d64-8852-cfd95067d47e from disk
+2025-05-15 21:19:07,598 - main - INFO - Loaded job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 from disk
+2025-05-15 21:19:07,618 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,619 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,621 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,622 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,624 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,625 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,627 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,627 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,632 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,632 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,636 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,637 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,641 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,641 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:19:07,643 - main - INFO - Status check requested for job: 3fba609d-513d-4d64-8852-cfd95067d47e
+2025-05-15 21:19:07,643 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:21:32,525 - main - INFO - Saved job 18a86f41-9584-4f40-b76c-c333550327ea to disk
+2025-05-15 21:21:32,529 - main - INFO - Processing animation request for job 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:32,530 - main - INFO - Saved job 18a86f41-9584-4f40-b76c-c333550327ea to disk
+2025-05-15 21:21:32,530 - main - INFO - Generating code with Anthropic Claude
+2025-05-15 21:21:35,539 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:35,539 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:38,538 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:38,539 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:41,533 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:41,534 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:44,538 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:44,539 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:47,533 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:47,534 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:50,535 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:50,535 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:53,539 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:53,539 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:56,534 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:56,535 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:21:59,538 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:21:59,538 - main - INFO - Current jobs in memory: ['3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7', '18a86f41-9584-4f40-b76c-c333550327ea']
+2025-05-15 21:22:00,562 - main - INFO - Successfully generated valid Manim code
+2025-05-15 21:22:00,564 - main - INFO - Saved job 18a86f41-9584-4f40-b76c-c333550327ea to disk
+2025-05-15 21:22:00,714 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:22:18,630 - main - INFO - Process stdout: [05/15/25 21:22:02] INFO     Animation 0 : Using cached    cairo_renderer.py:89
+                             data (hash :                                      
+                             2016333726_3911276097_2231324                     
+                             57)                                               
+                    INFO     Animation 1 : Using cached    cairo_renderer.py:89
+                             data (hash :                                      
+                             543634251_4217992463_10766949                     
+                             02)                                               
+[05/15/25 21:22:03] INFO     Animation 2 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4868676                         
+                             0_2997942119.mp4'                                 
+                    INFO     Animation 3 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_2549226228.mp4'                               
+[05/15/25 21:22:04] INFO     Animation 4 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2446095                         
+                             636_1150482313.mp4'                               
+                    INFO     Animation 5 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_3661704874.mp4'                               
+[05/15/25 21:22:06] INFO     Animation 6 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_1827918                         
+                             267_2974483564.mp4'                               
+[05/15/25 21:22:07] INFO     Animation 7 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_1132502837.mp4'                               
+[05/15/25 21:22:08] INFO     Animation 8 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_3913782                         
+                             591_1450226661.mp4'                               
+                    INFO     Animation 9 : Partial     scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_2893155756.mp4'                               
+[05/15/25 21:22:11] INFO     Animation 10 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_1334610                         
+                             29_3409835302.mp4'                                
+[05/15/25 21:22:12] INFO     Animation 11 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_2813670701.mp4'                               
+[05/15/25 21:22:13] INFO     Animation 12 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4365645                         
+                             6_47847132.mp4'                                   
+[05/15/25 21:22:14] INFO     Animation 13 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_4217992                         
+                             463_531512103.mp4'                                
+[05/15/25 21:22:16] INFO     Animation 14 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_3493269                         
+                             327_284772052.mp4'                                
+[05/15/25 21:22:18] INFO     Animation 15 : Partial    scene_file_writer.py:588
+                             movie file written in                             
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\parti                         
+                             al_movie_files\BinarySear                         
+                             chScene\543634251_2844360                         
+                             058_680811128.mp4'                                
+                    INFO     Combining to Movie file.  scene_file_writer.py:739
+                    INFO                               scene_file_writer.py:886
+                             File ready at                                     
+                             'C:\Users\harsh\Desktop\p                         
+                             rojects\Startups\manim\ba                         
+                             ckend\outputs\media\18a86                         
+                             f41-9584-4f40-b76c-c33355                         
+                             0327ea.mp4'                                       
+                                                                               
+                    INFO     Rendered BinarySearchScene            scene.py:255
+                             Played 16 animations                              
 
-Animation 7: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 7: _MethodAnimation(Text('2')), etc.:  80%|########  | 24/30 [00:00<00:00, 235.06it/s]
-                                                                                                
+2025-05-15 21:22:18,632 - main - ERROR - Process stderr: C:\Users\harsh\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydub\utils.py:170: RuntimeWarning: Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work
+  warn("Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work", RuntimeWarning)
 
-Animation 9: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 9: _MethodAnimation(Text('2')), etc.:  77%|#######6  | 23/30 [00:00<00:00, 227.76it/s]
-                                                                                                
+Animation 0: Write(Text('[2, 4, 7, 10, 13, 16, 19, 22, 25, 28]')):   0%|          | 0/1 [00:00<?, ?it/s]
+                                                                                                        
 
-Animation 11: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 11: _MethodAnimation(Text('8')), etc.:  73%|#######3  | 22/30 [00:00<00:00, 213.54it/s]
-                                                                                                 
+Animation 2: Write(Text('Target: 16')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 2: Write(Text('Target: 16')):  43%|####3     | 13/30 [00:00<00:00, 127.75it/s]
+Animation 2: Write(Text('Target: 16')):  87%|########6 | 26/30 [00:00<00:00, 112.75it/s]
+                                                                                        
 
-Animation 13: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 13: _MethodAnimation(Text('8')), etc.:  80%|########  | 24/30 [00:00<00:00, 237.86it/s]
-                                                                                                 
+Animation 4: Write(Text('Mid: 13')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 4: Write(Text('Mid: 13')):  37%|###6      | 11/30 [00:00<00:00, 94.90it/s]
+Animation 4: Write(Text('Mid: 13')):  70%|#######   | 21/30 [00:00<00:00, 96.53it/s]
+                                                                                    
 
-Animation 15: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 15: _MethodAnimation(Text('12')), etc.:  83%|########3 | 25/30 [00:00<00:00, 247.43it/s]
-                                                                                                  
+Animation 6: Write(Text('Target is greater than 13')), etc.:   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 6: Write(Text('Target is greater than 13')), etc.:  18%|#8        | 11/60 [00:00<00:00, 102.76it/s]
+Animation 6: Write(Text('Target is greater than 13')), etc.:  37%|###6      | 22/60 [00:00<00:00, 80.69it/s] 
+Animation 6: Write(Text('Target is greater than 13')), etc.:  52%|#####1    | 31/60 [00:00<00:00, 74.35it/s]
+Animation 6: Write(Text('Target is greater than 13')), etc.:  65%|######5   | 39/60 [00:00<00:00, 73.76it/s]
+Animation 6: Write(Text('Target is greater than 13')), etc.:  78%|#######8  | 47/60 [00:00<00:00, 74.69it/s]
+Animation 6: Write(Text('Target is greater than 13')), etc.:  92%|#########1| 55/60 [00:00<00:00, 71.72it/s]
+                                                                                                            
 
-Animation 17: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 17: _MethodAnimation(Text('12')), etc.:  87%|########6 | 26/30 [00:00<00:00, 254.94it/s]
-                                                                                                  
+Animation 8: Write(Text('Mid: 22')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 8: Write(Text('Mid: 22')):  43%|####3     | 13/30 [00:00<00:00, 120.11it/s]
+Animation 8: Write(Text('Mid: 22')):  87%|########6 | 26/30 [00:00<00:00, 108.51it/s]
+                                                                                     
 
-Animation 18: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 18: _MethodAnimation(Text('12')), etc.:  80%|########  | 24/30 [00:00<00:00, 230.74it/s]
-                                                                                                  
+Animation 10: Write(Text('Target is smaller than 22')), etc.:   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  10%|#         | 6/60 [00:00<00:00, 57.08it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  20%|##        | 12/60 [00:00<00:00, 55.70it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  30%|###       | 18/60 [00:00<00:00, 55.27it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  40%|####      | 24/60 [00:00<00:00, 55.28it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  50%|#####     | 30/60 [00:00<00:00, 53.15it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  60%|######    | 36/60 [00:00<00:00, 44.53it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  68%|######8   | 41/60 [00:00<00:00, 39.13it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  77%|#######6  | 46/60 [00:01<00:00, 31.78it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  83%|########3 | 50/60 [00:01<00:00, 26.47it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  88%|########8 | 53/60 [00:01<00:00, 23.82it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.:  93%|#########3| 56/60 [00:01<00:00, 23.54it/s]
+Animation 10: Write(Text('Target is smaller than 22')), etc.: 100%|##########| 60/60 [00:01<00:00, 26.04it/s]
+                                                                                                             
 
-Animation 20: _MethodAnimation(Text('1')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 20: _MethodAnimation(Text('1')), etc.:  93%|#########3| 28/30 [00:00<00:00, 274.77it/s]
-                                                                                                 
+Animation 12: Write(Text('Mid: 16')):   0%|          | 0/30 [00:00<?, ?it/s]
+Animation 12: Write(Text('Mid: 16')):  37%|###6      | 11/30 [00:00<00:00, 107.75it/s]
+Animation 12: Write(Text('Mid: 16')):  73%|#######3  | 22/30 [00:00<00:00, 98.62it/s] 
+                                                                                     
 
-Animation 22: _MethodAnimation(Text('1')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 22: _MethodAnimation(Text('1')), etc.:  80%|########  | 24/30 [00:00<00:00, 237.82it/s]
-                                                                                                 
+Animation 14: Write(Text('Found 16 at index 5')), etc.:   0%|          | 0/60 [00:00<?, ?it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:   8%|8         | 5/60 [00:00<00:01, 49.73it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  17%|#6        | 10/60 [00:00<00:01, 47.41it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  25%|##5       | 15/60 [00:00<00:00, 47.19it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  33%|###3      | 20/60 [00:00<00:00, 46.74it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  42%|####1     | 25/60 [00:00<00:00, 46.65it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  50%|#####     | 30/60 [00:00<00:00, 46.75it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  58%|#####8    | 35/60 [00:00<00:00, 46.65it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  67%|######6   | 40/60 [00:00<00:00, 45.86it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  75%|#######5  | 45/60 [00:01<00:00, 41.73it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  83%|########3 | 50/60 [00:01<00:00, 40.20it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.:  92%|#########1| 55/60 [00:01<00:00, 39.67it/s]
+Animation 14: Write(Text('Found 16 at index 5')), etc.: 100%|##########| 60/60 [00:01<00:00, 37.18it/s]
+                                                                                                       
 
-Animation 23: _MethodAnimation(Text('1')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 23: _MethodAnimation(Text('1')), etc.:  97%|#########6| 29/30 [00:00<00:00, 281.82it/s]
-                                                                                                 
-
-Animation 25: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 25: _MethodAnimation(Text('5')), etc.:  70%|#######   | 21/30 [00:00<00:00, 203.65it/s]
-                                                                                                 
-
-Animation 27: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 27: _MethodAnimation(Text('5')), etc.:  50%|#####     | 15/30 [00:00<00:00, 146.92it/s]
-Animation 27: _MethodAnimation(Text('5')), etc.: 100%|##########| 30/30 [00:00<00:00, 136.10it/s]
-                                                                                                 
-
-Animation 29: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 29: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 138.62it/s]
-Animation 29: _MethodAnimation(Text('2')), etc.: 100%|##########| 30/30 [00:00<00:00, 146.94it/s]
-                                                                                                 
-
-Animation 31: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 31: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 130.82it/s]
-Animation 31: _MethodAnimation(Text('2')), etc.: 100%|##########| 30/30 [00:00<00:00, 142.63it/s]
-                                                                                                 
-
-Animation 33: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 33: _MethodAnimation(Text('8')), etc.:  43%|####3     | 13/30 [00:00<00:00, 129.98it/s]
-Animation 33: _MethodAnimation(Text('8')), etc.:  97%|#########6| 29/30 [00:00<00:00, 145.12it/s]
-                                                                                                 
-
-Animation 35: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 35: _MethodAnimation(Text('8')), etc.:  50%|#####     | 15/30 [00:00<00:00, 148.36it/s]
-                                                                                                 
-
-Animation 36: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 36: _MethodAnimation(Text('8')), etc.:  53%|#####3    | 16/30 [00:00<00:00, 149.53it/s]
-                                                                                                 
-
-Animation 38: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 38: _MethodAnimation(Text('12')), etc.:  50%|#####     | 15/30 [00:00<00:00, 149.96it/s]
-                                                                                                  
-
-Animation 40: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 40: _MethodAnimation(Text('12')), etc.:  60%|######    | 18/30 [00:00<00:00, 171.43it/s]
-                                                                                                  
-
-Animation 41: _MethodAnimation(Text('12')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 41: _MethodAnimation(Text('12')), etc.:  57%|#####6    | 17/30 [00:00<00:00, 160.38it/s]
-                                                                                                  
-
-Animation 43: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 43: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 128.71it/s]
-Animation 43: _MethodAnimation(Text('5')), etc.:  90%|######### | 27/30 [00:00<00:00, 133.78it/s]
-                                                                                                 
-
-Animation 45: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 45: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 122.64it/s]
-Animation 45: _MethodAnimation(Text('5')), etc.:  87%|########6 | 26/30 [00:00<00:00, 113.80it/s]
-                                                                                                 
-
-Animation 47: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 47: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 138.61it/s]
-Animation 47: _MethodAnimation(Text('2')), etc.:  93%|#########3| 28/30 [00:00<00:00, 136.27it/s]
-                                                                                                 
-
-Animation 49: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 49: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 132.07it/s]
-Animation 49: _MethodAnimation(Text('2')), etc.:  93%|#########3| 28/30 [00:00<00:00, 124.50it/s]
-                                                                                                 
-
-Animation 50: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 50: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 138.58it/s]
-Animation 50: _MethodAnimation(Text('2')), etc.: 100%|##########| 30/30 [00:00<00:00, 144.39it/s]
-                                                                                                 
-
-Animation 52: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 52: _MethodAnimation(Text('8')), etc.:  50%|#####     | 15/30 [00:00<00:00, 149.99it/s]
-Animation 52: _MethodAnimation(Text('8')), etc.: 100%|##########| 30/30 [00:00<00:00, 148.29it/s]
-                                                                                                 
-
-Animation 54: _MethodAnimation(Text('8')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 54: _MethodAnimation(Text('8')), etc.:  50%|#####     | 15/30 [00:00<00:00, 145.57it/s]
-Animation 54: _MethodAnimation(Text('8')), etc.: 100%|##########| 30/30 [00:00<00:00, 143.96it/s]
-                                                                                                 
-
-Animation 56: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 56: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 128.77it/s]
-Animation 56: _MethodAnimation(Text('5')), etc.:  90%|######### | 27/30 [00:00<00:00, 132.25it/s]
-                                                                                                 
-
-Animation 58: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 58: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 128.71it/s]
-Animation 58: _MethodAnimation(Text('5')), etc.:  90%|######### | 27/30 [00:00<00:00, 132.23it/s]
-                                                                                                 
-
-Animation 59: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 59: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 125.04it/s]
-Animation 59: _MethodAnimation(Text('5')), etc.:  90%|######### | 27/30 [00:00<00:00, 129.94it/s]
-                                                                                                 
-
-Animation 61: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 61: _MethodAnimation(Text('2')), etc.:  50%|#####     | 15/30 [00:00<00:00, 145.63it/s]
-Animation 61: _MethodAnimation(Text('2')), etc.: 100%|##########| 30/30 [00:00<00:00, 137.77it/s]
-                                                                                                 
-
-Animation 63: _MethodAnimation(Text('2')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 63: _MethodAnimation(Text('2')), etc.:  47%|####6     | 14/30 [00:00<00:00, 138.61it/s]
-Animation 63: _MethodAnimation(Text('2')), etc.:  97%|#########6| 29/30 [00:00<00:00, 139.53it/s]
-                                                                                                 
-
-Animation 65: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 65: _MethodAnimation(Text('5')), etc.:  43%|####3     | 13/30 [00:00<00:00, 128.59it/s]
-Animation 65: _MethodAnimation(Text('5')), etc.:  93%|#########3| 28/30 [00:00<00:00, 135.65it/s]
-                                                                                                 
-
-Animation 67: _MethodAnimation(Text('5')), etc.:   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 67: _MethodAnimation(Text('5')), etc.:  50%|#####     | 15/30 [00:00<00:00, 140.20it/s]
-Animation 67: _MethodAnimation(Text('5')), etc.: 100%|##########| 30/30 [00:00<00:00, 136.44it/s]
-                                                                                                 
-
-Animation 69: _MethodAnimation(VGroup of 6 submobjects):   0%|          | 0/30 [00:00<?, ?it/s]
-Animation 69: _MethodAnimation(VGroup of 6 submobjects):  43%|####3     | 13/30 [00:00<00:00, 123.80it/s]
-Animation 69: _MethodAnimation(VGroup of 6 submobjects):  90%|######### | 27/30 [00:00<00:00, 126.57it/s]
-                                                                                                         
-
-2025-05-14 23:20:46,548 - main - INFO - Found rendered video at outputs\media\3314dee6-727a-4fe4-bc68-b132c9abdf40.mp4
-2025-05-14 23:20:46,549 - main - INFO - Saved job 3314dee6-727a-4fe4-bc68-b132c9abdf40 to disk
-2025-05-14 23:20:46,549 - main - INFO - Animation generation completed for job 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,407 - main - INFO - Anthropic client initialized successfully
-2025-05-14 23:20:48,411 - main - INFO - Loaded job 0b77b1ab-08f5-4fc0-a821-68dbfe490a96 from disk
-2025-05-14 23:20:48,423 - main - INFO - Loaded job 3314dee6-727a-4fe4-bc68-b132c9abdf40 from disk
-2025-05-14 23:20:48,423 - main - INFO - Loaded job 5942310f-653a-4206-8742-0ab3544ffdee from disk
-2025-05-14 23:20:48,423 - main - INFO - Loaded job ad2d80fa-1992-4c62-946f-e8de26b370ac from disk
-2025-05-14 23:20:48,423 - main - INFO - Loaded job b3f60140-228d-4627-b3ce-376cbe5b95f3 from disk
-2025-05-14 23:20:48,442 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,443 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,488 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,489 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,493 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,493 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,496 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,496 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,499 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,499 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,501 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,502 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,503 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,503 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,505 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,506 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:20:48,508 - main - INFO - Status check requested for job: 3314dee6-727a-4fe4-bc68-b132c9abdf40
-2025-05-14 23:20:48,509 - main - INFO - Current jobs in memory: ['0b77b1ab-08f5-4fc0-a821-68dbfe490a96', '3314dee6-727a-4fe4-bc68-b132c9abdf40', '5942310f-653a-4206-8742-0ab3544ffdee', 'ad2d80fa-1992-4c62-946f-e8de26b370ac', 'b3f60140-228d-4627-b3ce-376cbe5b95f3']
-2025-05-14 23:22:32,538 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
+2025-05-15 21:22:18,642 - main - INFO - Found rendered video at outputs\media\18a86f41-9584-4f40-b76c-c333550327ea.mp4
+2025-05-15 21:22:18,644 - main - INFO - Saved job 18a86f41-9584-4f40-b76c-c333550327ea to disk
+2025-05-15 21:22:18,645 - main - INFO - Animation generation completed for job 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,929 - main - INFO - Anthropic client initialized successfully
+2025-05-15 21:22:20,947 - main - INFO - Loaded job 18a86f41-9584-4f40-b76c-c333550327ea from disk
+2025-05-15 21:22:20,947 - main - INFO - Loaded job 3fba609d-513d-4d64-8852-cfd95067d47e from disk
+2025-05-15 21:22:20,948 - main - INFO - Loaded job f2f274dc-b6c7-4309-982c-b4e7bcd41eb7 from disk
+2025-05-15 21:22:20,973 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,973 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:20,977 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,978 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:20,982 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,983 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:20,986 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,987 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:20,990 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:20,994 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:21,000 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:21,003 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:22:21,004 - main - INFO - Status check requested for job: 18a86f41-9584-4f40-b76c-c333550327ea
+2025-05-15 21:22:21,007 - main - INFO - Current jobs in memory: ['18a86f41-9584-4f40-b76c-c333550327ea', '3fba609d-513d-4d64-8852-cfd95067d47e', 'f2f274dc-b6c7-4309-982c-b4e7bcd41eb7']
+2025-05-15 21:25:00,711 - main - INFO - Received exit signal 2. Cleaning up and shutting down...
