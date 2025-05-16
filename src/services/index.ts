@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"
+  "http://127.0.0.1:8000"
 
 export interface GenerationRequest {
   prompt: string
@@ -64,7 +64,8 @@ export const checkGenerationStatus = async (
 }
 
 export const downloadVideo = (jobId: string): string => {
-  return `${API_BASE_URL}/download/${jobId}`
+  // Use local URL for development
+  return `http://127.0.0.1:8000/media/${jobId}.mp4`
 }
 
 // Helper function to recover job IDs if needed

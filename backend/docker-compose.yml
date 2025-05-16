@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  manim-api:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs:/app/outputs
+    env_file:
+      - .env
+    environment:
+      - TZ=UTC
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./outputs/media:/usr/share/nginx/html/media
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - manim-api
+    restart: always
