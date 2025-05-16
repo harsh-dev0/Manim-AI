@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { checkGenerationStatus, generateAnimation } from "@/services"
 import VideoPlayer from "@/components/VideoPlayer"
@@ -9,8 +9,7 @@ const Index = () => {
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
-  const [animationTitle, setAnimationTitle] = useState<string | null>(null)
-  const [generationStep, setGenerationStep] = useState<string | null>(null)
+  const [, setAnimationTitle] = useState<string | null>(null)
 
   const handleGenerateAnimation = async (prompt: string) => {
     setIsLoading(true)
@@ -162,7 +161,7 @@ const Index = () => {
               {/* Status Message */}
               <div className="text-center">
                 <p className="text-lg text-cyan-300 font-semibold animate-pulse">
-                  {generationStep || "Preparing your animation..."}
+                  Preparing your animation...
                 </p>
                 <p className="text-sm text-slate-400 mt-1">
                   This may take a few seconds. Feel free to stretch.

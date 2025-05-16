@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API_BASE_URL =
-  "http://127.0.0.1:8000"
+  "http://ec2-34-207-193-20.compute-1.amazonaws.com/api/"
 
 export interface GenerationRequest {
   prompt: string
@@ -54,19 +54,20 @@ export const checkGenerationStatus = async (
       `/status/${jobId}`
     )
     return response.data
-  } catch (error: any) {
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : "Failed to check status";
     return {
       id: jobId,
       status: "error",
-      error: error.message || "Failed to check status",
+      error: errorMessage
     }
   }
 }
 
-export const downloadVideo = (jobId: string): string => {
-  // Use local URL for development
-  return `http://127.0.0.1:8000/media/${jobId}.mp4`
-}
+// export const downloadVideo = (jobId: string): string => {
+//   // Use local URL for development
+//   return `http://127.0.0.1:8000/media/${jobId}.mp4`
+// }
 
 // Helper function to recover job IDs if needed
 export const getStoredJobIds = (): string[] => {
