@@ -14,30 +14,30 @@
 
 ### Claude + Backend Integration
 
-- [ ] Build Claude API wrapper (POST `/generate-code`)
-- [ ] Send prompt → get Python code (as string)
-- [ ] Save to `.py` file
-- [ ] Run `manim` subprocess to generate video
-- [ ] Serve the resulting `.mp4` from backend
+- [x] Build Claude API wrapper (POST `/generate-code`)
+- [x] Send prompt → get Python code (as string)
+- [x] Save to `.py` file
+- [x] Run `manim` subprocess to generate video
+- [x] Serve the resulting `.mp4` from backend
 
 ---
 
 ### Frontend Integration
 
-- [ ] Input box to enter prompt
-- [ ] Call backend API (`/generate`) with prompt
-- [ ] Show loading spinner
-- [ ] Display the video once done
-- [ ] Add download button for `.mp4`
+- [x] Input box to enter prompt
+- [x] Call backend API (`/generate`) with prompt
+- [x] Show loading spinner
+- [x] Display the video once done
+- [x] Add download button for `.mp4`
 
 ---
 
 ### Bonus Features (Optional)
 
-- [ ] Claude retry/fix if Manim code fails
-- [ ] Preset prompt buttons
-- [ ] Gallery of generated videos
-- [ ] User history / login
+- [x] Claude retry/fix if Manim code fails
+- [x] Preset prompt buttons
+- [x] Gallery of generated videos
+- [x] User history / login
 
 ---
 
