@@ -49,7 +49,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
             placeholder="Ask for another math animation..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className="w-full bg-slate-900/50 text-white border-cyan-700/30 focus:ring-cyan-500 placeholder-slate-400 p-3 rounded-xl h-12 box-border"
+            className="w-full bg-slate-900/50 text-white border-cyan-700/30 focus:ring-cyan-500 placeholder-slate-400 p-3 rounded-xl h-12 box-border text-sm sm:text-base"
             disabled={isLoading}
           />
         </div>
@@ -92,29 +92,29 @@ const PromptInput: React.FC<PromptInputProps> = ({
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className={cn(
-              "w-[650px] rounded-xl border p-6 pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
+              "w-full max-w-[650px] rounded-xl border p-4 sm:p-6 pr-10 sm:pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
               "focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder-slate-400 shadow-inner",
-              "h-[120px] resize-none" // Fixed height with no resize
+              "h-[100px] sm:h-[120px] resize-none text-sm sm:text-base" // Responsive height and text size
             )}
             disabled={isLoading}
           />
-          <div className="absolute right-6 bottom-6 text-cyan-400/50">
-            <Sparkles size={20} />
+          <div className="absolute right-4 sm:right-6 bottom-4 sm:bottom-6 text-cyan-400/50">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
         </div>
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-6 rounded-xl font-medium text-lg shadow-lg border border-cyan-400/20"
+          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-4 sm:py-6 rounded-xl font-medium text-base sm:text-lg shadow-lg border border-cyan-400/20"
           disabled={!prompt.trim() || isLoading}
         >
           {isLoading ? (
             <div className="flex items-center justify-center gap-2">
-              <div className="w-5 h-5 border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+              <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
               <span>Generating...</span>
             </div>
           ) : (
             <div className="flex items-center justify-center gap-2">
-              <Sparkles size={20} />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Generate Animation</span>
             </div>
           )}

@@ -68,7 +68,7 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
       {/* Header */}
-      <header className="border-b border-cyan-800/30 py-6 px-8 bg-slate-950/80 backdrop-blur-sm">
+      <header className="border-b border-cyan-800/30 py-4 sm:py-6 px-4 sm:px-8 bg-slate-950/80 backdrop-blur-sm">
         <div className="container flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
@@ -83,7 +83,7 @@ const Index = () => {
                 <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
               </svg>
             </div>
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+            <h1 className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
               Manim AI
             </h1>
           </div>
@@ -107,14 +107,13 @@ const Index = () => {
         </div>
       </header>
 
-      <main className="flex-1 container h-[calc(100vh-140px)] overflow-hidden py-4 flex flex-col">
+      <main className="flex-1 container h-[calc(100vh-120px)] sm:h-[calc(100vh-140px)] overflow-auto sm:overflow-hidden py-2 sm:py-4 flex flex-col">
         {!currentVideo && !isLoading ? (
           <div className="flex flex-col items-center justify-center h-full max-w-3xl mx-auto animate-fade-in">
             <div className="mb-6 flex flex-col items-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg mb-4">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg mb-3 sm:mb-4">
                 <svg
-                  width="40"
-                  height="40"
+                  className="w-8 h-8 sm:w-10 sm:h-10"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,15 +122,14 @@ const Index = () => {
                   <path d="M2 7.5L6 16.5H10L6 7.5H2Z" fill="white" />
                 </svg>
               </div>
-              <h1 className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+              <h1 className="text-3xl sm:text-4xl font-bold mb-1 sm:mb-2 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Manim AI
               </h1>
-              <p className="text-lg text-center text-slate-300 mb-4">
-                Generate algorithmic animations and visual Animations for
-                mathematics
+              <p className="text-sm sm:text-base lg:text-lg text-center text-slate-300 mb-3 sm:mb-4 px-2">
+                Generate algorithmic animations and visualizations for mathematics
               </p>
             </div>
-            <div className="w-full bg-slate-900/50 backdrop-blur-sm p-6 rounded-xl border border-slate-800 shadow-xl">
+            <div className="w-full bg-slate-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-slate-800 shadow-xl mx-2 sm:mx-0">
               <PromptInput
                 onSubmit={handleGenerateAnimation}
                 isLoading={isLoading}
@@ -142,12 +140,11 @@ const Index = () => {
           <div className="flex-1 flex items-center justify-center">
             <div className="flex flex-col items-center gap-6 animate-fade-in">
               {/* Spinner Ring with Icon */}
-              <div className="relative w-20 h-20">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <div className="absolute inset-0 rounded-full border-4 border-cyan-400/30 border-t-cyan-500 animate-spin" />
                 <div className="absolute inset-2 bg-slate-950 rounded-full flex items-center justify-center">
                   <svg
-                    width="28"
-                    height="28"
+                    className="w-6 h-6 sm:w-7 sm:h-7"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -160,10 +157,10 @@ const Index = () => {
 
               {/* Status Message */}
               <div className="text-center">
-                <p className="text-lg text-cyan-300 font-semibold animate-pulse">
+                <p className="text-base sm:text-lg text-cyan-300 font-semibold animate-pulse text-center px-4">
                   Preparing your animation...
                 </p>
-                <p className="text-sm text-slate-400 mt-1">
+                <p className="text-xs sm:text-sm text-slate-400 mt-1 text-center px-4">
                   This may take a few seconds. Feel free to stretch.
                 </p>
               </div>
@@ -173,12 +170,12 @@ const Index = () => {
           // Result state with video only
           <div className="animate-fade-in h-full flex flex-col">
             {/* Main content area */}
-            <div className="flex-1 min-h-0 px-4 mb-6">
-              <div className="h-full flex items-center justify-center gap-6 max-w-6xl mx-auto">
-                {/* Video container */}
-                <div className="w-1/2 h-full">
+            <div className="flex-1 min-h-0 px-2 sm:px-4 mb-4 sm:mb-6">
+              <div className="h-full flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-6xl mx-auto">
+                {/* Video container - full width on mobile, 1/2 on larger screens */}
+                <div className="w-full sm:w-1/2 h-auto sm:h-full">
                   <div className="h-full flex items-center">
-                    <div className="w-full bg-slate-900/30 rounded-xl p-4 border border-cyan-800/30 shadow-lg">
+                    <div className="w-full bg-slate-900/30 rounded-xl p-2 sm:p-4 border border-cyan-800/30 shadow-lg">
                       <VideoPlayer videoUrl={currentVideo} />
                     </div>
                   </div>
@@ -187,9 +184,9 @@ const Index = () => {
             </div>
 
             {/* Full-width prompt input */}
-            <div className="px-4 mt-auto">
+            <div className="px-2 sm:px-4 mt-auto">
               <div className="bg-slate-900/50 backdrop-blur-sm rounded-xl border border-cyan-800/30 shadow-xl max-w-6xl mx-auto">
-                <div className="p-6">
+                <div className="p-3 sm:p-6">
                   <PromptInput
                     onSubmit={handleGenerateAnimation}
                     isLoading={isLoading}
