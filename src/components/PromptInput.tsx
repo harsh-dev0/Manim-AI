@@ -44,12 +44,12 @@ const PromptInput: React.FC<PromptInputProps> = ({
           }
         }}
       >
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <Input
             placeholder="Ask for another math animation..."
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            className="w-full bg-slate-900/50 text-white border-cyan-700/30 focus:ring-cyan-500 placeholder-slate-400 p-3 rounded-xl h-12 box-border text-sm sm:text-base"
+            className="w-full bg-slate-900/50 text-white border-cyan-700/30 focus:ring-cyan-500 placeholder-slate-400 p-3 rounded-xl h-12 box-border text-sm sm:text-base min-w-0"
             disabled={isLoading}
           />
         </div>
@@ -92,9 +92,9 @@ const PromptInput: React.FC<PromptInputProps> = ({
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className={cn(
-              "w-full max-w-[650px] rounded-xl border p-4 sm:p-6 pr-10 sm:pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
+              "sm:w-[650px] rounded-xl border p-4 sm:p-6 pr-10 sm:pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
               "focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder-slate-400 shadow-inner",
-              "h-[100px] sm:h-[120px] resize-none text-sm sm:text-base" // Responsive height and text size
+              "min-h-[100px] sm:min-h-[120px] resize-none text-sm sm:text-base" // Responsive min-height and text size
             )}
             disabled={isLoading}
           />
