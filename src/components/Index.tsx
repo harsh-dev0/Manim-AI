@@ -15,11 +15,9 @@ const Index = () => {
     setIsLoading(true)
 
     try {
-      // Call the API to start generation
       const response = await generateAnimation(prompt)
       const jobId = response.id
 
-      // Poll for status
       const checkInterval = setInterval(async () => {
         const status = await checkGenerationStatus(jobId)
 
@@ -67,7 +65,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
-      {/* Header */}
       <header className="border-b border-cyan-800/30 py-4 sm:py-6 px-4 sm:px-8 bg-slate-950/80 backdrop-blur-sm">
         <div className="container flex items-center justify-between">
           <div className="flex items-center space-x-2">
