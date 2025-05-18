@@ -64,7 +64,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoUrl }) => {
         </div>
       )}
       
-      <div className="aspect-video bg-black/30 rounded-lg overflow-hidden shadow-lg">
+      <div className="aspect-video bg-black/30 rounded-lg overflow-hidden">
         <video
           src={videoUrl}
           controls
