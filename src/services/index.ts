@@ -1,7 +1,6 @@
 import axios from "axios"
 
-const API_BASE_URL =
-  "https://manimbe-production.up.railway.app/"
+const API_BASE_URL = "https://manimbe-production-9bc4.up.railway.app/"
 
 export interface GenerationRequest {
   prompt: string
