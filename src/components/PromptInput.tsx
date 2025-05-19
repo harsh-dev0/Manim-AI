@@ -88,7 +88,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
       <div className="w-full max-w-2xl mx-auto space-y-4">
         <div className="relative">
           <Textarea
-            placeholder="Describe the mathematical animation you want to create... (e.g., 'Show the derivative of exponential function')"
+            placeholder="Describe the mathematical animation you want to create... (e.g., 'Show the graph of quadratic equation')"
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             className={cn(
