@@ -1,6 +1,11 @@
 # [MANIM AI](https://manimai.vercel.app/)
 
 ---
+## DEMO
+
+https://github.com/user-attachments/assets/1f6efdc1-d661-4467-8e26-7e8846a29161
+
+---
 
 ## 🧠 Project Overview
 
