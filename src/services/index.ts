@@ -1,6 +1,9 @@
 import axios from "axios"
+import { log } from "console"
 
-const API_BASE_URL = "https://manimbe.onrender.com/"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL!
+
+console.log(API_BASE_URL)
 
 export interface GenerationRequest {
   prompt: string
@@ -54,11 +57,12 @@ export const checkGenerationStatus = async (
     )
     return response.data
   } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : "Failed to check status";
+    const errorMessage =
+      error instanceof Error ? error.message : "Failed to check status"
     return {
       id: jobId,
       status: "error",
-      error: errorMessage
+      error: errorMessage,
     }
   }
 }
