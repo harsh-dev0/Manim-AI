@@ -73,6 +73,7 @@ export const authOptions: NextAuthOptions = {
         status: video.status,
         video_url: video.video_url,
         title: video.title,
+        description: video.description,
         error: video.error,
         createdAt: video.createdAt,
         updatedAt: video.updatedAt,

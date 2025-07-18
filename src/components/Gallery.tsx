@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useCallback } from "react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -53,6 +53,8 @@ interface EditDialogState {
 
 export function Gallery() {
   const { data: session, update } = useSession()
+  console.log(session)
+
   const router = useRouter()
   const { toast } = useToast()
   const [deletingId, setDeletingId] = useState<string | null>(null)
@@ -64,54 +66,59 @@ export function Gallery() {
     mode: null,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null)
 
   const handleSignIn = () => {
     router.push("/sign-in")
   }
 
-  const handleDeleteVideo = async (videoId: string) => {
-    if (!session?.user) return
+  const handleDeleteVideo = useCallback(
+    async (videoId: string) => {
+      if (!session?.user) return
 
-    try {
-      setDeletingId(videoId)
+      try {
+        setDeletingId(videoId)
+        setOpenDropdownId(null) // Close dropdown
 
-      const response = await fetch(`/api/videos?id=${videoId}`, {
-        method: "DELETE",
-      })
+        const response = await fetch(`/api/videos?id=${videoId}`, {
+          method: "DELETE",
+        })
 
-      if (!response.ok) {
-        throw new Error("Failed to delete video")
+        if (!response.ok) {
+          throw new Error("Failed to delete video")
+        }
+
+        // Update the session to reflect the deleted video
+        if (session.user.videos) {
+          const updatedVideos = session.user.videos.filter(
+            (video) => video.id !== videoId
+          )
+          session.user.videos = updatedVideos
+          await update({ videos: updatedVideos })
+        }
+
+        toast({
+          title: "Video deleted",
+          description: "The video has been removed from your gallery",
+        })
+
+        router.refresh()
+      } catch (error) {
+        console.error("Error deleting video:", error)
+        toast({
+          title: "Error",
+          description: "Failed to delete the video. Please try again.",
+          variant: "destructive",
+        })
+      } finally {
+        setDeletingId(null)
       }
+    },
+    [session, update, toast, router]
+  )
 
-      // Update the session to reflect the deleted video
-      if (session.user.videos) {
-        const updatedVideos = session.user.videos.filter(
-          (video) => video.id !== videoId
-        )
-        session.user.videos = updatedVideos
-        await update({ videos: updatedVideos })
-      }
-
-      toast({
-        title: "Video deleted",
-        description: "The video has been removed from your gallery",
-      })
-
-      // Force a refresh of the page to update the UI
-      router.refresh()
-    } catch (error) {
-      console.error("Error deleting video:", error)
-      toast({
-        title: "Error",
-        description: "Failed to delete the video. Please try again.",
-        variant: "destructive",
-      })
-    } finally {
-      setDeletingId(null)
-    }
-  }
-
-  const openEditTitleDialog = (video: UserVideo) => {
+  const openEditTitleDialog = useCallback((video: UserVideo) => {
+    setOpenDropdownId(null) // Close dropdown
     setEditDialog({
       isOpen: true,
       videoId: video.id,
@@ -119,9 +126,10 @@ export function Gallery() {
       description: video.description || "",
       mode: "title",
     })
-  }
+  }, [])
 
-  const openEditDescriptionDialog = (video: UserVideo) => {
+  const openEditDescriptionDialog = useCallback((video: UserVideo) => {
+    setOpenDropdownId(null) // Close dropdown
     setEditDialog({
       isOpen: true,
       videoId: video.id,
@@ -129,9 +137,9 @@ export function Gallery() {
       description: video.description || "",
       mode: "description",
     })
-  }
+  }, [])
 
-  const closeEditDialog = () => {
+  const closeEditDialog = useCallback(() => {
     setEditDialog({
       isOpen: false,
       videoId: null,
@@ -139,9 +147,9 @@ export function Gallery() {
       description: "",
       mode: null,
     })
-  }
+  }, [])
 
-  const handleSaveChanges = async () => {
+  const handleSaveChanges = useCallback(async () => {
     if (!editDialog.videoId || !session?.user) return
 
     try {
@@ -203,7 +211,7 @@ export function Gallery() {
     } finally {
       setIsSubmitting(false)
     }
-  }
+  }, [editDialog, session, update, toast, closeEditDialog, router])
 
   if (!session?.user) {
     return (
@@ -265,49 +273,86 @@ export function Gallery() {
                   key={video.id}
                   className="bg-slate-900/50 border-cyan-700/30 overflow-hidden"
                 >
-                  <CardHeader className="pb-2 pr-14 relative">
-                    <div className="absolute right-4 top-4">
-                      <DropdownMenu>
+                  <CardHeader className="pb-3 pr-14 relative">
+                    <CardTitle className="text-lg text-cyan-300 mb-2 leading-snug">
+                      {video.title || "Untitled Animation"}
+                    </CardTitle>
+                    <div className="min-h-[3rem]">
+                      <CardDescription className="text-slate-400 text-sm leading-relaxed">
+                        {video.description &&
+                        video.description.trim() !== ""
+                          ? video.description
+                          : "No description added yet"}
+                      </CardDescription>
+                    </div>
+                    <div className="absolute right-4 top-4 z-10">
+                      <DropdownMenu
+                        open={openDropdownId === video.id}
+                        onOpenChange={(open) => {
+                          if (open) {
+                            setOpenDropdownId(video.id)
+                          } else {
+                            setOpenDropdownId(null)
+                          }
+                        }}
+                      >
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-8 w-8 text-slate-400 hover:text-white hover:bg-slate-800"
+                            className="h-8 w-8 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-full"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                            }}
                           >
                             <MoreVertical className="h-4 w-4" />
+                            <span className="sr-only">Open menu</span>
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent
                           align="end"
-                          className="bg-slate-900 border-slate-800"
+                          className="bg-slate-900/95 border-slate-800 backdrop-blur-sm"
+                          onCloseAutoFocus={(e) => e.preventDefault()}
                         >
                           <DropdownMenuItem
-                            onClick={() => openEditTitleDialog(video)}
-                            className="text-slate-300 hover:text-white cursor-pointer"
+                            className="text-slate-300 hover:text-white hover:bg-slate-800/50"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              openEditTitleDialog(video)
+                            }}
                           >
                             <Edit className="mr-2 h-4 w-4" />
                             Edit Title
                           </DropdownMenuItem>
                           <DropdownMenuItem
-                            onClick={() =>
+                            className="text-slate-300 hover:text-white hover:bg-slate-800/50"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
                               openEditDescriptionDialog(video)
-                            }
-                            className="text-slate-300 hover:text-white cursor-pointer"
+                            }}
                           >
                             <FileText className="mr-2 h-4 w-4" />
-                            {video.description
+                            {video.description &&
+                            video.description.trim() !== ""
                               ? "Edit Description"
                               : "Add Description"}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator className="bg-slate-800" />
                           <DropdownMenuItem
-                            onClick={() => handleDeleteVideo(video.id)}
                             disabled={deletingId === video.id}
-                            className="text-red-500 hover:text-red-400 cursor-pointer"
+                            className="text-red-400 hover:text-red-300 hover:bg-red-950/50 focus:bg-red-950/50"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              handleDeleteVideo(video.id)
+                            }}
                           >
                             {deletingId === video.id ? (
                               <>
-                                <div className="w-4 h-4 border-2 border-t-red-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mr-2"></div>
+                                <div className="w-4 h-4 border-2 border-red-300/30 border-t-red-400 rounded-full animate-spin mr-2"></div>
                                 Deleting...
                               </>
                             ) : (
@@ -320,29 +365,26 @@ export function Gallery() {
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </div>
-                    <CardTitle className="text-lg text-cyan-300">
-                      {video.title || "Untitled Animation"}
-                    </CardTitle>
-                    {video.description && (
-                      <CardDescription className="text-slate-400 text-sm mt-1 line-clamp-2">
-                        {video.description}
-                      </CardDescription>
-                    )}
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="pt-0">
                     {video.video_url ? (
-                      <div className="aspect-video rounded-md overflow-hidden bg-slate-950">
+                      <div className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-3">
                         <VideoPlayer videoUrl={video.video_url} />
                       </div>
                     ) : (
-                      <div className="aspect-video rounded-md flex items-center justify-center bg-slate-950 text-slate-500">
+                      <div className="aspect-video rounded-md flex items-center justify-center bg-slate-950 text-slate-500 mb-3">
                         {video.status === "processing"
                           ? "Processing..."
                           : "No video available"}
                       </div>
                     )}
-                    <div className="mt-2 flex justify-between items-center text-xs text-slate-400">
-                      <span>Status: {video.status}</span>
+                    <div className="flex justify-between items-center text-xs text-slate-400">
+                      <span className="capitalize font-medium">
+                        Status:{" "}
+                        <span className="text-cyan-400">
+                          {video.status}
+                        </span>
+                      </span>
                       {video.createdAt && (
                         <span>
                           {new Date(video.createdAt).toLocaleDateString()}
@@ -361,7 +403,7 @@ export function Gallery() {
         open={editDialog.isOpen}
         onOpenChange={(open) => !open && closeEditDialog()}
       >
-        <DialogContent className="bg-slate-900 text-white border-slate-800">
+        <DialogContent className="bg-slate-900 text-white border-slate-800 max-w-md">
           <DialogHeader>
             <DialogTitle className="text-cyan-300">
               {editDialog.mode === "title"
@@ -388,7 +430,7 @@ export function Gallery() {
                   onChange={(e) =>
                     setEditDialog({ ...editDialog, title: e.target.value })
                   }
-                  className="bg-slate-800 border-slate-700 text-white"
+                  className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500"
                 />
               </div>
             </div>
@@ -400,7 +442,7 @@ export function Gallery() {
                 </Label>
                 <Textarea
                   id="description"
-                  placeholder="Describe your animation"
+                  placeholder="Describe your animation..."
                   value={editDialog.description}
                   onChange={(e) =>
                     setEditDialog({
@@ -408,7 +450,7 @@ export function Gallery() {
                       description: e.target.value,
                     })
                   }
-                  className="bg-slate-800 border-slate-700 text-white min-h-[100px]"
+                  className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 min-h-[120px] resize-none"
                 />
               </div>
             </div>
@@ -426,11 +468,11 @@ export function Gallery() {
             <Button
               onClick={handleSaveChanges}
               disabled={isSubmitting}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin mr-2"></div>
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2"></div>
                   Saving...
                 </>
               ) : (
