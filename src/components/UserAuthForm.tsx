@@ -2,6 +2,8 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { signIn } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
@@ -9,17 +11,25 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const UserAuthForm = ({ className, ...props }: UserAuthFormProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const router = useRouter()
 
   const onGoogleSignIn = async () => {
     setIsLoading(true)
 
     try {
-      // Google sign-in logic would go here
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 1000)
+      const result = await signIn("google", {
+        callbackUrl: "/",
+        redirect: false,
+      })
+
+      if (result?.error) {
+        console.error("Error signing in with Google:", result.error)
+      } else if (result?.url) {
+        router.push(result.url)
+      }
     } catch (error) {
       console.error("Error signing in with Google:", error)
+    } finally {
       setIsLoading(false)
     }
   }

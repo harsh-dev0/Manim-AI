@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import { SendIcon, Sparkles } from "lucide-react"
+import { SendIcon, Sparkles, LogIn } from "lucide-react"
+import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 interface PromptInputProps {
-  onSubmit: (prompt: string) => void
+  onSubmit: (prompt: string, userId?: string) => void
   isLoading: boolean
   compact?: boolean
 }
@@ -17,13 +19,42 @@ const PromptInput: React.FC<PromptInputProps> = ({
   compact = false,
 }) => {
   const [prompt, setPrompt] = useState("")
+  const { data: session } = useSession()
+  const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (prompt.trim() && !isLoading) {
-      onSubmit(prompt)
-      setPrompt("") // Clear input after submission
+      if (session?.user) {
+        onSubmit(prompt, session.user.id)
+        setPrompt("") // Clear input after submission
+      } else {
+        router.push("/sign-in")
+      }
     }
+  }
+
+  const handleSignIn = () => {
+    router.push("/sign-in")
+  }
+
+  if (!session?.user) {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-4">
+        <div className="bg-slate-900/50 text-white border border-cyan-700/30 rounded-xl p-4 sm:p-6 text-center">
+          <p className="text-slate-300 mb-4">
+            Please sign in to generate math animations
+          </p>
+          <Button
+            onClick={handleSignIn}
+            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-4 rounded-xl font-medium text-base shadow-lg border border-cyan-400/20"
+          >
+            <LogIn className="w-4 h-4 mr-2" />
+            Sign In
+          </Button>
+        </div>
+      </div>
+    )
   }
 
   if (compact) {
@@ -39,8 +70,12 @@ const PromptInput: React.FC<PromptInputProps> = ({
             !isLoading
           ) {
             e.preventDefault()
-            onSubmit(prompt)
-            setPrompt("")
+            if (session?.user) {
+              onSubmit(prompt, session.user.id)
+              setPrompt("")
+            } else {
+              router.push("/sign-in")
+            }
           }
         }}
       >
@@ -80,8 +115,12 @@ const PromptInput: React.FC<PromptInputProps> = ({
           !isLoading
         ) {
           e.preventDefault()
-          onSubmit(prompt)
-          setPrompt("")
+          if (session?.user) {
+            onSubmit(prompt, session.user.id)
+            setPrompt("")
+          } else {
+            router.push("/sign-in")
+          }
         }
       }}
     >

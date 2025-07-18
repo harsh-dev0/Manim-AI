@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@vercel/analytics/next"
+import Providers from "@/components/Providers"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Manim AI",
-  description: "Generate algorithmic animations and visualizations for mathematics",
+  description:
+    "Generate algorithmic animations and visualizations for mathematics",
   icons: {
     icon: "/favicon.png",
   },
@@ -31,7 +33,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
         <Analytics />
         <Toaster />
       </body>

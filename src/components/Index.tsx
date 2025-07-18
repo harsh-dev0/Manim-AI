@@ -1,27 +1,44 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useToast } from "@/hooks/use-toast"
 import { checkGenerationStatus, generateAnimation } from "@/services"
 import VideoPlayer from "@/components/VideoPlayer"
 import PromptInput from "@/components/PromptInput"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import { useSession } from "next-auth/react"
 
 const Index = () => {
   const { toast } = useToast()
+  // We still need useSession for the PromptInput component to work properly
+  // but we don't need to assign it to a variable if we're not using it
+  useSession()
   const [isLoading, setIsLoading] = useState(false)
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
   const [, setAnimationTitle] = useState<string | null>(null)
+  const [showInitialView, setShowInitialView] = useState(true)
 
-  const handleGenerateAnimation = async (prompt: string) => {
+  // Don't automatically load videos on page refresh
+  // Instead, we'll keep the initial view until user generates a new animation
+  useEffect(() => {
+    // Clear any existing video on refresh/initial load
+    setCurrentVideo(null)
+    setShowInitialView(true)
+  }, [])
+
+  const handleGenerateAnimation = async (
+    prompt: string,
+    userId?: string
+  ) => {
     setIsLoading(true)
+    setShowInitialView(false)
 
     try {
-      const response = await generateAnimation(prompt)
+      const response = await generateAnimation(prompt, userId)
       const jobId = response.id
 
       const checkInterval = setInterval(async () => {
-        const status = await checkGenerationStatus(jobId)
+        const status = await checkGenerationStatus(jobId, userId)
 
         if (status.status === "completed") {
           clearInterval(checkInterval)
@@ -70,7 +87,7 @@ const Index = () => {
       <Header />
 
       <main className="flex-1 container h-[calc(100vh-120px)] sm:h-[calc(100vh-140px)] overflow-auto sm:overflow-hidden py-2 sm:py-4 flex flex-col">
-        {!currentVideo && !isLoading ? (
+        {(!currentVideo && !isLoading) || showInitialView ? (
           <div className="flex flex-col items-center justify-center h-full max-w-3xl mx-auto animate-fade-in">
             <div className="mb-6 flex flex-col items-center">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg mb-3 sm:mb-4">

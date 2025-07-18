@@ -4,6 +4,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL!
 
 export interface GenerationRequest {
   prompt: string
+  userId?: string
 }
 
 export interface GenerationResponse {
@@ -23,13 +24,17 @@ const apiClient = axios.create({
 
 // API functions
 export const generateAnimation = async (
-  prompt: string
+  prompt: string,
+  userId?: string
 ): Promise<GenerationResponse> => {
   try {
+    console.log("Sending generation request with prompt:", prompt)
     const response = await apiClient.post<GenerationResponse>(
       "/generate",
-      { prompt }
+      { prompt, userId }
     )
+    console.log("Generation response received:", response.data)
+
     // Store job ID in localStorage for recovery if needed
     const jobIds = JSON.parse(
       localStorage.getItem("visuamath_job_ids") || "[]"
@@ -37,25 +42,53 @@ export const generateAnimation = async (
     jobIds.push(response.data.id)
     localStorage.setItem("visuamath_job_ids", JSON.stringify(jobIds))
 
+    // If user is logged in, save video to database
+    if (userId && response.data.id) {
+      try {
+        await saveVideoToDatabase(response.data, userId)
+      } catch (dbError) {
+        console.error("Error saving video to database:", dbError)
+      }
+    }
+
     return response.data
   } catch (error) {
     console.error("Error generating animation:", error)
+    if (axios.isAxiosError(error)) {
+      console.error("API error details:", error.response?.data)
+    }
     throw error
   }
 }
 
 export const checkGenerationStatus = async (
-  jobId: string
+  jobId: string,
+  userId?: string
 ): Promise<GenerationResponse> => {
   try {
     console.log(`Checking status for job: ${jobId}`)
     const response = await apiClient.get<GenerationResponse>(
       `/status/${jobId}`
     )
+    console.log(`Status response for job ${jobId}:`, response.data)
+
+    // If status is completed and user is logged in, update the video in database
+    if (userId && response.data.status === "completed") {
+      try {
+        await saveVideoToDatabase(response.data, userId)
+      } catch (dbError) {
+        console.error("Error updating video in database:", dbError)
+      }
+    }
+
     return response.data
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : "Failed to check status"
+    console.error(`Error checking status for job ${jobId}:`, error)
+    if (axios.isAxiosError(error)) {
+      console.error("API error details:", error.response?.data)
+    }
     return {
       id: jobId,
       status: "error",
@@ -64,10 +97,33 @@ export const checkGenerationStatus = async (
   }
 }
 
-// export const downloadVideo = (jobId: string): string => {
-//   // Use local URL for development
-//   return `http://127.0.0.1:8000/media/${jobId}.mp4`
-// }
+// Helper function to save/update video in database
+async function saveVideoToDatabase(
+  video: GenerationResponse,
+  userId: string
+) {
+  try {
+    const response = await fetch("/api/videos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...video,
+        userId,
+      }),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Failed to save video: ${response.statusText}`)
+    }
+
+    return await response.json()
+  } catch (error) {
+    console.error("Error saving video to database:", error)
+    throw error
+  }
+}
 
 // Helper function to recover job IDs if needed
 export const getStoredJobIds = (): string[] => {
