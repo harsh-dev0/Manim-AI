@@ -17,6 +17,7 @@ declare module "next-auth" {
       id: string
       username?: string | null
       videos?: UserVideo[]
+      videoCount?: number
     } & DefaultSession["user"]
   }
 
@@ -24,6 +25,7 @@ declare module "next-auth" {
     id: string
     username?: string | null
     videos?: UserVideo[]
+    videoCount?: number
   }
 }
 
@@ -32,5 +34,6 @@ declare module "next-auth/jwt" {
     id: string
     username?: string | null
     videos?: UserVideo[]
+    videoCount?: number
   }
 }

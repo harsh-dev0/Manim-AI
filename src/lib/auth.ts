@@ -35,6 +35,7 @@ export const authOptions: NextAuthOptions = {
         session.user.image = token.picture
         session.user.username = token.username
         session.user.videos = token.videos || []
+        session.user.videoCount = token.videoCount || 0
       }
 
       return session
@@ -79,6 +80,17 @@ export const authOptions: NextAuthOptions = {
         updatedAt: video.updatedAt,
       }))
 
+      // Calculate video count
+      const videoCount = videos.length
+
+      // Update videoCount in the users collection if it has changed
+      if (dbUser.videoCount !== videoCount) {
+        await usersCollection.updateOne(
+          { _id: dbUser._id },
+          { $set: { videoCount } }
+        )
+      }
+
       return {
         id: dbUser._id.toString(),
         name: dbUser.name,
@@ -86,6 +98,7 @@ export const authOptions: NextAuthOptions = {
         picture: dbUser.image,
         username: dbUser.username,
         videos: videos,
+        videoCount: videoCount,
       }
     },
     redirect() {

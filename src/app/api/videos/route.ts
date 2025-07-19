@@ -3,6 +3,31 @@ import { getAuthSession } from "@/lib/auth"
 import { db } from "@/lib/db"
 import mongoose from "mongoose"
 import VideoModel from "@/models/Video"
+import { MongoClient } from "mongodb"
+
+// Initialize MongoDB client
+const client = new MongoClient(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/manim"
+)
+const clientPromise = client.connect()
+
+// Helper function to update video count
+async function updateUserVideoCount(userId: string) {
+  const database = (await clientPromise).db()
+  const usersCollection = database.collection("users")
+  const videosCollection = database.collection("videos")
+
+  // Count videos for this user
+  const videoCount = await videosCollection.countDocuments({ userId })
+
+  // Update the user's videoCount
+  await usersCollection.updateOne(
+    { _id: new mongoose.Types.ObjectId(userId) },
+    { $set: { videoCount } }
+  )
+
+  return videoCount
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -70,6 +95,9 @@ export async function POST(req: NextRequest) {
       })
 
       await newVideo.save()
+
+      // Update user's video count
+      await updateUserVideoCount(userId)
 
       return NextResponse.json(newVideo)
     }
@@ -222,6 +250,9 @@ export async function DELETE(req: NextRequest) {
 
     // Delete the video
     await VideoModel.deleteOne({ id: videoId })
+
+    // Update user's video count
+    await updateUserVideoCount(session.user.id)
 
     return NextResponse.json({ success: true })
   } catch (error) {

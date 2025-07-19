@@ -248,6 +248,9 @@ export function Gallery() {
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold mb-6 text-cyan-400">
             Your Animation Gallery
+            <span className="text-2xl ml-2 text-cyan-300/70">
+              ({session.user.videoCount || userVideos.length})
+            </span>
           </h1>
 
           {userVideos.length === 0 ? (
