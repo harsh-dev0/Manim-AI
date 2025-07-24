@@ -5,52 +5,31 @@ import { Button } from "@/components/ui/button"
 
 const animation_prompts = {
   // Math animations
-  "rotating cube":
-    "Create an animation of a red 3D cube rotating along its diagonal axis with smooth rotation and lighting effects.",
-  "sine wave":
-    "Visualize a sine wave with amplitude 1 and frequency 2, smoothly oscillating over time with color gradients.",
-  "butterfly curve":
-    "Animate a parametric butterfly curve being traced out in real-time, with colors transitioning from blue to purple.",
+  "rotating cube": "Create a blue cube that rotates.",
+  "sine wave": "Show a simple sine wave.",
+  "number line": "Draw a number line from 0 to 10.",
 
   // Data structures & algorithms
-  "binary search tree":
-    "Visualize the insertion of nodes 5, 3, 7, 2, 4, 6, 8 into a binary search tree with step-by-step animation.",
-  "merge sort":
-    "Demonstrate merge sort algorithm on the array [6, 5, 3, 1, 8, 7, 2, 4] with clear step divisions.",
-  "graph traversal":
-    "Show a BFS traversal on a directed graph with 6 nodes, highlighting the visited nodes in sequence.",
+  "binary search tree": "Show a small binary search tree.",
+  "merge sort": "Sort the array [3,1,4,2].",
+  "graph traversal": "Show a graph traversal.",
 
   // Boolean algebra
-  "logic gates":
-    "Create an animation showing how AND, OR, and NOT gates work with input signals changing over time.",
-  "karnaugh map":
-    "Visualize the simplification of boolean expression (A·B) + (A·C) using a Karnaugh map.",
-  "binary adder":
-    "Demonstrate a 4-bit binary adder circuit in operation with animated signal flows.",
+  "logic gates": "Draw an AND gate and OR gate.",
+  "karnaugh map": "Create a 2×2 Karnaugh map.",
+  "binary adder": "Show a binary adder.",
 
   // Math theorems
-  "pythagorean theorem":
-    "Prove the Pythagorean theorem visually by showing the areas of squares on the sides of a right triangle.",
-  "euler's identity":
-    "Create a visual explanation of Euler's identity (e^(iπ) + 1 = 0) using the unit circle.",
-  "fibonacci sequence":
-    "Visualize the Fibonacci sequence and its relation to the golden ratio with spirals and rectangles.",
+  "pythagorean theorem": "Show a right triangle with a²+b²=c².",
+  "fibonacci sequence": "Show the first 5 Fibonacci numbers.",
 
   // Equations
-  "quadratic formula":
-    "Animate the derivation of the quadratic formula from ax² + bx + c = 0 with step-by-step algebraic manipulations.",
-  "wave equation":
-    "Show a numerical solution to the 1D wave equation with changing boundary conditions.",
-  "differential equations":
-    "Visualize a vector field for a system of differential equations with animated solution curves.",
+  "quadratic formula": "Show the quadratic formula.",
+  "linear equation": "Graph y = x + 1.",
 
-  // Landscapes
-  "fractal landscape":
-    "Generate a 3D fractal mountain landscape with dynamic lighting and camera movement.",
-  "mandelbrot zoom":
-    "Create a smooth zoom animation into the Mandelbrot set, focusing on an interesting border region.",
-  "geometric patterns":
-    "Animate the construction of Islamic geometric patterns from basic shapes to complex tessellations.",
+  // Shapes and patterns
+  "square to circle": "Morph a square into a circle.",
+  "geometric patterns": "Create a simple geometric pattern.",
 }
 
 const examplePrompts = Object.entries(animation_prompts)
