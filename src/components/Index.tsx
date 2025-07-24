@@ -11,8 +11,7 @@ import { useSession } from "next-auth/react"
 const Index = () => {
   const { toast } = useToast()
   // We still need useSession for the PromptInput component to work properly
-  // but we don't need to assign it to a variable if we're not using it
-  useSession()
+  const { status } = useSession()
   const [isLoading, setIsLoading] = useState(false)
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
   const [, setAnimationTitle] = useState<string | null>(null)
@@ -80,6 +79,22 @@ const Index = () => {
 
       setIsLoading(false)
     }
+  }
+
+  // Show loading state while checking authentication
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
+        <Header />
+        <main className="flex-1 container flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-16 h-16 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+            <p className="text-slate-300">Loading...</p>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    )
   }
 
   return (

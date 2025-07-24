@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import { SendIcon, Sparkles, LogIn } from "lucide-react"
+import { SendIcon, Sparkles, LogIn, Loader2 } from "lucide-react"
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
+import SuggestionBar from "@/components/SuggestionBar"
 
 interface PromptInputProps {
   onSubmit: (prompt: string, userId?: string) => void
@@ -19,7 +20,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
   compact = false,
 }) => {
   const [prompt, setPrompt] = useState("")
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
   const router = useRouter()
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,8 +35,26 @@ const PromptInput: React.FC<PromptInputProps> = ({
     }
   }
 
+  const handlePromptSelect = (selectedPrompt: string) => {
+    setPrompt(selectedPrompt)
+  }
+
   const handleSignIn = () => {
     router.push("/sign-in")
+  }
+
+  // Show loading state while checking authentication
+  if (status === "loading") {
+    return (
+      <div className="w-full max-w-2xl mx-auto space-y-4">
+        <div className="bg-slate-900/50 text-white border border-cyan-700/30 rounded-xl p-4 sm:p-6 text-center">
+          <div className="flex flex-col items-center justify-center gap-2">
+            <Loader2 className="w-6 h-6 text-cyan-400 animate-spin" />
+            <p className="text-slate-300">Checking authentication...</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   if (!session?.user) {
@@ -125,6 +144,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
       }}
     >
       <div className="w-full max-w-2xl mx-auto space-y-4">
+        <SuggestionBar onPromptSelect={handlePromptSelect} />
         <div className="relative">
           <Textarea
             placeholder="Describe the mathematical animation you want to create... (e.g., 'Show the graph of quadratic equation')"
