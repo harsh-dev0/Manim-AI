@@ -28,22 +28,17 @@ const PromptInput: React.FC<PromptInputProps> = ({
     if (prompt.trim() && !isLoading) {
       if (session?.user) {
         onSubmit(prompt, session.user.id)
-        setPrompt("") // Clear input after submission
+        setPrompt("")
       } else {
         router.push("/sign-in")
       }
     }
   }
 
-  const handlePromptSelect = (selectedPrompt: string) => {
-    setPrompt(selectedPrompt)
-  }
-
   const handleSignIn = () => {
     router.push("/sign-in")
   }
 
-  // Show loading state while checking authentication
   if (status === "loading") {
     return (
       <div className="w-full max-w-2xl mx-auto space-y-4">
@@ -144,7 +139,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
       }}
     >
       <div className="w-full max-w-2xl mx-auto space-y-4">
-        <SuggestionBar onPromptSelect={handlePromptSelect} />
+        <SuggestionBar onPromptSelect={setPrompt} />
         <div className="relative">
           <Textarea
             placeholder="Describe the mathematical animation you want to create... (e.g., 'Show the graph of quadratic equation')"
@@ -153,7 +148,7 @@ const PromptInput: React.FC<PromptInputProps> = ({
             className={cn(
               "sm:w-[650px] rounded-xl border p-4 sm:p-6 pr-10 sm:pr-12 bg-slate-900/50 text-white border-cyan-700/30 box-border",
               "focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder-slate-400 shadow-inner",
-              "min-h-[100px] sm:min-h-[120px] resize-none text-sm sm:text-base" // Responsive min-height and text size
+              "min-h-[100px] sm:min-h-[120px] resize-none text-sm sm:text-base"
             )}
             disabled={isLoading}
           />

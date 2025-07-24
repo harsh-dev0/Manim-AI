@@ -11,7 +11,7 @@ const animation_prompts = {
 
   // Data structures & algorithms
   "binary search tree": "Show a small binary search tree.",
-  "merge sort": "Sort the array [3,1,4,2].",
+  "merge sort": "Merge sort the array [3,1,4,2].",
   "graph traversal": "Show a graph traversal.",
 
   // Boolean algebra
@@ -48,6 +48,15 @@ const SuggestionBar: React.FC<SuggestionBarProps> = ({
 
   if (!visible) return null
 
+  const handleSuggestionClick = (
+    e: React.MouseEvent,
+    promptValue: string
+  ) => {
+    e.preventDefault()
+    e.stopPropagation()
+    onPromptSelect(promptValue)
+  }
+
   return (
     <div className="w-full bg-slate-900/50 backdrop-blur-sm border border-cyan-800/30 rounded-xl shadow-lg mb-6 px-4 py-3 flex flex-col md:flex-row items-center gap-3 relative animate-fade-in">
       <Sparkles className="text-cyan-400 mr-2 shrink-0" />
@@ -59,10 +68,11 @@ const SuggestionBar: React.FC<SuggestionBarProps> = ({
           {examplePrompts.map((ex, idx) => (
             <Button
               key={idx}
+              type="button"
               size="sm"
               variant="ghost"
               className="bg-slate-800/60 hover:bg-slate-700/60 text-cyan-100 border border-cyan-800/30 rounded-lg px-3 py-1 text-xs"
-              onClick={() => onPromptSelect(ex.value)}
+              onClick={(e) => handleSuggestionClick(e, ex.value)}
               title={ex.value}
             >
               {ex.key}
@@ -71,6 +81,7 @@ const SuggestionBar: React.FC<SuggestionBarProps> = ({
         </span>
       </div>
       <Button
+        type="button"
         size="icon"
         variant="ghost"
         className="absolute top-2 right-2 text-slate-400 hover:text-white"
