@@ -3,11 +3,12 @@ import React from "react"
 import Link from "next/link"
 import { useSession, signIn, signOut } from "next-auth/react"
 import { Button } from "@/components/ui/button"
-import { LogIn, LogOut, ImageIcon } from "lucide-react"
+import { LogIn, LogOut, ImageIcon, Loader2 } from "lucide-react"
 import Image from "next/image"
 
 const Header = () => {
-  const { data: session } = useSession()
+  const { data: session, status } = useSession()
+  const isLoading = status === "loading"
 
   return (
     <header className="border-b border-cyan-800/30 py-4 sm:py-6 px-4 sm:px-8 bg-slate-950/80 backdrop-blur-sm">
@@ -44,7 +45,14 @@ const Header = () => {
           )}
 
           <div className="flex items-center space-x-2">
-            {session?.user ? (
+            {isLoading ? (
+              <div className="flex items-center space-x-2 bg-slate-900/60 rounded-lg px-3 py-1.5 border border-cyan-800/20">
+                <Loader2 className="w-4 h-4 text-cyan-400 animate-spin" />
+                <span className="text-xs text-cyan-300 hidden sm:inline">
+                  Checking auth...
+                </span>
+              </div>
+            ) : session?.user ? (
               <div className="flex items-center space-x-2">
                 {session.user.image && (
                   <Image
