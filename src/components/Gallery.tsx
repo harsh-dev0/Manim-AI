@@ -52,8 +52,7 @@ interface EditDialogState {
 }
 
 export function Gallery() {
-  const { data: session, update } = useSession()
-  console.log(session)
+  const { data: session } = useSession()
 
   const router = useRouter()
   const { toast } = useToast()
@@ -88,13 +87,14 @@ export function Gallery() {
           throw new Error("Failed to delete video")
         }
 
-        // Update the session to reflect the deleted video
+        // Update local state instead of session
         if (session.user.videos) {
           const updatedVideos = session.user.videos.filter(
             (video) => video.id !== videoId
           )
+          // Update local session object without triggering a session update
           session.user.videos = updatedVideos
-          await update({ videos: updatedVideos })
+          session.user.videoCount = updatedVideos.length
         }
 
         toast({
@@ -102,7 +102,7 @@ export function Gallery() {
           description: "The video has been removed from your gallery",
         })
 
-        router.refresh()
+        // No need to refresh the entire page
       } catch (error) {
         console.error("Error deleting video:", error)
         toast({
@@ -114,7 +114,7 @@ export function Gallery() {
         setDeletingId(null)
       }
     },
-    [session, update, toast, router]
+    [session, toast]
   )
 
   const openEditTitleDialog = useCallback((video: UserVideo) => {
@@ -180,15 +180,15 @@ export function Gallery() {
 
       const updatedVideo = await response.json()
 
-      // Update the session to reflect the changes
+      // Update local state instead of session
       if (session.user.videos) {
         const updatedVideos = session.user.videos.map((video) =>
           video.id === editDialog.videoId
             ? { ...video, ...updatedVideo }
             : video
         )
+        // Update local session object without triggering a session update
         session.user.videos = updatedVideos
-        await update({ videos: updatedVideos })
       }
 
       toast({
@@ -200,7 +200,7 @@ export function Gallery() {
       })
 
       closeEditDialog()
-      router.refresh()
+      // No need to refresh the entire page
     } catch (error) {
       console.error("Error updating video:", error)
       toast({
@@ -211,7 +211,7 @@ export function Gallery() {
     } finally {
       setIsSubmitting(false)
     }
-  }, [editDialog, session, update, toast, closeEditDialog, router])
+  }, [editDialog, session, closeEditDialog, toast])
 
   if (!session?.user) {
     return (
