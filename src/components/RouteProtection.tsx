@@ -45,10 +45,10 @@ const RouteProtection: React.FC<RouteProtectionProps> = ({
   // Show loading state while checking authentication
   if (isLoading) {
     return (
-      <div className="min-h-[50vh] flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 text-cyan-500 animate-spin" />
-          <p className="text-slate-300">Checking authentication...</p>
+          <Loader2 className="w-10 h-10 text-cyan-500 animate-spin" />
+          <p className="text-slate-300">Loading your gallery...</p>
         </div>
       </div>
     )
@@ -62,9 +62,9 @@ const RouteProtection: React.FC<RouteProtectionProps> = ({
     (!authRequired && isAuthenticated)
   ) {
     return (
-      <div className="min-h-[50vh] flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 text-cyan-500 animate-spin" />
+          <Loader2 className="w-10 h-10 text-cyan-500 animate-spin" />
           <p className="text-slate-300">Redirecting...</p>
         </div>
       </div>
