@@ -44,10 +44,12 @@ https://github.com/user-attachments/assets/847cb3ee-fb5a-472c-b438-c1783fc31140
    cd Manim-AI
    ```
 
-2. **Backend Access**:
+2. **Backend Repository**:
 
-   > 🔒 The backend is currently private.
-   > If you're a recruiter or collaborator interested in the implementation, feel free to reach out for access or a walkthrough.
+   <!-- 🔒 The backend is currently private.
+   If you're a recruiter or collaborator interested in the implementation, feel free to reach out for access or a walkthrough. -->
+
+   👉 Backend Repo: [https://github.com/harsh-dev0/Manimbe](https://github.com/harsh-dev0/Manimbe)
 
 3. **Frontend Setup**:
 
