@@ -1,15 +1,17 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import { useToast } from "@/hooks/use-toast"
-import { checkGenerationStatus, generateAnimation } from "@/services"
+import { checkGenerationStatus, generateAnimation, getErrorMessage, canRetry } from "@/services"
 import VideoPlayer from "@/components/VideoPlayer"
 import PromptInput from "@/components/PromptInput"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { useSession } from "next-auth/react"
+import { useRouter } from "next/navigation"
 
 const Index = () => {
   const { toast } = useToast()
+  const router = useRouter()
   // We still need useSession for the PromptInput component to work properly
   const { status } = useSession()
   const [isLoading, setIsLoading] = useState(false)
@@ -55,16 +57,17 @@ const Index = () => {
             description: "Your mathematical animation is ready to view.",
           })
 
+          // Redirect to video page
+          router.push(`/video/${status.id}`)
           setIsLoading(false)
         } else if (status.status === "failed") {
           clearInterval(checkInterval)
-
+          const errorMessage = getErrorMessage(status.error_type)
           toast({
-            title: "Error",
-            description: "Failed to generate animation. Please try again.",
+            title: "Generation Failed",
+            description: errorMessage,
             variant: "destructive",
           })
-
           setIsLoading(false)
         }
       }, 3000) // Check every 3 seconds

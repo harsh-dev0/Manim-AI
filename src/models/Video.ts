@@ -8,6 +8,10 @@ export interface IVideo extends Document {
   title?: string
   description?: string
   error?: string
+  code?: string
+  parentVideoId?: string
+  isCurrent?: boolean
+  editPrompt?: string
   createdAt: Date
   updatedAt: Date
 }
@@ -21,6 +25,10 @@ const VideoSchema = new Schema(
     title: { type: String },
     description: { type: String },
     error: { type: String },
+    code: { type: String },
+    parentVideoId: { type: String, index: true },
+    isCurrent: { type: Boolean, default: true },
+    editPrompt: { type: String },
   },
   { timestamps: true }
 )

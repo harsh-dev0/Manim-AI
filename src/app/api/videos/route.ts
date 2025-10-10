@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { id, status, video_url, title, error, userId, description } =
+    const { id, status, video_url, title, error, userId, description, parentVideoId, editPrompt } =
       body
 
     // Validate required fields
@@ -78,6 +78,9 @@ export async function POST(req: NextRequest) {
       if (error !== undefined) existingVideo.error = error
       if (description !== undefined)
         existingVideo.description = description
+      if (parentVideoId) existingVideo.parentVideoId = parentVideoId
+      if (editPrompt) existingVideo.editPrompt = editPrompt
+      if (parentVideoId || editPrompt) existingVideo.isCurrent = true
 
       await existingVideo.save()
 
@@ -92,6 +95,9 @@ export async function POST(req: NextRequest) {
         title,
         error,
         description,
+        parentVideoId,
+        editPrompt,
+        isCurrent: true,
       })
 
       await newVideo.save()
@@ -123,7 +129,7 @@ export async function PATCH(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { id, title, description } = body
+    const { id, title, description, video_url } = body
 
     // Validate required fields
     if (!id) {
@@ -159,6 +165,7 @@ export async function PATCH(req: NextRequest) {
     // Update the video
     if (title !== undefined) video.title = title
     if (description !== undefined) video.description = description
+    if (video_url !== undefined) video.video_url = video_url
 
     await video.save()
 
