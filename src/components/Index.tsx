@@ -6,6 +6,7 @@ import VideoPlayer from "@/components/VideoPlayer"
 import PromptInput from "@/components/PromptInput"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import FundingWarning from "@/components/FundingWarning"
 import { useSession } from "next-auth/react"
 
 const Index = () => {
@@ -124,6 +125,7 @@ const Index = () => {
                 mathematics
               </p>
             </div>
+            <FundingWarning />
             <div className="w-full bg-slate-900/50 backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-slate-800 shadow-xl mx-2 sm:mx-0">
               <PromptInput
                 onSubmit={handleGenerateAnimation}

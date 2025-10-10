@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import { SendIcon, Sparkles, LogIn, Loader2 } from "lucide-react"
+import { SendIcon, Sparkles, Loader2 } from "lucide-react"
 import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 import SuggestionBar from "@/components/SuggestionBar"
 
 interface PromptInputProps {
@@ -20,24 +20,29 @@ const PromptInput: React.FC<PromptInputProps> = ({
   compact = false,
 }) => {
   const [prompt, setPrompt] = useState("")
-  const { data: session, status } = useSession()
-  const router = useRouter()
+  // COMMENTED OUT - NO AUTH REQUIRED
+  // const { data: session, status } = useSession()
+  // const router = useRouter()
+  const { status } = useSession()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (prompt.trim() && !isLoading) {
-      if (session?.user) {
-        onSubmit(prompt, session.user.id)
-        setPrompt("")
-      } else {
-        router.push("/sign-in")
-      }
+      // COMMENTED OUT - NO AUTH REQUIRED FOR NOW
+      // if (session?.user) {
+      //   onSubmit(prompt, session.user.id)
+      //   setPrompt("")
+      // } else {
+      //   router.push("/sign-in")
+      // }
+      onSubmit(prompt, "anonymous")
+      setPrompt("")
     }
   }
 
-  const handleSignIn = () => {
-    router.push("/sign-in")
-  }
+  // const handleSignIn = () => {
+  //   router.push("/sign-in")
+  // }
 
   if (status === "loading") {
     return (
@@ -52,24 +57,31 @@ const PromptInput: React.FC<PromptInputProps> = ({
     )
   }
 
-  if (!session?.user) {
-    return (
-      <div className="w-full max-w-2xl mx-auto space-y-4">
-        <div className="bg-slate-900/50 text-white border border-cyan-700/30 rounded-xl p-4 sm:p-6 text-center">
-          <p className="text-slate-300 mb-4">
-            Please sign in to generate math animations
-          </p>
-          <Button
-            onClick={handleSignIn}
-            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-4 rounded-xl font-medium text-base shadow-lg border border-cyan-400/20"
-          >
-            <LogIn className="w-4 h-4 mr-2" />
-            Sign In
-          </Button>
-        </div>
-      </div>
-    )
-  }
+  // COMMENTED OUT - NO AUTH CHECK REQUIRED
+  // if (!session?.user) {
+  //   return (
+  //     <div className="w-full max-w-2xl mx-auto space-y-4">
+  //       <div className="bg-gradient-to-r from-red-900/20 to-orange-900/20 border-2 border-red-500/30 rounded-xl p-4 sm:p-6 text-center">
+  //         <div className="flex items-center justify-center space-x-2 mb-4">
+  //           <span className="text-2xl">💸</span>
+  //           <h3 className="text-xl font-bold text-red-300">BROKE ALERT!</h3>
+  //           <span className="text-2xl">💸</span>
+  //         </div>
+  //         <p className="text-slate-300 mb-4">
+  //           Sorry, but I&apos;m running on ramen budget and can&apos;t afford to keep the servers running for new users right now! 😅
+  //         </p>
+  //         <p className="text-sm text-slate-400 italic mb-4">
+  //           Sign-up is temporarily disabled until I figure out how to pay for this thing! 🤷‍♂️
+  //         </p>
+  //         <div className="bg-slate-900/60 rounded-lg p-3 border border-red-400/20">
+  //           <p className="text-sm text-slate-500">
+  //             💡 <span className="text-yellow-300">Tip:</span> If you&apos;re already signed in, try refreshing the page!
+  //           </p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   if (compact) {
     return (
@@ -84,12 +96,15 @@ const PromptInput: React.FC<PromptInputProps> = ({
             !isLoading
           ) {
             e.preventDefault()
-            if (session?.user) {
-              onSubmit(prompt, session.user.id)
-              setPrompt("")
-            } else {
-              router.push("/sign-in")
-            }
+            // COMMENTED OUT - NO AUTH REQUIRED
+            // if (session?.user) {
+            //   onSubmit(prompt, session.user.id)
+            //   setPrompt("")
+            // } else {
+            //   router.push("/sign-in")
+            // }
+            onSubmit(prompt, "anonymous")
+            setPrompt("")
           }
         }}
       >
@@ -104,14 +119,10 @@ const PromptInput: React.FC<PromptInputProps> = ({
         </div>
         <Button
           type="submit"
-          className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-4 h-12 rounded-xl shadow-lg border border-cyan-400/20 min-w-[60px] flex-shrink-0 box-border"
-          disabled={!prompt.trim() || isLoading}
+          className="bg-gradient-to-r from-gray-500 to-gray-600 text-white px-4 h-12 rounded-xl shadow-lg border border-gray-400/20 min-w-[60px] flex-shrink-0 box-border cursor-not-allowed opacity-50"
+          disabled={true}
         >
-          {isLoading ? (
-            <div className="border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin w-4 h-4"></div>
-          ) : (
-            <SendIcon size={18} />
-          )}
+          <SendIcon size={18} />
         </Button>
       </form>
     )
@@ -129,12 +140,15 @@ const PromptInput: React.FC<PromptInputProps> = ({
           !isLoading
         ) {
           e.preventDefault()
-          if (session?.user) {
-            onSubmit(prompt, session.user.id)
-            setPrompt("")
-          } else {
-            router.push("/sign-in")
-          }
+          // COMMENTED OUT - NO AUTH REQUIRED
+          // if (session?.user) {
+          //   onSubmit(prompt, session.user.id)
+          //   setPrompt("")
+          // } else {
+          //   router.push("/sign-in")
+          // }
+          onSubmit(prompt, "anonymous")
+          setPrompt("")
         }
       }}
     >
@@ -158,20 +172,13 @@ const PromptInput: React.FC<PromptInputProps> = ({
         </div>
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-4 sm:py-6 rounded-xl font-medium text-base sm:text-lg shadow-lg border border-cyan-400/20"
-          disabled={!prompt.trim() || isLoading}
+          className="w-full bg-gradient-to-r from-gray-500 to-gray-600 text-white py-4 sm:py-6 rounded-xl font-medium text-base sm:text-lg shadow-lg border border-gray-400/20 cursor-not-allowed opacity-50"
+          disabled={true}
         >
-          {isLoading ? (
-            <div className="flex items-center justify-center gap-2">
-              <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-t-white border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-              <span>Generating...</span>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>Generate Animation</span>
-            </div>
-          )}
+          <div className="flex items-center justify-center gap-2">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span>Generate Animation (Disabled - No Backend)</span>
+          </div>
         </Button>
       </div>
     </form>
