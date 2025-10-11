@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import { useToast } from "@/hooks/use-toast"
-import { checkGenerationStatus, generateAnimation, getErrorMessage, canRetry } from "@/services"
+import { checkGenerationStatus, generateAnimation, getErrorMessage } from "@/services"
 import VideoPlayer from "@/components/VideoPlayer"
 import PromptInput from "@/components/PromptInput"
 import Header from "@/components/Header"
@@ -39,7 +39,7 @@ const Index = () => {
       const jobId = response.id
 
       const checkInterval = setInterval(async () => {
-        const status = await checkGenerationStatus(jobId, userId)
+        const status = await checkGenerationStatus(jobId)
 
         if (status.status === "completed") {
           clearInterval(checkInterval)
@@ -47,6 +47,23 @@ const Index = () => {
           let videoUrl = status.video_url || ""
           if (!videoUrl.startsWith("http")) {
             videoUrl = `https://manim-ai-videos.s3.amazonaws.com/videos/${status.id}.mp4`
+          }
+
+          // Save to database
+          if (userId) {
+            try {
+              await fetch("/api/videos", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  ...status,
+                  userId,
+                  video_url: videoUrl,
+                }),
+              })
+            } catch (error) {
+              console.error("Error saving video:", error)
+            }
           }
 
           setCurrentVideo(videoUrl)
@@ -74,13 +91,27 @@ const Index = () => {
     } catch (error) {
       console.error("Error:", error)
 
+      let errorTitle = "Error"
+      let errorDescription = "Failed to generate animation. Please try again."
+      
+      if (error instanceof Error) {
+        if (error.message.includes("Network Error") || error.message.includes("Backend is down")) {
+          errorTitle = "Backend is Down"
+          errorDescription = "Cannot connect to the backend server. Please try again later or contact support."
+        } else if (error.message.includes("timeout")) {
+          errorTitle = "Request Timeout"
+          errorDescription = "The request took too long. Please try again."
+        }
+      }
+
       toast({
-        title: "Error",
-        description: "Failed to generate animation. Please try again.",
+        title: errorTitle,
+        description: errorDescription,
         variant: "destructive",
       })
 
       setIsLoading(false)
+      setShowInitialView(true)
     }
   }
 

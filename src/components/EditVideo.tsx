@@ -4,25 +4,17 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Send, Loader2 } from "lucide-react"
+import { ArrowLeft, Loader2, Send, Undo2 } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import VideoPlayer from "@/components/VideoPlayer"
 import { useToast } from "@/hooks/use-toast"
 import { editAnimation, checkGenerationStatus, getErrorMessage } from "@/services"
+import { EditLoadingModal } from "@/components/EditLoadingModal"
 import { UserVideo } from "@/types/next-auth"
 
 interface EditVideoProps {
   videoId: string
-}
-
-interface EditHistory {
-  id: string
-  prompt: string
-  video_url: string
-  created_at: string
-  is_current: boolean
 }
 
 export function EditVideo({ videoId }: EditVideoProps) {
@@ -33,7 +25,6 @@ export function EditVideo({ videoId }: EditVideoProps) {
   const [currentVideo, setCurrentVideo] = useState<UserVideo | null>(null)
   const [editPrompt, setEditPrompt] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [editHistory, setEditHistory] = useState<EditHistory[]>([])
 
   useEffect(() => {
     const loadVideo = async () => {
@@ -45,7 +36,6 @@ export function EditVideo({ videoId }: EditVideoProps) {
           const foundVideo = session.user.videos.find(v => v.id === videoId)
           if (foundVideo) {
             setCurrentVideo(foundVideo)
-            await loadEditHistory(videoId)
             return
           }
         }
@@ -55,7 +45,6 @@ export function EditVideo({ videoId }: EditVideoProps) {
         if (response.ok) {
           const videoData = await response.json()
           setCurrentVideo(videoData)
-          await loadEditHistory(videoId)
         } else if (response.status === 404) {
           toast({
             title: "Video not found",
@@ -80,18 +69,6 @@ export function EditVideo({ videoId }: EditVideoProps) {
     loadVideo()
   }, [session, videoId, router, toast])
 
-  const loadEditHistory = async (id: string) => {
-    try {
-      const response = await fetch(`/api/videos/${id}/history`)
-      if (response.ok) {
-        const history = await response.json()
-        setEditHistory(history)
-      }
-    } catch (error) {
-      console.error("Error loading edit history:", error)
-    }
-  }
-
   const handleEditSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!editPrompt.trim() || !currentVideo || !session?.user) return
@@ -99,63 +76,56 @@ export function EditVideo({ videoId }: EditVideoProps) {
     setIsLoading(true)
     try {
       const response = await editAnimation(
+        videoId,
         currentVideo.code || "",
         editPrompt,
         currentVideo.video_url,
-        currentVideo.id,
         session.user.id
       )
 
-      const jobId = response.id
+      const jobId = response.job_id || response.id
       const checkInterval = setInterval(async () => {
-        const status = await checkGenerationStatus(jobId, session.user.id)
+        const status = await checkGenerationStatus(jobId)
         
         if (status.status === "completed") {
           clearInterval(checkInterval)
           
           let videoUrl = status.video_url || ""
           if (!videoUrl.startsWith("http")) {
-            videoUrl = `https://manim-ai-videos.s3.amazonaws.com/videos/${status.id}.mp4`
+            videoUrl = `https://manim-ai-videos.s3.amazonaws.com/videos/${videoId}.mp4`
           }
 
-          // Update the current video with new URL and ID
+          // Update video in database directly using PATCH (not POST to avoid adding to gallery)
+          try {
+            await fetch("/api/videos", {
+              method: "PATCH",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                id: videoId,
+                video_url: videoUrl,
+                previous_video_url: currentVideo.video_url,
+                code: status.code || currentVideo.code,
+              }),
+            })
+          } catch (error) {
+            console.error("Error updating video:", error)
+          }
+
           const updatedVideo = {
             ...currentVideo,
-            id: status.id,
             video_url: videoUrl,
+            previous_video_url: currentVideo.video_url,
             code: status.code || currentVideo.code
           }
           setCurrentVideo(updatedVideo)
           
-          // Add to history (new video becomes current, old becomes previous)
-          const newHistoryItem: EditHistory = {
-            id: status.id,
-            prompt: editPrompt,
-            video_url: videoUrl,
-            created_at: new Date().toISOString(),
-            is_current: true
-          }
-          
-          // Add previous version to history if it exists
-          const previousHistoryItem: EditHistory = {
-            id: currentVideo.id,
-            prompt: "Original version",
-            video_url: currentVideo.video_url,
-            created_at: currentVideo.createdAt || new Date().toISOString(),
-            is_current: false
-          }
-          
-          setEditHistory(prev => [newHistoryItem, previousHistoryItem, ...prev.filter(item => item.id !== currentVideo.id)])
-          
           setEditPrompt("")
           
           toast({
-            title: "Edit applied!",
+            title: "Edit applied! ✨",
             description: "Your animation has been updated successfully.",
           })
           
-          // Redirect to video page to show the updated video (use new video ID)
-          router.push(`/video/${status.id}`)
           setIsLoading(false)
         } else if (status.status === "failed") {
           clearInterval(checkInterval)
@@ -170,11 +140,65 @@ export function EditVideo({ videoId }: EditVideoProps) {
       }, 3000)
     } catch (error) {
       console.error("Error editing video:", error)
+      
+      let errorTitle = "Error"
+      let errorDescription = "Failed to edit animation. Please try again."
+      
+      if (error instanceof Error) {
+        if (error.message.includes("Network Error") || error.message.includes("ERR_CONNECTION_REFUSED")) {
+          errorTitle = "Backend is Down"
+          errorDescription = "Cannot connect to the backend server. Please try again later or contact support."
+        } else if (error.message.includes("timeout")) {
+          errorTitle = "Request Timeout"
+          errorDescription = "The request took too long. Please try again."
+        }
+      }
+      
       toast({
-        title: "Error",
-        description: "Failed to edit animation. Please try again.",
+        title: errorTitle,
+        description: errorDescription,
         variant: "destructive",
       })
+      setIsLoading(false)
+    }
+  }
+
+  const handleRevert = async () => {
+    if (!currentVideo?.previous_video_url || !session?.user) return
+
+    setIsLoading(true)
+    try {
+      const response = await fetch("/api/videos", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: videoId,
+          video_url: currentVideo.previous_video_url,
+          previous_video_url: null,
+        }),
+      })
+
+      if (!response.ok) throw new Error("Failed to revert")
+
+      const updatedVideo = {
+        ...currentVideo,
+        video_url: currentVideo.previous_video_url,
+        previous_video_url: undefined,
+      }
+      setCurrentVideo(updatedVideo)
+
+      toast({
+        title: "Reverted successfully!",
+        description: "Video has been restored to previous version.",
+      })
+    } catch (error) {
+      console.error("Error reverting:", error)
+      toast({
+        title: "Error",
+        description: "Failed to revert changes.",
+        variant: "destructive",
+      })
+    } finally {
       setIsLoading(false)
     }
   }
@@ -202,50 +226,60 @@ export function EditVideo({ videoId }: EditVideoProps) {
       <main className="flex-1 container py-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <Button
                 variant="ghost"
                 onClick={() => router.push("/gallery")}
-                className="text-slate-300 hover:text-white"
+                className="text-slate-300 hover:text-white hover:bg-slate-800 w-fit"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Gallery
               </Button>
               <div>
-                <h1 className="text-2xl font-bold text-cyan-400">
+                <h1 className="text-xl sm:text-2xl font-bold text-cyan-400">
                   Edit Animation
                 </h1>
-                <p className="text-slate-400">{currentVideo.title || "Untitled Animation"}</p>
+                <p className="text-sm sm:text-base text-slate-400">{currentVideo.title || "Untitled Animation"}</p>
               </div>
             </div>
           </div>
 
           {/* Video Comparison Section */}
-          {editHistory.length > 0 && editHistory.some(h => !h.is_current) ? (
-            // Side-by-side layout when there's a previous version
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+          {currentVideo.previous_video_url ? (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
               {/* Current Video */}
               <div className="space-y-2">
-                <p className="text-xs text-cyan-400 font-medium">Current</p>
-                <div className="aspect-video rounded-lg overflow-hidden bg-slate-950 border border-slate-800">
-                  <VideoPlayer videoUrl={currentVideo.video_url} />
+                <p className="text-sm text-cyan-400 font-semibold">Current Version</p>
+                <div className="aspect-video rounded-lg overflow-hidden bg-slate-950 border-2 border-cyan-700/50">
+                  <VideoPlayer videoUrl={currentVideo.video_url || null} />
                 </div>
               </div>
 
               {/* Previous Video */}
               <div className="space-y-2">
-                <p className="text-xs text-slate-400 font-medium">Previous</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-sm text-slate-400 font-semibold">Previous Version</p>
+                  <Button
+                    onClick={handleRevert}
+                    disabled={isLoading}
+                    size="sm"
+                    variant="outline"
+                    className="text-xs border-slate-600 text-black hover:bg-slate-700 hover:text-white hover:border-slate-500"
+                  >
+                    <Undo2 className="w-3 h-3 mr-1" />
+                    Revert Back
+                  </Button>
+                </div>
                 <div className="aspect-video rounded-lg overflow-hidden bg-slate-950 border border-slate-800">
-                  <VideoPlayer videoUrl={editHistory.find(h => !h.is_current)?.video_url || currentVideo.video_url} />
+                  <VideoPlayer videoUrl={currentVideo.previous_video_url} />
                 </div>
               </div>
             </div>
           ) : (
-            // Centered layout when no previous version
-            <div className="max-w-2xl mx-auto mb-3">
+            <div className="max-w-3xl mx-auto mb-4">
               <div className="aspect-video rounded-lg overflow-hidden bg-slate-950 border border-slate-800">
-                <VideoPlayer videoUrl={currentVideo.video_url} />
+                <VideoPlayer videoUrl={currentVideo.video_url || null} />
               </div>
             </div>
           )}
@@ -284,6 +318,7 @@ export function EditVideo({ videoId }: EditVideoProps) {
       </main>
 
       <Footer />
+      <EditLoadingModal isOpen={isLoading} />
     </div>
   )
 }

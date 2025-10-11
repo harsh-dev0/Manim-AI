@@ -14,7 +14,8 @@ export interface GenerationResponse {
   title?: string
   code?: string
   previous_video_url?: string  
-  previous_video_id?: string    
+  previous_video_id?: string
+  job_id?: string
   error?: string
   error_type?: string
 }
@@ -52,28 +53,24 @@ export const generateAnimation = async (
     jobIds.push(response.data.id)
     localStorage.setItem("visuamath_job_ids", JSON.stringify(jobIds))
 
-    // Only save to database if generation is successful
-    if (userId && response.data.id && response.data.status === "completed" && response.data.video_url) {
-      try {
-        await saveVideoToDatabase(response.data, userId)
-      } catch (dbError) {
-        console.error("Error saving video to database:", dbError)
-      }
-    }
+    // Don't save here - component will save when status is "completed"
+    // This prevents duplicate saves
 
     return response.data
   } catch (error) {
     console.error("Error generating animation:", error)
     if (axios.isAxiosError(error)) {
       console.error("API error details:", error.response?.data)
+      if (!error.response) {
+        throw new Error("Network Error: Backend is down or unreachable")
+      }
     }
     throw error
   }
 }
 
 export const checkGenerationStatus = async (
-  jobId: string,
-  userId?: string
+  jobId: string
 ): Promise<GenerationResponse> => {
   try {
     console.log(`Checking status for job: ${jobId}`)
@@ -94,14 +91,8 @@ export const checkGenerationStatus = async (
       console.log(`Error type: ${response.data.error_type}`)
     }
 
-    // Only save to database if generation is completed and has video_url
-    if (userId && response.data.status === "completed" && response.data.video_url) {
-      try {
-        await saveVideoToDatabase(response.data, userId)
-      } catch (dbError) {
-        console.error("Error updating video in database:", dbError)
-      }
-    }
+    // Don't save here - let the components handle database updates
+    // This prevents duplicate saves and gives components full control
 
     return response.data
   } catch (error) {
@@ -121,16 +112,16 @@ export const checkGenerationStatus = async (
 }
 
 export const editAnimation = async (
+  videoId: string,
   code: string,
   prompt: string,
   previousVideoUrl?: string,
-  previousVideoId?: string,
   userId?: string
 ): Promise<GenerationResponse> => {
   try {
     console.log("Sending edit request with prompt:", prompt)
+    console.log("Video ID:", videoId)
     console.log("Previous video URL:", previousVideoUrl)
-    console.log("Previous video ID:", previousVideoId)
     
     const response = await apiClient.post<GenerationResponse>(
       "/edit",
@@ -138,67 +129,35 @@ export const editAnimation = async (
         code, 
         prompt, 
         previous_video_url: previousVideoUrl,
-        previous_video_id: previousVideoId,
+        previous_video_id: videoId,
         userId 
       }
     )
     console.log("Edit response received:", response.data)
 
+    const backendJobId = response.data.id
     const jobIds = JSON.parse(
       localStorage.getItem("visuamath_job_ids") || "[]"
     )
-    jobIds.push(response.data.id)
+    jobIds.push(backendJobId)
     localStorage.setItem("visuamath_job_ids", JSON.stringify(jobIds))
 
-    // Only save to database if edit is successful
-    if (userId && response.data.id && response.data.status === "completed" && response.data.video_url) {
-      try {
-        await saveVideoToDatabase(response.data, userId, previousVideoId, prompt)
-      } catch (dbError) {
-        console.error("Error saving edited video to database:", dbError)
-      }
-    }
+    // Don't save to database for edits - EditVideo component will handle it
+    // This prevents adding edited videos to the user's video array
 
-    return response.data
+    return { ...response.data, id: videoId, job_id: backendJobId }
   } catch (error) {
     console.error("Error editing animation:", error)
     if (axios.isAxiosError(error)) {
       console.error("API error details:", error.response?.data)
+      if (!error.response) {
+        throw new Error("Network Error: Backend is down or unreachable")
+      }
     }
     throw error
   }
 }
 
-async function saveVideoToDatabase(
-  video: GenerationResponse,
-  userId: string,
-  parentVideoId?: string,
-  editPrompt?: string
-) {
-  try {
-    const response = await fetch("/api/videos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...video,
-        userId,
-        parentVideoId,
-        editPrompt,
-      }),
-    })
-
-    if (!response.ok) {
-      throw new Error(`Failed to save video: ${response.statusText}`)
-    }
-
-    return await response.json()
-  } catch (error) {
-    console.error("Error saving video to database:", error)
-    throw error
-  }
-}
 
 export const getStoredJobIds = (): string[] => {
   return JSON.parse(localStorage.getItem("visuamath_job_ids") || "[]")

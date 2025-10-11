@@ -29,14 +29,15 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
   const [cameFromGallery, setCameFromGallery] = useState(false)
 
   useEffect(() => {
-    // Check if user came from gallery (referrer check)
-    if (typeof window !== 'undefined') {
-      const referrer = document.referrer
-      setCameFromGallery(referrer.includes('/gallery'))
-    }
-
     const loadVideo = async () => {
       if (!session?.user) return
+
+      // Check if user came from gallery (referrer check) - do this inside loadVideo
+      if (typeof window !== 'undefined') {
+        const referrer = document.referrer
+        const fromGallery = referrer.includes('/gallery')
+        setCameFromGallery(fromGallery)
+      }
 
       try {
         // First try to find in session data
@@ -61,7 +62,7 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
             description: "The requested video could not be found.",
             variant: "destructive"
           })
-          router.push(cameFromGallery ? "/gallery" : "/")
+          router.push("/gallery")
         } else {
           throw new Error("Failed to fetch video")
         }
@@ -72,12 +73,12 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
           description: "Failed to load video. Please try again.",
           variant: "destructive"
         })
-        router.push(cameFromGallery ? "/gallery" : "/")
+        router.push("/gallery")
       }
     }
 
     loadVideo()
-  }, [session, videoId, router, toast, cameFromGallery])
+  }, [session, videoId, router, toast])
 
   const handleEdit = () => {
     router.push(`/edit/${videoId}`)
@@ -121,7 +122,7 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
       const jobId = response.id
 
       const checkInterval = setInterval(async () => {
-        const status = await checkGenerationStatus(jobId, session.user.id)
+        const status = await checkGenerationStatus(jobId)
         
         if (status.status === "completed") {
           clearInterval(checkInterval)
@@ -228,11 +229,9 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
             {/* Main Video Area */}
             <div className="lg:col-span-3">
               {/* Video Player */}
-              <Card className="bg-slate-900/50 border-slate-800">
-                <CardContent className="p-4">
-                  <VideoPlayer videoUrl={video.video_url!} />
-                </CardContent>
-              </Card>
+              <div className="aspect-video rounded-lg overflow-hidden bg-slate-950 border border-slate-800">
+                <VideoPlayer videoUrl={video.video_url!} />
+              </div>
             </div>
 
             {/* Right Sidebar */}
@@ -282,7 +281,7 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
                   <Button
                     variant="outline"
                     onClick={handleShare}
-                    className="w-full border-slate-700 text-slate-300 hover:text-white"
+                    className="w-full border-slate-600 text-black hover:text-white hover:bg-slate-700 hover:border-slate-500"
                   >
                     <Share className="w-4 h-4 mr-2" />
                     Share Video
@@ -290,7 +289,7 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
                   <Button
                     variant="outline"
                     onClick={handleDownload}
-                    className="w-full border-slate-700 text-slate-300 hover:text-white"
+                    className="w-full border-slate-600 text-black hover:text-white hover:bg-slate-700 hover:border-slate-500"
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Download MP4
@@ -301,40 +300,33 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
           </div>
 
           {/* Full Width Generate Section */}
-          <div className="mt-4">
-            <Card className="bg-slate-900/50 border-slate-800">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-cyan-300 text-sm">Generate Another Animation</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <form onSubmit={handleGenerateNew} className="space-y-3">
-                  <Textarea
-                    placeholder="Describe your new mathematical animation..."
-                    value={newPrompt}
-                    onChange={(e) => setNewPrompt(e.target.value)}
-                    className="w-full bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 min-h-[120px] text-sm"
-                    disabled={isGenerating}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={!newPrompt.trim() || isGenerating}
-                    className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 text-sm py-2"
-                  >
-                    {isGenerating ? (
-                      <>
-                        <Loader2 className="w-3 h-3 mr-2 animate-spin" />
-                        Generating...
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="w-3 h-3 mr-2" />
-                        Generate Animation
-                      </>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+          <div className="mt-4 space-y-3">
+            <form onSubmit={handleGenerateNew} className="space-y-3">
+              <Textarea
+                placeholder="Describe your new mathematical animation (e.g., 'Visualize the Fourier transform', 'Show Pythagorean theorem proof'...)"
+                value={newPrompt}
+                onChange={(e) => setNewPrompt(e.target.value)}
+                className="w-full bg-slate-900/50 border-slate-700 text-white placeholder:text-slate-500 min-h-[100px] rounded-lg p-4"
+                disabled={isGenerating}
+              />
+              <Button
+                type="submit"
+                disabled={!newPrompt.trim() || isGenerating}
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 disabled:opacity-50 py-6"
+              >
+                {isGenerating ? (
+                  <>
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    Generating...
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    Generate Animation
+                  </>
+                )}
+              </Button>
+            </form>
           </div>
         </div>
       </main>

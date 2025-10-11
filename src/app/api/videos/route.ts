@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { id, status, video_url, title, error, userId, description, parentVideoId, editPrompt } =
+    const { id, status, video_url, previous_video_url, title, error, userId, description, code } =
       body
 
     // Validate required fields
@@ -73,14 +73,17 @@ export async function POST(req: NextRequest) {
     if (existingVideo) {
       // Update existing video
       existingVideo.status = status
-      if (video_url) existingVideo.video_url = video_url
+      if (video_url) {
+        if (existingVideo.video_url && existingVideo.video_url !== video_url) {
+          existingVideo.previous_video_url = existingVideo.video_url
+        }
+        existingVideo.video_url = video_url
+      }
+      if (previous_video_url) existingVideo.previous_video_url = previous_video_url
       if (title) existingVideo.title = title
       if (error !== undefined) existingVideo.error = error
-      if (description !== undefined)
-        existingVideo.description = description
-      if (parentVideoId) existingVideo.parentVideoId = parentVideoId
-      if (editPrompt) existingVideo.editPrompt = editPrompt
-      if (parentVideoId || editPrompt) existingVideo.isCurrent = true
+      if (description !== undefined) existingVideo.description = description
+      if (code) existingVideo.code = code
 
       await existingVideo.save()
 
@@ -92,12 +95,11 @@ export async function POST(req: NextRequest) {
         userId,
         status,
         video_url,
+        previous_video_url,
         title,
         error,
         description,
-        parentVideoId,
-        editPrompt,
-        isCurrent: true,
+        code,
       })
 
       await newVideo.save()
@@ -129,7 +131,7 @@ export async function PATCH(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { id, title, description, video_url } = body
+    const { id, title, description, video_url, previous_video_url } = body
 
     // Validate required fields
     if (!id) {
@@ -166,6 +168,7 @@ export async function PATCH(req: NextRequest) {
     if (title !== undefined) video.title = title
     if (description !== undefined) video.description = description
     if (video_url !== undefined) video.video_url = video_url
+    if (previous_video_url !== undefined) video.previous_video_url = previous_video_url
 
     await video.save()
 
