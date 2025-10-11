@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowLeft, Edit, Share, Download, Loader2, Sparkles } from "lucide-react"
+import { ArrowLeft, Edit, Download, Loader2, Sparkles } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import VideoPlayer from "@/components/VideoPlayer"
@@ -84,22 +84,22 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
     router.push(`/edit/${videoId}`)
   }
 
-  const handleShare = async () => {
-    const url = `${window.location.origin}/video/${videoId}`
-    try {
-      await navigator.clipboard.writeText(url)
-      toast({
-        title: "Link copied!",
-        description: "Video link has been copied to clipboard.",
-      })
-    } catch {
-      toast({
-        title: "Error",
-        description: "Failed to copy link. Please try again.",
-        variant: "destructive",
-      })
-    }
-  }
+  // const handleShare = async () => {
+  //   const url = `${window.location.origin}/video/${videoId}`
+  //   try {
+  //     await navigator.clipboard.writeText(url)
+  //     toast({
+  //       title: "Link copied!",
+  //       description: "Video link has been copied to clipboard.",
+  //     })
+  //   } catch {
+  //     toast({
+  //       title: "Error",
+  //       description: "Failed to copy link. Please try again.",
+  //       variant: "destructive",
+  //     })
+  //   }
+  // }
 
   const handleDownload = () => {
     if (video?.video_url) {
@@ -278,14 +278,14 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
                     <Edit className="w-4 h-4 mr-2" />
                     Edit Animation
                   </Button>
-                  <Button
+                  {/*<Button
                     variant="outline"
                     onClick={handleShare}
                     className="w-full border-slate-600 text-black hover:text-white hover:bg-slate-700 hover:border-slate-500"
                   >
                     <Share className="w-4 h-4 mr-2" />
                     Share Video
-                  </Button>
+                  </Button>*/}
                   <Button
                     variant="outline"
                     onClick={handleDownload}
