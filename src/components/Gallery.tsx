@@ -11,6 +11,8 @@ import {
   FileText,
   X,
   Check,
+  Wand2,
+  Play,
 } from "lucide-react"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
@@ -138,6 +140,16 @@ export function Gallery() {
       mode: "description",
     })
   }, [])
+
+  const handleEditVideo = useCallback((video: UserVideo) => {
+    setOpenDropdownId(null) // Close dropdown
+    router.push(`/edit/${video.id}`)
+  }, [router])
+
+  const handleViewVideo = useCallback((video: UserVideo) => {
+    setOpenDropdownId(null) // Close dropdown
+    router.push(`/video/${video.id}`)
+  }, [router])
 
   const closeEditDialog = useCallback(() => {
     setEditDialog({
@@ -323,6 +335,28 @@ export function Gallery() {
                             onClick={(e) => {
                               e.preventDefault()
                               e.stopPropagation()
+                              handleViewVideo(video)
+                            }}
+                          >
+                            <Play className="mr-2 h-4 w-4" />
+                            View Video
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            className="text-slate-300 hover:text-white hover:bg-slate-800/50"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              handleEditVideo(video)
+                            }}
+                          >
+                            <Wand2 className="mr-2 h-4 w-4" />
+                            Edit Animation
+                          </DropdownMenuItem>
+                          <DropdownMenuItem
+                            className="text-slate-300 hover:text-white hover:bg-slate-800/50"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
                               openEditTitleDialog(video)
                             }}
                           >
@@ -371,7 +405,10 @@ export function Gallery() {
                   </CardHeader>
                   <CardContent className="pt-0">
                     {video.video_url ? (
-                      <div className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-3">
+                      <div 
+                        className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-3 cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => router.push(`/video/${video.id}`)}
+                      >
                         <VideoPlayer videoUrl={video.video_url} />
                       </div>
                     ) : (

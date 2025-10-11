@@ -12,7 +12,20 @@ export interface GenerationResponse {
   status: string
   video_url?: string
   title?: string
+  code?: string
+  previous_video_url?: string  
+  previous_video_id?: string
+  job_id?: string
   error?: string
+  error_type?: string
+}
+
+export interface EditRequest {
+  code: string
+  prompt: string
+  previous_video_url?: string   
+  previous_video_id?: string    
+  userId?: string
 }
 
 const apiClient = axios.create({
@@ -22,7 +35,6 @@ const apiClient = axios.create({
   },
 })
 
-// API functions
 export const generateAnimation = async (
   prompt: string,
   userId?: string
@@ -35,35 +47,30 @@ export const generateAnimation = async (
     )
     console.log("Generation response received:", response.data)
 
-    // Store job ID in localStorage for recovery if needed
     const jobIds = JSON.parse(
       localStorage.getItem("visuamath_job_ids") || "[]"
     )
     jobIds.push(response.data.id)
     localStorage.setItem("visuamath_job_ids", JSON.stringify(jobIds))
 
-    // If user is logged in, save video to database
-    if (userId && response.data.id) {
-      try {
-        await saveVideoToDatabase(response.data, userId)
-      } catch (dbError) {
-        console.error("Error saving video to database:", dbError)
-      }
-    }
+    // Don't save here - component will save when status is "completed"
+    // This prevents duplicate saves
 
     return response.data
   } catch (error) {
     console.error("Error generating animation:", error)
     if (axios.isAxiosError(error)) {
       console.error("API error details:", error.response?.data)
+      if (!error.response) {
+        throw new Error("Network Error: Backend is down or unreachable")
+      }
     }
     throw error
   }
 }
 
 export const checkGenerationStatus = async (
-  jobId: string,
-  userId?: string
+  jobId: string
 ): Promise<GenerationResponse> => {
   try {
     console.log(`Checking status for job: ${jobId}`)
@@ -72,14 +79,20 @@ export const checkGenerationStatus = async (
     )
     console.log(`Status response for job ${jobId}:`, response.data)
 
-    // If status is completed and user is logged in, update the video in database
-    if (userId && response.data.status === "completed") {
-      try {
-        await saveVideoToDatabase(response.data, userId)
-      } catch (dbError) {
-        console.error("Error updating video in database:", dbError)
-      }
+    if (response.data.code) {
+      console.log("Code received for job:", jobId)
     }
+    
+    if (response.data.previous_video_url) {
+      console.log("This is an edited video. Previous URL:", response.data.previous_video_url)
+    }
+
+    if (response.data.error_type) {
+      console.log(`Error type: ${response.data.error_type}`)
+    }
+
+    // Don't save here - let the components handle database updates
+    // This prevents duplicate saves and gives components full control
 
     return response.data
   } catch (error) {
@@ -93,39 +106,92 @@ export const checkGenerationStatus = async (
       id: jobId,
       status: "error",
       error: errorMessage,
+      error_type: "NETWORK_ERROR"
     }
   }
 }
 
-// Helper function to save/update video in database
-async function saveVideoToDatabase(
-  video: GenerationResponse,
-  userId: string
-) {
+export const editAnimation = async (
+  videoId: string,
+  code: string,
+  prompt: string,
+  previousVideoUrl?: string,
+  userId?: string
+): Promise<GenerationResponse> => {
   try {
-    const response = await fetch("/api/videos", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...video,
-        userId,
-      }),
-    })
+    console.log("Sending edit request with prompt:", prompt)
+    console.log("Video ID:", videoId)
+    console.log("Previous video URL:", previousVideoUrl)
+    
+    const response = await apiClient.post<GenerationResponse>(
+      "/edit",
+      { 
+        code, 
+        prompt, 
+        previous_video_url: previousVideoUrl,
+        previous_video_id: videoId,
+        userId 
+      }
+    )
+    console.log("Edit response received:", response.data)
 
-    if (!response.ok) {
-      throw new Error(`Failed to save video: ${response.statusText}`)
-    }
+    const backendJobId = response.data.id
+    const jobIds = JSON.parse(
+      localStorage.getItem("visuamath_job_ids") || "[]"
+    )
+    jobIds.push(backendJobId)
+    localStorage.setItem("visuamath_job_ids", JSON.stringify(jobIds))
 
-    return await response.json()
+    // Don't save to database for edits - EditVideo component will handle it
+    // This prevents adding edited videos to the user's video array
+
+    return { ...response.data, id: videoId, job_id: backendJobId }
   } catch (error) {
-    console.error("Error saving video to database:", error)
+    console.error("Error editing animation:", error)
+    if (axios.isAxiosError(error)) {
+      console.error("API error details:", error.response?.data)
+      if (!error.response) {
+        throw new Error("Network Error: Backend is down or unreachable")
+      }
+    }
     throw error
   }
 }
 
-// Helper function to recover job IDs if needed
+
 export const getStoredJobIds = (): string[] => {
   return JSON.parse(localStorage.getItem("visuamath_job_ids") || "[]")
+}
+
+export const getErrorMessage = (errorType?: string): string => {
+  switch (errorType) {
+    case "TIMEOUT_ERROR":
+      return "Video rendering took too long. The animation might be too complex. Try simplifying your request."
+    case "MEMORY_ERROR":
+      return "Video rendering failed due to insufficient memory. Try creating a shorter or simpler animation."
+    case "LATEX_ERROR":
+      return "LaTeX rendering failed. There might be an issue with mathematical expressions in your animation."
+    case "API_ERROR":
+      return "AI service is temporarily unavailable. Please try again in a moment."
+    case "CODE_ERROR":
+      return "Generated code has errors. Please try rephrasing your request."
+    case "DEPENDENCY_ERROR":
+      return "Missing required dependencies for rendering. Please contact support."
+    case "GENERATION_ERROR":
+      return "Failed to generate animation code. Please try a different prompt."
+    case "RENDER_ERROR":
+      return "Video rendering failed. The animation might be too complex or contain unsupported features."
+    case "NETWORK_ERROR":
+      return "Network error occurred. Please check your connection and try again."
+    case "UNKNOWN_ERROR":
+    default:
+      return "An unexpected error occurred. Please try again or contact support."
+  }
+}
+
+export const canRetry = (errorType?: string): boolean => {
+  return errorType === "API_ERROR" || 
+         errorType === "TIMEOUT_ERROR" || 
+         errorType === "NETWORK_ERROR" ||
+         errorType === "UNKNOWN_ERROR"
 }

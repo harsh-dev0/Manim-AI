@@ -84,7 +84,7 @@ const SuggestionBar: React.FC<SuggestionBarProps> = ({
         type="button"
         size="icon"
         variant="ghost"
-        className="absolute top-2 right-2 text-slate-400 hover:text-white"
+        className="absolute top-2 right-2 text-slate-400 "
         onClick={() => setVisible(false)}
         aria-label="Close suggestions"
       >

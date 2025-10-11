@@ -4,9 +4,11 @@ export interface UserVideo {
   id: string
   status: string
   video_url?: string
+  previous_video_url?: string
   title?: string
   description?: string
   error?: string | null
+  code?: string
   createdAt?: Date
   updatedAt?: Date
 }
