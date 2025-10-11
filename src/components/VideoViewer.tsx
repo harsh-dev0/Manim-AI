@@ -210,7 +210,7 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
             <Button
               variant="ghost"
               onClick={() => router.push(cameFromGallery ? "/gallery" : "/")}
-              className="text-slate-300 hover:text-blue-700"
+              className="text-slate-300 hover:text-cyan-400"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               {cameFromGallery ? "Back to Gallery" : "Back to Home"}
