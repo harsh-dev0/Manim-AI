@@ -95,9 +95,8 @@ export function EditVideo({ videoId }: EditVideoProps) {
             videoUrl = `https://manim-ai-videos.s3.amazonaws.com/videos/${videoId}.mp4`
           }
 
-          // Update video in database directly using PATCH (not POST to avoid adding to gallery)
           try {
-            await fetch("/api/videos", {
+            const updateResponse = await fetch("/api/videos", {
               method: "PATCH",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -107,17 +106,29 @@ export function EditVideo({ videoId }: EditVideoProps) {
                 code: status.code || currentVideo.code,
               }),
             })
+
+            if (updateResponse.ok) {
+              const updatedVideoFromDB = await updateResponse.json()
+              setCurrentVideo(updatedVideoFromDB)
+            } else {
+              const updatedVideo = {
+                ...currentVideo,
+                video_url: videoUrl,
+                previous_video_url: currentVideo.video_url,
+                code: status.code || currentVideo.code
+              }
+              setCurrentVideo(updatedVideo)
+            }
           } catch (error) {
             console.error("Error updating video:", error)
+            const updatedVideo = {
+              ...currentVideo,
+              video_url: videoUrl,
+              previous_video_url: currentVideo.video_url,
+              code: status.code || currentVideo.code
+            }
+            setCurrentVideo(updatedVideo)
           }
-
-          const updatedVideo = {
-            ...currentVideo,
-            video_url: videoUrl,
-            previous_video_url: currentVideo.video_url,
-            code: status.code || currentVideo.code
-          }
-          setCurrentVideo(updatedVideo)
           
           setEditPrompt("")
           

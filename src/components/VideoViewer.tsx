@@ -34,8 +34,8 @@ export function VideoViewer({ videoId }: VideoViewerProps) {
 
       // Check if user came from gallery (referrer check) - do this inside loadVideo
       if (typeof window !== 'undefined') {
-        const referrer = document.referrer
-        const fromGallery = referrer.includes('/gallery')
+        const params = new URLSearchParams(window.location.search)
+        const fromGallery = params.get('from') === 'gallery'
         setCameFromGallery(fromGallery)
       }
 

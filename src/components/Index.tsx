@@ -16,7 +16,6 @@ const Index = () => {
   const { status } = useSession()
   const [isLoading, setIsLoading] = useState(false)
   const [currentVideo, setCurrentVideo] = useState<string | null>(null)
-  const [, setAnimationTitle] = useState<string | null>(null)
   const [showInitialView, setShowInitialView] = useState(true)
 
   // Don't automatically load videos on page refresh
@@ -66,15 +65,11 @@ const Index = () => {
             }
           }
 
-          setCurrentVideo(videoUrl)
-          setAnimationTitle(status.title!)
-
           toast({
             title: "Animation generated!",
             description: "Your mathematical animation is ready to view.",
           })
 
-          // Redirect to video page
           router.push(`/video/${status.id}`)
           setIsLoading(false)
         } else if (status.status === "failed") {

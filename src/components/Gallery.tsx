@@ -146,10 +146,10 @@ export function Gallery() {
     router.push(`/edit/${video.id}`)
   }, [router])
 
-  const handleViewVideo = useCallback((video: UserVideo) => {
-    setOpenDropdownId(null) // Close dropdown
-    router.push(`/video/${video.id}`)
-  }, [router])
+const handleViewVideo = useCallback((video: UserVideo) => {
+  setOpenDropdownId(null)
+  router.push(`/video/${video.id}?from=gallery`)
+}, [router])
 
   const closeEditDialog = useCallback(() => {
     setEditDialog({
@@ -407,7 +407,7 @@ export function Gallery() {
                     {video.video_url ? (
                       <div 
                         className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-3 cursor-pointer hover:opacity-90 transition-opacity"
-                        onClick={() => router.push(`/video/${video.id}`)}
+                        onClick={() => router.push(`/video/${video.id}?from=gallery`)}
                       >
                         <VideoPlayer videoUrl={video.video_url} />
                       </div>
