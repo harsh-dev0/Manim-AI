@@ -23,7 +23,7 @@ export function EditLoadingModal({ isOpen }: EditLoadingModalProps) {
           </div>
           
           <h3 className="text-2xl font-bold text-white mb-2">
-            Cooking up some magic! ✨
+            Cooking up some magic!
           </h3>
           
           <p className="text-slate-400 text-center mb-4">
@@ -37,7 +37,7 @@ export function EditLoadingModal({ isOpen }: EditLoadingModalProps) {
           </div>
           
           <p className="text-xs text-slate-500 mt-6 text-center">
-            This usually takes 30-60 seconds. Hang tight! 🚀
+            This usually takes 30-60 seconds. Hang tight!
           </p>
         </div>
       </DialogContent>
