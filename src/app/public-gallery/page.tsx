@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react"
 import { useToast } from "@/hooks/use-toast"
 
 const ADMIN_EMAIL = "hp7058287@gmail.com"
+const VIDEOS_PER_LOAD = 18
 
 interface Video {
   id: string
@@ -19,20 +20,15 @@ interface Video {
   createdAt: string
 }
 
-interface PaginationInfo {
-  page: number
-  limit: number
-  total: number
-  totalPages: number
-  hasMore: boolean
-}
-
 export default function PublicGalleryPage() {
   const [videos, setVideos] = useState<Video[]>([])
   const [loading, setLoading] = useState(true)
-  const [pagination, setPagination] = useState<PaginationInfo | null>(null)
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
+  const [totalVideos, setTotalVideos] = useState(0)
   const [error, setError] = useState<string | null>(null)
   const fetchingRef = useRef(false)
+  const observerTarget = useRef<HTMLDivElement>(null)
   const router = useRouter()
   const { data: session } = useSession()
   const { toast } = useToast()
@@ -40,14 +36,18 @@ export default function PublicGalleryPage() {
 
   const isAdmin = session?.user?.email === ADMIN_EMAIL
 
-  const fetchVideos = useCallback(async () => {
+  const fetchVideos = useCallback(async (offset: number = 0, append: boolean = false) => {
     if (fetchingRef.current) return
     
     try {
       fetchingRef.current = true
-      setLoading(true)
+      if (append) {
+        setLoadingMore(true)
+      } else {
+        setLoading(true)
+      }
 
-      const response = await fetch(`/api/videos/public?all=true`)
+      const response = await fetch(`/api/videos/public?offset=${offset}&limit=${VIDEOS_PER_LOAD}`)
       
       if (!response.ok) {
         throw new Error("Failed to fetch videos")
@@ -55,21 +55,50 @@ export default function PublicGalleryPage() {
 
       const data = await response.json()
       
-      setVideos(data.videos)
-      setPagination(data.pagination)
+      if (append) {
+        setVideos((prev) => [...prev, ...data.videos])
+      } else {
+        setVideos(data.videos)
+      }
+      
+      setTotalVideos(data.pagination.total)
+      setHasMore(data.pagination.hasMore)
       setError(null)
     } catch (err) {
       console.error("Error fetching videos:", err)
       setError("Failed to load videos. Please try again later.")
     } finally {
       setLoading(false)
+      setLoadingMore(false)
       fetchingRef.current = false
     }
   }, [])
 
   useEffect(() => {
-    fetchVideos()
+    fetchVideos(0, false)
   }, [fetchVideos])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasMore && !loadingMore && !fetchingRef.current) {
+          fetchVideos(videos.length, true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const currentTarget = observerTarget.current
+    if (currentTarget) {
+      observer.observe(currentTarget)
+    }
+
+    return () => {
+      if (currentTarget) {
+        observer.unobserve(currentTarget)
+      }
+    }
+  }, [hasMore, loadingMore, videos.length, fetchVideos])
 
   const handleVideoClick = (videoId: string) => {
     router.push(`/public-video/${videoId}`)
@@ -92,13 +121,7 @@ export default function PublicGalleryPage() {
       }
 
       setVideos((prev) => prev.filter((video) => video.id !== videoId))
-      
-      if (pagination) {
-        setPagination({
-          ...pagination,
-          total: pagination.total - 1,
-        })
-      }
+      setTotalVideos((prev) => prev - 1)
       
       toast({
         title: "Video deleted",
@@ -196,13 +219,25 @@ export default function PublicGalleryPage() {
                 ))}
               </div>
 
-              {pagination && (
+              {totalVideos > 0 && (
                 <div className="mt-6 text-center text-slate-400">
                   <p>
-                    Showing {videos.length} of {pagination.total} videos
+                    Showing {videos.length} of {totalVideos} videos
                   </p>
                 </div>
               )}
+
+              <div ref={observerTarget} className="h-10 flex items-center justify-center mt-6">
+                {loadingMore && (
+                  <div className="flex flex-col items-center gap-2">
+                    <div className="w-8 h-8 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                    <p className="text-slate-400 text-sm">Loading more videos...</p>
+                  </div>
+                )}
+                {!hasMore && videos.length > 0 && (
+                  <p className="text-slate-400 text-sm">No more videos to load</p>
+                )}
+              </div>
 
             </>
           )}

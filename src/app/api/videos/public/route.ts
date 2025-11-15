@@ -10,9 +10,8 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url)
     const fetchAll = searchParams.get("all") === "true"
-    const page = parseInt(searchParams.get("page") || "1")
-    const limit = parseInt(searchParams.get("limit") || "1000")
-    const skip = (page - 1) * limit
+    const offset = parseInt(searchParams.get("offset") || "0")
+    const limit = parseInt(searchParams.get("limit") || "18")
 
     await db.connectToDatabase()
 
@@ -45,16 +44,13 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({
         videos: allVideos,
         pagination: {
-          page: 1,
-          limit: allVideos.length,
           total: totalVideos,
-          totalPages: 1,
           hasMore: false,
         },
       })
     }
 
-    const videos = await query.skip(skip).limit(limit).exec()
+    const videos = await query.skip(offset).limit(limit).lean().exec()
 
     const totalVideos = await VideoModel.countDocuments({
       status: "completed",
@@ -64,11 +60,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({
       videos,
       pagination: {
-        page,
-        limit,
         total: totalVideos,
-        totalPages: Math.ceil(totalVideos / limit),
-        hasMore: skip + videos.length < totalVideos,
+        hasMore: offset + videos.length < totalVideos,
       },
     })
   } catch (error) {
