@@ -110,10 +110,10 @@ export default function PublicVideoPage() {
     return (
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
         <Header />
-        <main className="flex-1 container py-8 flex items-center justify-center">
+        <main className="flex-1 container py-4 sm:py-8 px-4 sm:px-6 flex items-center justify-center">
           <div className="flex flex-col items-center gap-4">
-            <div className="w-16 h-16 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
-            <p className="text-slate-300">Loading video...</p>
+            <div className="w-12 h-12 sm:w-16 sm:h-16 border-4 border-t-cyan-500 border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+            <p className="text-slate-300 text-sm sm:text-base">Loading video...</p>
           </div>
         </main>
         <Footer />
@@ -125,12 +125,12 @@ export default function PublicVideoPage() {
     return (
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
         <Header />
-        <main className="flex-1 container py-8 flex items-center justify-center">
-          <div className="bg-slate-900/50 text-white border border-cyan-700/30 rounded-xl p-8 text-center max-w-md">
-            <h2 className="text-2xl font-bold mb-4 text-cyan-400">
+        <main className="flex-1 container py-4 sm:py-8 px-4 sm:px-6 flex items-center justify-center">
+          <div className="bg-slate-900/50 text-white border border-cyan-700/30 rounded-xl p-6 sm:p-8 text-center max-w-md w-full">
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-cyan-400">
               {error || "Video Not Found"}
             </h2>
-            <p className="text-slate-300 mb-6">
+            <p className="text-slate-300 mb-4 sm:mb-6 text-sm sm:text-base">
               {error || "The requested video could not be found."}
             </p>
             <button
@@ -150,32 +150,32 @@ export default function PublicVideoPage() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-950 to-slate-900 text-white">
       <Header />
-      <main className="flex-1 container py-8">
+      <main className="flex-1 container py-4 sm:py-6 lg:py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <button
             onClick={() => router.push("/public-gallery")}
-            className="inline-flex items-center justify-center gap-2 mb-6 text-slate-300 hover:text-white transition-colors"
+            className="inline-flex items-center justify-center gap-2 mb-4 sm:mb-6 text-slate-300 hover:text-white transition-colors text-sm sm:text-base"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Gallery
           </button>
 
-          <div className="bg-slate-900/50 border border-cyan-700/30 rounded-xl p-6">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6 gap-4">
-              <h1 className="text-2xl sm:text-3xl font-bold text-cyan-300 flex-1">
+          <div className="bg-slate-900/50 border border-cyan-700/30 rounded-xl p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 gap-3 sm:gap-4">
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-300 flex-1 break-words">
                 {video.title || "Untitled Animation"}
               </h1>
-              <div className="flex gap-2 sm:ml-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:ml-4 w-full sm:w-auto">
                 <button
                   onClick={handleDownload}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-4 shadow-lg border border-cyan-400/20"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-3 sm:px-4 shadow-lg border border-cyan-400/20 w-full sm:w-auto"
                 >
                   <Download className="w-4 h-4" />
                   Download
                 </button>
                 <button
                   onClick={handleShare}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-4 shadow-lg border border-cyan-400/20"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-2 px-3 sm:px-4 shadow-lg border border-cyan-400/20 w-full sm:w-auto"
                 >
                   <Share2 className="w-4 h-4" />
                   Share
@@ -183,12 +183,12 @@ export default function PublicVideoPage() {
               </div>
             </div>
             
-            <div className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-4">
+            <div className="aspect-video rounded-md overflow-hidden bg-slate-950 mb-3 sm:mb-4">
               <VideoPlayer videoUrl={video.video_url} />
             </div>
 
             {video.createdAt && (
-              <p className="text-sm text-slate-400">
+              <p className="text-xs sm:text-sm text-slate-400">
                 Created: {new Date(video.createdAt).toLocaleDateString()}
               </p>
             )}

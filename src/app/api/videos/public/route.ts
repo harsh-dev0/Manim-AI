@@ -10,8 +10,9 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url)
     const fetchAll = searchParams.get("all") === "true"
-    const offset = parseInt(searchParams.get("offset") || "0")
-    const limit = parseInt(searchParams.get("limit") || "18")
+    const page = parseInt(searchParams.get("page") || "1")
+    const limit = parseInt(searchParams.get("limit") || "3")
+    const offset = (page - 1) * 12 + parseInt(searchParams.get("offset") || "0")
 
     await db.connectToDatabase()
 
@@ -57,11 +58,18 @@ export async function GET(req: NextRequest) {
       video_url: { $exists: true, $ne: null },
     })
 
+    const totalPages = Math.ceil(totalVideos / 12)
+    const hasMoreInPage = videos.length === limit && (offset % 12) + videos.length < 12
+    const hasNextPage = page < totalPages
+
     return NextResponse.json({
       videos,
       pagination: {
-        total: totalVideos,
-        hasMore: offset + videos.length < totalVideos,
+        page,
+        totalPages,
+        hasMoreInPage,
+        hasNextPage,
+        isLastPage: page >= totalPages,
       },
     })
   } catch (error) {
